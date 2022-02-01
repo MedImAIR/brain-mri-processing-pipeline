@@ -11,8 +11,8 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/gbm/orig/', 
                     help='root dir for subject sequences data')
-parser.add_argument('--fixedfilename', type=list, default=['CT1'], help='name of file to register')
-parser.add_argument('--movingfilenames', type=list, default=['T1', 'FLAIR', 'T2'], help='names of files')
+parser.add_argument('--fixedfilename', type=list, default=['CT1.nii.gz'], help='name of file to register')
+parser.add_argument('--movingfilenames', type=list, default=['T1.nii.gz', 'FLAIR.nii.gz', 'T2.nii.gz'], help='names of files')
 parser.add_argument('--output', type=str, default='/anvar/public_datasets/preproc_study/gbm/1_z_score/', 
                     help= 'output folder')
 
@@ -27,6 +27,7 @@ def calculate_z_score(img):
         
     img_z = (img.numpy() - img.numpy().mean())/img.numpy().std()
     new_img = img.new_image_like(img_z)
+    
     return new_img
 
 def rigid_reg(fixed, moving):
@@ -59,28 +60,28 @@ if __name__ == "__main__":
     subjects_paths = [f.path for f in os.scandir(args.path) if f.is_dir()]
     subjects = [f.split('/')[-1] for f in subjects_paths ]
 
-    for subject in subjects[:3]:
+    for subject in subjects:
         # Creating folder to save subject data
         logging.info("{} Subject processing".format(subject)) 
         os.makedirs(args.output + subject + '/', exist_ok=True)
-        img_fixed = glob(args.path + subject + '/' + args.fixedfilename[0] + '*')[0]
+        img_fixed = args.path + subject + '/' + args.fixedfilename[0]
 
         for name in args.movingfilenames:
             # Searching for filenames
-            img_moving = glob(args.path + subject + '/' + name + '*')[0]
+            img_moving = args.path + subject + '/' + name
             
             # Image registration
             logging.info("Rigid registration to {} started.".format(args.fixedfilename[0]))
-            registered_img = rigid_reg(img_moving, img_moving)
+            registered_img = rigid_reg(img_fixed, img_moving)
             
             # Z-score individual calculation
-            logging.info("Calculating Z-score ")
+            logging.info("Calculating Z-score for {}.".format(name))
             registered_img_z = calculate_z_score(registered_img)
-            logging.info("Saved registred for file")
-            ants.image_write(registered_img_z, args.output + subject + '/' + name + '.nii.gz', ri=False);
+            logging.info("Saving {} file".format(name))
+            ants.image_write(registered_img_z, args.output + subject + '/' + name, ri=False);
             
 
         img_fixed_z = calculate_z_score(img_fixed)
-        ants.image_write(img_fixed_z, args.output + subject + '/' + args.fixedfilename[0] + '.nii.gz', ri=False);
+        ants.image_write(img_fixed_z, args.output + subject + '/' + args.fixedfilename[0], ri=False);
 
     logging.info(str(args))                         
