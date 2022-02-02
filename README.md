@@ -11,6 +11,6 @@ Here we explore how data processing affects nnUnet segmentation quality
 - `6_ss.py`
 - `7_hist.py`
 
-`ss_pipeline` - folder for ablation study on scull-stripping
+`ss_pipeline` - folder for ablation study on skull-stripping
 
 `dataset_prep` - folder for preparation of three open sourse datasets
