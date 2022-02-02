@@ -1,0 +1,29 @@
+/anvar/public_datasets/preproc_study/gbm/orig/ Folder processing
+TCGA-02-0086 Subject processing
+N4 image correction started TCGA-02-0086.
+N4 image correction comleted TCGA-02-0086.
+Rigid registration to CT1.nii.gz started.
+Calculating Z-score for T1.nii.gz.
+Saving T1.nii.gz file
+Rigid registration to CT1.nii.gz started.
+Calculating Z-score for FLAIR.nii.gz.
+Saving FLAIR.nii.gz file
+Rigid registration to CT1.nii.gz started.
+Calculating Z-score for T2.nii.gz.
+Saving T2.nii.gz file
+TCGA-02-0102 Subject processing
+N4 image correction started TCGA-02-0102.
+N4 image correction comleted TCGA-02-0102.
+Rigid registration to CT1.nii.gz started.
+Calculating Z-score for T1.nii.gz.
+Saving T1.nii.gz file
+Rigid registration to CT1.nii.gz started.
+Calculating Z-score for FLAIR.nii.gz.
+Saving FLAIR.nii.gz file
+Rigid registration to CT1.nii.gz started.
+Calculating Z-score for T2.nii.gz.
+Saving T2.nii.gz file
+TCGA-02-0059 Subject processing
+N4 image correction started TCGA-02-0059.
+N4 image correction comleted TCGA-02-0059.
+Rigid registration to CT1.nii.gz started.

@@ -1,6 +1,5 @@
 /anvar/public_datasets/preproc_study/gbm/orig/ Folder processing
 TCGA-02-0086 Subject processing
-/anvar/public_datasets/preproc_study/gbm/orig/TCGA-02-0086/CT1.nii.gz
 Rigid registration to CT1.nii.gz started.
 Calculating Z-score for T1.nii.gz.
 Saving T1.nii.gz file
@@ -11,7 +10,6 @@ Rigid registration to CT1.nii.gz started.
 Calculating Z-score for T2.nii.gz.
 Saving T2.nii.gz file
 TCGA-02-0102 Subject processing
-/anvar/public_datasets/preproc_study/gbm/orig/TCGA-02-0102/CT1.nii.gz
 Rigid registration to CT1.nii.gz started.
 Calculating Z-score for T1.nii.gz.
 Saving T1.nii.gz file
@@ -22,7 +20,6 @@ Rigid registration to CT1.nii.gz started.
 Calculating Z-score for T2.nii.gz.
 Saving T2.nii.gz file
 TCGA-02-0059 Subject processing
-/anvar/public_datasets/preproc_study/gbm/orig/TCGA-02-0059/CT1.nii.gz
 Rigid registration to CT1.nii.gz started.
 Calculating Z-score for T1.nii.gz.
 Saving T1.nii.gz file
@@ -33,7 +30,6 @@ Rigid registration to CT1.nii.gz started.
 Calculating Z-score for T2.nii.gz.
 Saving T2.nii.gz file
 TCGA-02-0069 Subject processing
-/anvar/public_datasets/preproc_study/gbm/orig/TCGA-02-0069/CT1.nii.gz
 Rigid registration to CT1.nii.gz started.
 Calculating Z-score for T1.nii.gz.
 Saving T1.nii.gz file
@@ -42,3 +38,32 @@ Calculating Z-score for FLAIR.nii.gz.
 Saving FLAIR.nii.gz file
 Rigid registration to CT1.nii.gz started.
 Calculating Z-score for T2.nii.gz.
+Saving T2.nii.gz file
+TCGA-19-2624 Subject processing
+Rigid registration to CT1.nii.gz started.
+Calculating Z-score for T1.nii.gz.
+Saving T1.nii.gz file
+Rigid registration to CT1.nii.gz started.
+Calculating Z-score for FLAIR.nii.gz.
+Saving FLAIR.nii.gz file
+Rigid registration to CT1.nii.gz started.
+Calculating Z-score for T2.nii.gz.
+Saving T2.nii.gz file
+TCGA-06-0182 Subject processing
+Rigid registration to CT1.nii.gz started.
+Calculating Z-score for T1.nii.gz.
+Saving T1.nii.gz file
+Rigid registration to CT1.nii.gz started.
+Calculating Z-score for FLAIR.nii.gz.
+Saving FLAIR.nii.gz file
+Rigid registration to CT1.nii.gz started.
+Calculating Z-score for T2.nii.gz.
+Saving T2.nii.gz file
+TCGA-08-0360 Subject processing
+Rigid registration to CT1.nii.gz started.
+Calculating Z-score for T1.nii.gz.
+Saving T1.nii.gz file
+Rigid registration to CT1.nii.gz started.
+Calculating Z-score for FLAIR.nii.gz.
+Saving FLAIR.nii.gz file
+Rigid registration to CT1.nii.gz started.
