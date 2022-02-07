@@ -50,6 +50,7 @@ def rigid_reg(fixed, moving):
 if __name__ == "__main__":
     
     """Pipeline with CT1 Rigid registration, n4 and Z-score calculation
+       nohup python 2_n4.py > 2_n4.out &
     """
     os.makedirs(args.output, exist_ok=True)
     logging.basicConfig(filename=args.output + "logging.txt", level=logging.INFO, format='[%(asctime)s.%(msecs)03d] %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
@@ -68,7 +69,7 @@ if __name__ == "__main__":
         
         logging.info("N4 image correction started {}.".format(subject))
         img_fixed_n4 = ants.utils.bias_correction.abp_n4(img_fixed)
-        logging.info("N4 image correction comleted {}.".format(subject))
+        logging.info("N4 image correction completed {}.".format(subject))
 
         for name in args.movingfilenames:
             # Searching for filenames
@@ -78,14 +79,9 @@ if __name__ == "__main__":
             logging.info("Rigid registration to {} started.".format(args.fixedfilename[0]))
             registered_img = rigid_reg(img_fixed_n4, img_moving_n4)
             
-            # Z-score individual calculation
-            logging.info("Calculating Z-score for {}.".format(name))
-            registered_img_z = calculate_z_score(registered_img)
             logging.info("Saving {} file".format(name))
-            ants.image_write(registered_img_z, args.output + subject + '/' + name, ri=False);
+            ants.image_write(registered_img, args.output + subject + '/' + name, ri=False);
             
-
-        img_fixed_z = calculate_z_score(img_fixed_n4)
-        ants.image_write(img_fixed_z, args.output + subject + '/' + args.fixedfilename[0], ri=False);
+        ants.image_write(img_fixed_n4, args.output + subject + '/' + args.fixedfilename[0], ri=False);
 
     logging.info(str(args))                         
