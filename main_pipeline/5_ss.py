@@ -48,7 +48,7 @@ if __name__ == "__main__":
     
     """Pipeline with HD-BET ss calculation
        cpu: nohup python 5_ss.py > 5_ss.out &
-       gpu: python 5_ss.py --output /mnt/public_data/preproc_study/gbm/ --device 0
+       gpu: python main_pipeline/5_ss.py --output /mnt/public_data/preproc_study/gbm/5_ss_shared/ --device 0 --mode shared
        
     """
     os.makedirs(args.output, exist_ok=True)
@@ -91,12 +91,14 @@ if __name__ == "__main__":
             ants.image_write(img_moving, args.output + subject + '/' + name[:-7] + '_RPI.nii.gz' , ri=False);
             
             if args.mode == 'individual':
+                logging.info("Individual mask for {} started.".format(name))
                 hdbet_mask(args.output + subject + '/' + name[:-7] + '_RPI.nii.gz',
                            args.output + subject + '/' + name)
                 # Removing excessive files
                 os.remove(args.output + subject + '/' + name[:-7] + '_RPI.nii.gz')
                 
             else:
+                logging.info("Mask for fixed image applied to {} started.".format(name))
                 mask = ants.image_read(args.output + subject + '/' + args.fixedfilename[0][:-7] + '_mask.nii.gz')
                 # Saving mask multiplication
                 ants.image_write(img_moving.new_image_like(img_moving.numpy()*mask.numpy()),
