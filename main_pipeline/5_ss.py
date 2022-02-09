@@ -72,14 +72,14 @@ if __name__ == "__main__":
         
         logging.info("HD-BET fixed image started.")
         hdbet_mask(args.output + subject + '/' + args.fixedfilename[0][:-7] + '_RPI.nii.gz', 
-                   args.output + subject + '/' + args.fixedfilename[0], 
-                   args.output + subject + '/' + args.fixedfilename[0][:-7] + '_mask.nii.gz')
+                   args.output + subject + '/' + args.fixedfilename[0])
         logging.info("HD-BET fixed image  completed.")
-#         # Removing excessive files
-#         os.remove(args.output + subject + '/' + args.fixedfilename[0][:-7] + '_RPI.nii.gz')
+        # Removing excessive files
+        os.remove(args.output + subject + '/' + args.fixedfilename[0][:-7] + '_RPI.nii.gz')
                
         # Processing moving images
         for name in args.movingfilenames:
+            
             # Reorient moving
             img_moving = ants.image_read(args.path + subject + '/' + name)
             logging.info("RPI reorientation to {} started.".format(name))
@@ -89,9 +89,10 @@ if __name__ == "__main__":
             
             if args.mode[0] == 'individual':
                 hdbet_mask(args.output + subject + '/' + name[:-7] + '_RPI.nii.gz',
-                           args.output + subject + '/' + name, args.output + subject + '/' + name[:-7] + '_mask.nii.gz')
-#                 # Removing excessive files
-#                 os.remove(args.output + subject + '/' + name[:-7] + '_RPI.nii.gz')
+                           args.output + subject + '/' + name)
+                # Removing excessive files
+                os.remove(args.output + subject + '/' + name[:-7] + '_RPI.nii.gz')
+                
             else:
                 mask = ants.image_read(args.output + subject + '/' + args.fixedfilename[0][:-7] + '_mask.nii.gz')
                 # Saving mask multiplication
@@ -99,8 +100,8 @@ if __name__ == "__main__":
                                  args.output + subject + '/' + name)
                                  
             
-        # Removing excessive files
-#         os.remove(args.output + subject + '/' + args.fixedfilename[0][:-7] + '_mask.nii.gz'
+        Removing excessive files
+        os.remove(args.output + subject + '/' + args.fixedfilename[0][:-7] + '_mask.nii.gz'
          
 
     logging.info(str(args))                         
