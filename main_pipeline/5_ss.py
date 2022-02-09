@@ -14,17 +14,18 @@ parser.add_argument('--maskfilename', type=list, default=['CT1_SEG.nii.gz'], hel
 parser.add_argument('--movingfilenames', type=list, default=['T1.nii.gz', 'FLAIR.nii.gz', 'T2.nii.gz'], help='names of files')
 parser.add_argument('--output', type=str, default='/anvar/public_datasets/preproc_study/gbm/orig_ss/', 
                     help= 'output folder')
-parser.add_argument('--mode', type=str, default=['individual'], help= 'mode individual or shared ')
+parser.add_argument('--mode', type=str, default='individual', help= 'mode individual or shared ')
+parser.add_argument('--device', type=str, default='cpu', help= 'gpu or cpu, if gpu - should be `int` ')
 
 args = parser.parse_args()
 
 def hdbet(src_path, dst_path):
-    command = ["hd-bet", "-i", src_path, "-o", dst_path, "-device", "cpu"]
+    command = ["hd-bet", "-i", src_path, "-o", dst_path, "-device", args.device]
     subprocess.call(command)
     return
 
 def hdbet_mask(src_path, dst_path):
-    command = ["hd-bet", "-i", src_path, "-o", dst_path, "-device", "cpu", "-s", "1"]
+    command = ["hd-bet", "-i", src_path, "-o", dst_path, "-device", args.device, "-s", "1"]
     subprocess.call(command)
     return
 
@@ -87,7 +88,7 @@ if __name__ == "__main__":
             # Saved reoriented image
             ants.image_write(img_moving, args.output + subject + '/' + name[:-7] + '_RPI.nii.gz' , ri=False);
             
-            if args.mode[0] == 'individual':
+            if args.mode == 'individual':
                 hdbet_mask(args.output + subject + '/' + name[:-7] + '_RPI.nii.gz',
                            args.output + subject + '/' + name)
                 # Removing excessive files
