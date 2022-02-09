@@ -47,7 +47,9 @@ def hdbet_mask(src_path, dst_path):
 if __name__ == "__main__":
     
     """Pipeline with HD-BET ss calculation
-       nohup python 5_ss.py > 5_ss.out &
+       cpu: nohup python 5_ss.py > 5_ss.out &
+       gpu: python 5_ss.py --output /mnt/public_data/preproc_study/gbm/ --device 0
+       
     """
     os.makedirs(args.output, exist_ok=True)
     logging.basicConfig(filename=args.output + "logging.txt", level=logging.INFO, format='[%(asctime)s.%(msecs)03d] %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
@@ -101,7 +103,7 @@ if __name__ == "__main__":
                                  args.output + subject + '/' + name)
                                  
             
-        Removing excessive files
+#         Removing excessive files
         os.remove(args.output + subject + '/' + args.fixedfilename[0][:-7] + '_mask.nii.gz'
          
 
