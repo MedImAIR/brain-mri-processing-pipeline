@@ -16,9 +16,8 @@ parser.add_argument('--maskfilename', type=list, default=['CT1_SEG.nii.gz'], hel
 parser.add_argument('--movingfilenames', type=list, default=['T1.nii.gz', 'FLAIR.nii.gz', 'T2.nii.gz'], help='names of files')
 parser.add_argument('--resamplingtarget', type=str, default=['./utils/sri24_T1.nii'], 
                     help= 'resampling target for all images')
-parser.add_argument('--output', type=str, default='/anvar/public_datasets/preproc_study/gbm/4_interp/', 
+parser.add_argument('--output', type=str, default='/anvar/public_datasets/preproc_study/gbm/3a_atlas/', 
                     help= 'output folder')
-
 
 
 args = parser.parse_args()
@@ -55,7 +54,7 @@ def rigid_reg(fixed, moving):
 if __name__ == "__main__":
     
     """Pipeline with CT1 Rigid registration and interpolation to template, n4 and Z-score calculation
-       nohup python 4_interp.py > 4_interp.out &
+       nohup python 3a_atlas.py > 3a_atlas.out &
     """
     os.makedirs(args.output, exist_ok=True)
     logging.basicConfig(filename=args.output + "logging.txt", level=logging.INFO, format='[%(asctime)s.%(msecs)03d] %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
@@ -73,25 +72,40 @@ if __name__ == "__main__":
         img_fixed = ants.image_read(args.path + subject + '/' + args.fixedfilename[0])
         mask_fixed = ants.image_read(args.path + subject + '/' + args.maskfilename[0])
         img_target = ants.image_read(args.resamplingtarget[0])
-
-        for name in args.movingfilenames:
-            # Searching for filenames
-            img_moving = ants.image_read(args.path + subject + '/' + name)
-            # Image registration
-            logging.info("Rigid registration to {} started.".format(name))
-            registered_img = rigid_reg(img_fixed, img_moving)
-            img_moving_res = ants.resample_image_to_target(registered_img, img_target)
-            logging.info("Rigid registration to {} completed.".format(name))
-            # Saving moving images
-            ants.image_write(img_moving_res, args.output + subject + '/' + name, ri=False);
         
-                
-        logging.info("Resampling started {}.".format(subject))
-        img_fixed_res = ants.resample_image_to_target(img_fixed, img_target)
-        logging.info("Resampling completed {}.".format(subject))
-        mask_fixed_res = ants.resample_image_to_target(mask_fixed, img_target)
+        # Reorient fixed
+        img_fixed = ants.reorient_image2(img_fixed, orientation = 'RAI')
+        mask_fixed = ants.reorient_image2(mask_fixed, orientation = 'RAI')
+       
+        # Register fixed image to SRI
+        logging.info("Atlas registration started {}.".format(subject))
+        img_to_sri = ants.registration(fixed=img_target, moving=img_fixed,
+                            type_of_transform='Rigid')
+        img_fixed_res = ants.apply_transforms(img_target, img_fixed,
+                                    transformlist = img_to_sri['fwdtransforms'][0])
+        logging.info("Atlas registration completed {}.".format(subject))        
+                      
+        # Applying mask transform
+        mask_fixed_res = ants.apply_transforms(img_fixed_res, mask_fixed,
+                                    transformlist = img_to_sri['fwdtransforms'][0])
+
         # Saving fixed
         ants.image_write(img_fixed_res, args.output + subject + '/' + args.fixedfilename[0], ri=False);
         ants.image_write(mask_fixed_res, args.output + subject + '/' + args.maskfilename[0], ri=False);
+
+        for name in args.movingfilenames:
+            # Reorient moving
+            img_moving = ants.image_read(args.path + subject + '/' + name)
+            img_moving = ants.reorient_image2(img_moving, orientation = 'RAI')
+            
+            # Image registration
+            logging.info("Rigid registration to {} started.".format(name))
+            registered_img = rigid_reg(img_fixed, img_moving)
+            img_moving_res = ants.apply_transforms(img_fixed_res, registered_img,
+                                    transformlist = img_to_sri['fwdtransforms'][0])
+            logging.info("Rigid registration to {} completed.".format(name))
+            # Saving moving images
+            ants.image_write(img_moving_res, args.output + subject + '/' + name, ri=False);
+
 
     logging.info(str(args))                         
