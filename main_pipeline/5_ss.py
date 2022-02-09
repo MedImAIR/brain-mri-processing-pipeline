@@ -55,7 +55,7 @@ if __name__ == "__main__":
     logging.basicConfig(filename=args.output + "logging.txt", level=logging.INFO, format='[%(asctime)s.%(msecs)03d] %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
     logging.getLogger().addHandler(logging.StreamHandler(sys.stdout))
     logging.info("{} Folder processing".format(args.path))  
-    logging.info("{} Mode for skull stripping".format(args.mode[0])) 
+    logging.info("{} Mode for skull stripping".format(args.mode)) 
     subjects_paths = [f.path for f in os.scandir(args.path) if f.is_dir()]
     subjects = [f.split('/')[-1] for f in subjects_paths ]
 
