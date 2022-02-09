@@ -104,7 +104,6 @@ if __name__ == "__main__":
                                  
             
 #         Removing excessive files
-        os.remove(args.output + subject + '/' + args.fixedfilename[0][:-7] + '_mask.nii.gz'
-         
-
+#         os.remove(args.output + subject + '/' + args.fixedfilename[0][:-7] + '_mask.nii.gz'
+                  
     logging.info(str(args))                         
