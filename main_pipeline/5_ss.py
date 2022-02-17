@@ -116,5 +116,4 @@ if __name__ == "__main__":
                     # Removing excessive files
                     os.remove(args.output + subject + '/' + name[:-7] + '_RPI.nii.gz'
   
-                  
     logging.info(str(args))                         
