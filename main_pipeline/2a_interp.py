@@ -82,9 +82,11 @@ if __name__ == "__main__":
         logging.info("Resampling fixed started {}.".format(subject))
 #         img_fixed_res = ants.resample_image_to_target(img_fixed, img_target, interp_type='linear')
         img_fixed_res = ants.resample_image(img_fixed, (240, 240, 155), True, 0)
+        img_fixed_res = ants.reorient_image2(img_fixed_res, orientation = 'RPI')
     
         logging.info("Resampling fixed completed {}.".format(subject))
         mask_fixed_res = ants.resample_image(mask_fixed,(240, 240, 155), True, 0)
+        mask_fixed_res = ants.reorient_image2(mask_fixed_res, orientation = 'RPI')
         
         # Saving fixed
         ants.image_write(img_fixed_res, args.output + subject + '/' + args.fixedfilename[0], ri=False);
@@ -100,6 +102,7 @@ if __name__ == "__main__":
             img_moving_res = ants.resample_image(registered_img, (240, 240, 155), True, 0)
             logging.info("Rigid registration to {} completed.".format(name))
             # Saving moving images
+            img_moving_res = ants.reorient_image2(mask_fixed_res, orientation = 'RPI')
             ants.image_write(img_moving_res, args.output + subject + '/' + name, ri=False);
 
     logging.info(str(args))                         

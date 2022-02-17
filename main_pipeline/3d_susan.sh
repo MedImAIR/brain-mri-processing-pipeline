@@ -2,7 +2,7 @@
     usage:  run under CaPTk environement;
     the file should be located in `home` folder.
     
-    1. chmod +x /home/projects/brain-mri-processing-pipeline/main_pipeline/3c_n4_susan.sh
+    1. chmod +x /home/projects/brain-mri-processing-pipeline/main_pipeline/3dsusan.sh
     2. /home/projects/brain-mri-processing-pipeline/main_pipeline/3d_susan.sh
     
     with docker image cbica/captk:latest:

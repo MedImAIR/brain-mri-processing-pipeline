@@ -88,6 +88,10 @@ if __name__ == "__main__":
         # Applying mask transform
         mask_fixed_res = ants.apply_transforms(img_fixed_res, mask_fixed,
                                     transformlist = img_to_sri['fwdtransforms'][0])
+        
+        # Reorient to one side
+        img_fixed_res = ants.reorient_image2(img_fixed_res, orientation = 'RPI')
+        mask_fixed_res = ants.reorient_image2(mask_fixed_res, orientation = 'RPI')
 
         # Saving fixed
         ants.image_write(img_fixed_res, args.output + subject + '/' + args.fixedfilename[0], ri=False);
@@ -105,6 +109,7 @@ if __name__ == "__main__":
                                     transformlist = img_to_sri['fwdtransforms'][0])
             logging.info("Rigid registration to {} completed.".format(name))
             # Saving moving images
+            img_moving_res = ants.reorient_image2(img_moving_res, orientation = 'RPI')
             ants.image_write(img_moving_res, args.output + subject + '/' + name, ri=False);
 
 
