@@ -16,7 +16,7 @@ parser.add_argument('--maskfilename', type=list, default=['T1_SEG.nii.gz'], help
 parser.add_argument('--movingfilenames', type=list, default=['T2.nii.gz'], help='names of files')
 parser.add_argument('--resamplingtarget', type=str, default=['./utils/sri24_T1.nii'], 
                     help= 'resampling target for all images')
-parser.add_argument('--output', type=str, default='/anvar/public_datasets/preproc_study/schw/2a_interp/', 
+parser.add_argument('--output', type=str, default='/anvar/public_datasets/preproc_study/schw/4a_resamp/', 
                     help= 'output folder')
 
 
@@ -55,7 +55,7 @@ def rigid_reg(fixed, moving):
 if __name__ == "__main__":
     
     """Pipeline with CT1 Rigid registration and interpolation to template, n4 and Z-score calculation
-       nohup python 2a_interp.py > log_schw/2a_interp.out &
+       nohup python 7a_resamp.py > log_schw/7a_resamp.out &
     """
     os.makedirs(args.output, exist_ok=True)
     logging.basicConfig(filename=args.output + "logging.txt", level=logging.INFO, format='[%(asctime)s.%(msecs)03d] %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
@@ -72,7 +72,6 @@ if __name__ == "__main__":
         os.makedirs(args.output + subject + '/', exist_ok=True)
         img_fixed = ants.image_read(args.path + subject + '/' + args.fixedfilename[0])
         mask_fixed = ants.image_read(args.path + subject + '/' + args.maskfilename[0])
-        img_target = ants.image_read(args.resamplingtarget[0])
         
         # Reorient fixed
         img_fixed = ants.reorient_image2(img_fixed, orientation = 'RPI')
@@ -80,11 +79,10 @@ if __name__ == "__main__":
         
         # Resampling fixed
         logging.info("Resampling fixed started {}.".format(subject))
-#         img_fixed_res = ants.resample_image_to_target(img_fixed, img_target, interp_type='linear')
-        img_fixed_res = ants.resample_image(img_fixed, (240, 240, 155), True, 0)
+        img_fixed_res = ants.resample_image(img_fixed, (1, 1, 1), False, 0)
     
         logging.info("Resampling fixed completed {}.".format(subject))
-        mask_fixed_res = ants.resample_image(mask_fixed,(240, 240, 155), True, 0)
+        mask_fixed_res = ants.resample_image(mask_fixed,(1, 1, 1), False, 0)
         
         # Saving fixed
         ants.image_write(img_fixed_res, args.output + subject + '/' + args.fixedfilename[0], ri=False);
@@ -97,7 +95,7 @@ if __name__ == "__main__":
             # Image registration
             logging.info("Rigid registration to {} started.".format(name))
             registered_img = rigid_reg(img_fixed, img_moving)
-            img_moving_res = ants.resample_image(registered_img, (240, 240, 155), True, 0)
+            img_moving_res = ants.resample_image(registered_img, (1, 1, 1), False, 0)
             logging.info("Rigid registration to {} completed.".format(name))
             # Saving moving images
             ants.image_write(img_moving_res, args.output + subject + '/' + name, ri=False);

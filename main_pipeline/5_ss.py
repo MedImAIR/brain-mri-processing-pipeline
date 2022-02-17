@@ -19,6 +19,8 @@ parser.add_argument('--device', type=str, default='cpu', help= 'gpu or cpu, if g
 
 args = parser.parse_args()
 
+python main_pipeline/5_ss.py --path /anvar/public_datasets/preproc_study/gbm/3a_n4_susan/ --output /mnt/public_data/preproc_study/gbm/5_ss_indiv/ --device 0
+
 def hdbet(src_path, dst_path):
     command = ["hd-bet", "-i", src_path, "-o", dst_path, "-device", args.device]
     subprocess.call(command)
@@ -48,7 +50,7 @@ if __name__ == "__main__":
     
     """Pipeline with HD-BET ss calculation
        cpu: nohup python 5_ss.py > 5_ss.out &
-       gpu: python main_pipeline/5_ss.py --output /mnt/public_data/preproc_study/gbm/5_ss_shared/ --device 0 --mode shared
+       gpu: python main_pipeline/5_ss.py --path /anvar/public_datasets/preproc_study/gbm/1_reg/ --output /mnt/public_data/preproc_study/gbm/5_ss_ind/ --device 0 
        
     """
     os.makedirs(args.output, exist_ok=True)
@@ -103,8 +105,9 @@ if __name__ == "__main__":
                 # Saving mask multiplication
                 ants.image_write(img_moving.new_image_like(img_moving.numpy()*mask.numpy()),
                                  args.output + subject + '/' + name)
+                # Removing excessive files
+                os.remove(args.output + subject + '/' + name[:-7] + '_RPI.nii.gz'
                                  
-            
 #         Removing excessive files
 #         os.remove(args.output + subject + '/' + args.fixedfilename[0][:-7] + '_mask.nii.gz'
                   

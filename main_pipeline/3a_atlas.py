@@ -13,10 +13,10 @@ parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_
                     help='root dir for subject sequences data')
 parser.add_argument('--fixedfilename', type=list, default=['CT1.nii.gz'], help='name of file to register')
 parser.add_argument('--maskfilename', type=list, default=['CT1_SEG.nii.gz'], help='name of mask to register')
-parser.add_argument('--movingfilenames', type=list, default=['T1.nii.gz', 'FLAIR.nii.gz', 'T2.nii.gz'], help='names of files')
+parser.add_argument('--movingfilenames', type=list, default=['FLAIR.nii.gz','T2.nii.gz','T1.nii.gz'], help='names of files')
 parser.add_argument('--resamplingtarget', type=str, default=['./utils/sri24_T1.nii'], 
                     help= 'resampling target for all images')
-parser.add_argument('--output', type=str, default='/anvar/public_datasets/preproc_study/gbm/3a_atlas/', 
+parser.add_argument('--output', type=str, default='/anvar/public_datasets/preproc_study/gbm/3a_atlas_rpi/', 
                     help= 'output folder')
 
 
@@ -54,7 +54,7 @@ def rigid_reg(fixed, moving):
 if __name__ == "__main__":
     
     """Pipeline with CT1 Rigid registration and interpolation to template, n4 and Z-score calculation
-       nohup python 3a_atlas.py > 3a_atlas.out &
+       nohup python 3a_atlas.py > log_gbm/3a_atlas_rpi.out &
     """
     os.makedirs(args.output, exist_ok=True)
     logging.basicConfig(filename=args.output + "logging.txt", level=logging.INFO, format='[%(asctime)s.%(msecs)03d] %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
@@ -74,8 +74,8 @@ if __name__ == "__main__":
         img_target = ants.image_read(args.resamplingtarget[0])
         
         # Reorient fixed
-        img_fixed = ants.reorient_image2(img_fixed, orientation = 'RAI')
-        mask_fixed = ants.reorient_image2(mask_fixed, orientation = 'RAI')
+        img_fixed = ants.reorient_image2(img_fixed, orientation = 'RPI')
+        mask_fixed = ants.reorient_image2(mask_fixed, orientation = 'RPI')
        
         # Register fixed image to SRI
         logging.info("Atlas registration started {}.".format(subject))
@@ -96,7 +96,7 @@ if __name__ == "__main__":
         for name in args.movingfilenames:
             # Reorient moving
             img_moving = ants.image_read(args.path + subject + '/' + name)
-            img_moving = ants.reorient_image2(img_moving, orientation = 'RAI')
+            img_moving = ants.reorient_image2(img_moving, orientation = 'RPI')
             
             # Image registration
             logging.info("Rigid registration to {} started.".format(name))

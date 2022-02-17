@@ -30,7 +30,7 @@ for sub in /input/* ; do
     
     ./CaPTk/bin/install/appdir/usr/bin/Preprocessing -i ${sub}/FLAIR.nii.gz -o /output/${sub: -12}/FLAIR_n4.nii.gz -n4 -nB 200;    
     ./CaPTk/bin/install/appdir/usr/bin/Preprocessing -i /output/${sub: -12}/FLAIR_n4.nii.gz -o /output/${sub: -12}/FLAIR.nii.gz -ss; 
-    rm /output/${sub: -12}/CT1_n4.nii.gz;
+    rm /output/${sub: -12}/FLAIR_n4.nii.gz;
     
     cp ${sub}/CT1_SEG.nii.gz /output/${sub: -12}/CT1_SEG.nii.gz;
     
