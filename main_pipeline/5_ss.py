@@ -114,6 +114,6 @@ if __name__ == "__main__":
                     ants.image_write(img_moving.new_image_like(img_moving.numpy()*mask.numpy()),
                                      args.output + subject + '/' + name)
                     # Removing excessive files
-                    os.remove(args.output + subject + '/' + name[:-7] + '_RPI.nii.gz'
+                    os.remove(args.output + subject + '/' + name[:-7] + '_RPI.nii.gz')
   
     logging.info(str(args))                         
