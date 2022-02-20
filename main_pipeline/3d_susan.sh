@@ -12,6 +12,8 @@
     ./CaPTk/bin/install/appdir/usr/bin/Preprocessing -h
 
 """
+mkdir /output/
+
 for sub in /input/* ; do
     echo ${sub};
 
