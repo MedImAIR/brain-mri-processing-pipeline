@@ -2,14 +2,22 @@ import os
 import sys
 import argparse
 import numpy as np
+import torch
 import pandas as pd
-import ants
 import nibabel as nib    
 from pathlib import Path
 from surface_distance import metrics
 from tqdm import tqdm
-import SimpleITK as sitk
+import torch.nn as nn
 
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--path_to_pred', default='/anvar/public_datasets/preproc_study/gbm/inference/gbm_3a_atlas_spacing/', help='path to prediction', type=str)
+parser.add_argument('--path_to_target',  default= '/anvar/public_datasets/preproc_study/gbm/inference/labels/', help='path to labels', type=str)
+# parser.add_argument('--spaces', help='spaces between voxels', default=[1,1,1])
+parser.add_argument('--out', default='/anvar/public_datasets/preproc_study/gbm/inference/1_reg_labels.csv', help='path to csv file with metrics', type=str)
+
+args = parser.parse_args()
 
 
 def sensitivity_and_specificity(mask_gt, mask_pred):
@@ -31,64 +39,46 @@ def calculate_metrics_brats(true_mask, pred_mask, ids, spaces):
     
     """
     
-    _columns = ['Ids', 'Dice_all','Dice_0', 'Dice_1', 'Dice_2', 'Dice_3',
-               'Hausdorff95_all', 'Hausdorff95_0', 'Hausdorff95_1', 'Hausdorff95_2', 'Hausdorff95_4',
-               'Sensitivity_all','Sensitivity_0', 'Sensitivity_1', 'Sensitivity_2', 'Sensitivity_4',
-               'Specificity_all','Specificity_0', 'Specificity_1', 'Specificity_2', 'Specificity_4',
-               'Surface_dice_all','Surface_dice_0', 'Surface_dice_1', 'Surface_dice_2', 'Surface_dice_4',
-               'Precision_all', 'Precision_0', 'Precision_1', 'Precision_2', 'Precision_4']
+    _columns = ['Ids','Dice_1', 'Dice_2', 'Dice_3',
+                'Hausdorff95_1', 'Hausdorff95_2', 'Hausdorff95_3',
+                'Sensitivity_1', 'Sensitivity_2', 'Sensitivity_3',
+               'Specificity_1', 'Specificity_2', 'Specificity_3',
+               'Surface_dice_1', 'Surface_dice_2', 'Surface_dice_3',
+               'Precision_1', 'Precision_2', 'Precision_3']
     
     df = pd.DataFrame(columns = _columns)
     df.at[0,'Ids'] = ids
-    #all classes
-    distances = metrics.compute_surface_distances((true_mask != 0), (pred_mask !=0), spaces)
-    df.at[0,'Dice_all'] = metrics.compute_dice_coefficient((true_mask != 0), (pred_mask !=0))
-    df.at[0,'Surface_dice_all'] = metrics.compute_surface_dice_at_tolerance(distances, 1)
-    df.at[0,'Hausdorff95_all'] = metrics.compute_robust_hausdorff(distances, 95)
-    sens, precision, spec = sensitivity_and_specificity((true_mask != 0), (pred_mask !=0))
-    df.at[0,'Sensitivity_all'] = sens 
-    df.at[0,'Precision_all'] = precision
-    df.at[0,'Specificity_all'] = spec
-    # class 0
-    distances = metrics.compute_surface_distances((true_mask == 0), (pred_mask == 0), spaces)
-    df.at[0,'Dice_0'] = metrics.compute_dice_coefficient((true_mask == 0), (pred_mask == 0))
-    df.at[0,'Surface_dice_0'] = metrics.compute_surface_dice_at_tolerance(distances, 1)
-    df.at[0,'Hausdorff95_0'] = metrics.compute_robust_hausdorff(distances, 95)
-    sens, precision, spec = sensitivity_and_specificity((true_mask == 0), (pred_mask == 0))
-    df.at[0,'Sensitivity_0'] = sens 
-    df.at[0,'Precision_0'] = precision 
-    df.at[0,'Specificity_0'] = spec
     #class 1
-    distances = metrics.compute_surface_distances((true_mask == 1), (pred_mask == 1), spaces)
-    df.at[0,'Dice_1'] = metrics.compute_dice_coefficient((true_mask == 1), (pred_mask == 1))
+    distances = metrics.compute_surface_distances((true_mask[0,:,:,:]==1), (pred_mask[0,:,:,:]==1), spaces)
+    df.at[0,'Dice_1'] = metrics.compute_dice_coefficient((true_mask[0,:,:,:]==1), (pred_mask[0,:,:,:]==1))
     df.at[0,'Surface_dice_1'] = metrics.compute_surface_dice_at_tolerance(distances,1)
     df.at[0,'Hausdorff95_1'] = metrics.compute_robust_hausdorff(distances, 95)
-    sens, precision, spec = sensitivity_and_specificity((true_mask == 1), (pred_mask == 1))
+    sens, precision, spec = sensitivity_and_specificity((true_mask[0,:,:,:]==1), (pred_mask[0,:,:,:]==1))
     df.at[0,'Sensitivity_1'] = sens
     df.at[0,'Precision_1'] = precision
     df.at[0,'Specificity_1'] = spec
     #class 2
-    distances = metrics.compute_surface_distances((true_mask == 1), (pred_mask == 2), spaces)
-    df.at[0,'Dice_2'] = metrics.compute_dice_coefficient((true_mask == 1), (pred_mask == 2))
+    distances = metrics.compute_surface_distances((true_mask[1,:,:,:]==1), (pred_mask[1,:,:,:]==1), spaces)
+    df.at[0,'Dice_2'] = metrics.compute_dice_coefficient((true_mask[1,:,:,:]==1), (pred_mask[1,:,:,:]==1))
     df.at[0,'Surface_dice_2'] = metrics.compute_surface_dice_at_tolerance(distances,1)
     df.at[0,'Hausdorff95_2'] = metrics.compute_robust_hausdorff(distances, 95)
-    sens,precision, spec= sensitivity_and_specificity((true_mask == 1), (pred_mask == 2))
+    sens,precision, spec= sensitivity_and_specificity((true_mask[1,:,:,:]==1), (pred_mask[1,:,:,:]==1))
     df.at[0,'Sensitivity_2'] = sens
     df.at[0,'Precision_2'] = precision
     df.at[0,'Specificity_2'] = spec
     #class 3
-    distances = metrics.compute_surface_distances((true_mask == 1), (pred_mask == 4), spaces)
-    df.at[0,'Dice_4'] = metrics.compute_dice_coefficient((true_mask == 1), (pred_mask == 4))
-    df.at[0,'Surface_dice_4'] = metrics.compute_surface_dice_at_tolerance(distances,1)
-    df.at[0,'Hausdorff95_4'] = metrics.compute_robust_hausdorff(distances, 95)
-    sens, precision, spec= sensitivity_and_specificity((true_mask == 1), (pred_mask == 4))
-    df.at[0,'Sensitivity_4'] = sens
-    df.at[0,'Precision_4'] = precision
-    df.at[0,'Specificity_4'] = spec
+    distances = metrics.compute_surface_distances((true_mask[2,:,:,:]==1), (pred_mask[2,:,:,:]==1), spaces)
+    df.at[0,'Dice_3'] = metrics.compute_dice_coefficient((true_mask[2,:,:,:]==1), (pred_mask[2,:,:,:]==1))
+    df.at[0,'Surface_dice_3'] = metrics.compute_surface_dice_at_tolerance(distances,1)
+    df.at[0,'Hausdorff95_3'] = metrics.compute_robust_hausdorff(distances, 95)
+    sens, precision, spec= sensitivity_and_specificity((true_mask[2,:,:,:]==1), (pred_mask[2,:,:,:]==1))
+    df.at[0,'Sensitivity_3'] = sens
+    df.at[0,'Precision_3'] = precision
+    df.at[0,'Specificity_3'] = spec
     return df
 
-
-def calculate_metrics(path_to_pred, path_to_target, name_pred, name_target, spaces = True, name_csv='dice_metrics.csv', path_csv_all = '/home/polina/glioma/all_dice_metrics.csv'  ):
+    
+def calculate_metrics(path_to_pred, path_to_target, spaces = [1,1,1], out = '/home/polina/glioma/all_dice_metrics.csv'  ):
     
     """ 
     - path_to_pred - path to folder with predict subjects
@@ -99,49 +89,38 @@ def calculate_metrics(path_to_pred, path_to_target, name_pred, name_target, spac
     - name_csv - name files for each subjects
     - path_csv_all - path to the main file with metrics for each subjects
     """
-    df=pd.DataFrame()
-    _columns = ['Ids', 'Dice_all','Dice_0', 'Dice_1', 'Dice_2', 'Dice_3',
-               'Hausdorff95_all', 'Hausdorff95_0', 'Hausdorff95_1', 'Hausdorff95_2', 'Hausdorff95_4',
-               'Sensitivity_all','Sensitivity_0', 'Sensitivity_1', 'Sensitivity_2', 'Sensitivity_4',
-               'Specificity_all','Specificity_0', 'Specificity_1', 'Specificity_2', 'Specificity_4',
-               'Surface_dice_all','Surface_dice_0', 'Surface_dice_1', 'Surface_dice_2', 'Surface_dice_4',
-               'Precision_all', 'Precision_0', 'Precision_1', 'Precision_2', 'Precision_4']
+    _columns = ['Ids','Dice_1', 'Dice_2', 'Dice_3',
+                'Hausdorff95_1', 'Hausdorff95_2', 'Hausdorff95_3',
+                'Sensitivity_1', 'Sensitivity_2', 'Sensitivity_3',
+               'Specificity_1', 'Specificity_2', 'Specificity_3',
+               'Surface_dice_1', 'Surface_dice_2', 'Surface_dice_3',
+               'Precision_1', 'Precision_2', 'Precision_3']
     
     af_all = pd.DataFrame(columns = _columns)
     pred_folder = Path(path_to_pred)
-    target_folder = Path(path_to_lab)
-    num = 0
-    not_ref = 0
-    not_mask = []
+    target_folder = Path(path_to_target)
     for ids in tqdm(os.listdir(pred_folder)):
-        if not os.path.isfile(Path(pred_folder / ids / name_pred)):
-            not_ref+=1
-            continue
-            
-        if not os.path.isfile(pred_folder / ids / name_csv):
-                if not os.path.isfile(target_folder / ids / name_target):
-                    not_mask.append(ids)
-                    continue
-                targets = nib.load(target_folder / ids / name_target).get_fdata()
-                predictions = nib.load(pred_folder / ids / name_pred)
-                if spaces:
-                    spaces = predictions.header.get_zooms()
-                else:
-                    spaces = [1,1,1]
-                predictions = predictions.get_fdata()
-                assert(targets.shape == predictions.shape)
-                pred = np.round(predictions, 0)
-                df=calculate_metrics_brats(targets.astype('int'), pred.astype('int'), ids, spaces)
-                df.to_csv(pred_folder / ids / name_csv)
-                af_all = af_all.append(df)
-                num+=1
-        else:
-            df= pd.read_csv(pred_folder / ids / name_csv)
-            af_all = af_all.append(df)
-            num+=1
-
-    af_all.to_csv(path_csv_all)  
-    print(num)
-    print(not_ref)
-    print(not_mask)
+        sub = ids[:-4]
+        targets = nib.load(target_folder /  f'{sub}_seg.nii.gz')
+        spaces = targets.header.get_zooms()
+#         print(spaces)
+        targets = targets.get_fdata()
+        y_wt, y_tc, y_et = targets > 0, ((targets == 1) + (targets == 3)) > 0, targets == 3
+        targets = np.stack([y_wt, y_tc, y_et], axis=0).astype(int)
+        predictions = np.load((os.path.join(path_to_pred, ids)))
+#         pred = nn.functional.interpolate(torch.from_numpy(predictions), size=tuple([23,  0,  0]), mode="trilinear", align_corners=True)
+        pred = np.round(predictions['arr_0'], 0)
+        pred = np.transpose(pred, (0, 3, 2, 1))
+#         print(targets.shape), print(np.unique(targets))
+#         print(pred.shape), print(np.unique(pred))
+        df=calculate_metrics_brats(targets.astype('int'), pred.astype('int'), sub, spaces)
+#         print(df)
+        af_all = af_all.append(df)
+    af_all.to_csv(out)  
+    print(af_all.mean())
     
+    
+        
+if __name__ == "__main__":
+    args = parser.parse_args()
+    calculate_metrics(args.path_to_pred, args.path_to_target, spaces=[1.0, 1.0, 1.0], out = args.out)
