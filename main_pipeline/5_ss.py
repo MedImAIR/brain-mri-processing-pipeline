@@ -71,50 +71,52 @@ if __name__ == "__main__":
         # Creating folder to save subject data
         logging.info("{} Subject processing".format(subject)) 
         os.makedirs(args.output + subject + '/', exist_ok=True)
+        # If package is completed
+        if len(os.listdir(args.output + subject + '/')) < 4:
         
-        img_fixed = ants.image_read(args.path + subject + '/' + args.fixedfilename[0])
-        mask_fixed = ants.image_read(args.path + subject + '/' + args.maskfilename[0])
-        # Reorient fixed
-        img_fixed = ants.reorient_image2(img_fixed, orientation = 'RPI')
-        mask_fixed = ants.reorient_image2(mask_fixed, orientation = 'RPI')
-        # Saving fixed
-        ants.image_write(img_fixed, args.output + subject + '/' + args.fixedfilename[0][:-7] + '_RPI.nii.gz' , ri=False);
-        ants.image_write(mask_fixed, args.output + subject + '/' + args.maskfilename[0], ri=False);
-        
-        logging.info("HD-BET fixed image started.")
-        hdbet_mask(args.output + subject + '/' + args.fixedfilename[0][:-7] + '_RPI.nii.gz', 
-                   args.output + subject + '/' + args.fixedfilename[0])
-        logging.info("HD-BET fixed image  completed.")
-        
-        # Removing excessive files
-        os.remove(args.output + subject + '/' + args.fixedfilename[0][:-7] + '_RPI.nii.gz')
-#         os.remove(args.output + subject + '/' + args.fixedfilename[0][:-7] + '_mask.nii.gz' 
-        
-        # Processing moving images
-        
-        for name in args.movingfilenames:
+            img_fixed = ants.image_read(args.path + subject + '/' + args.fixedfilename[0])
+            mask_fixed = ants.image_read(args.path + subject + '/' + args.maskfilename[0])
+            # Reorient fixed
+            img_fixed = ants.reorient_image2(img_fixed, orientation = 'RPI')
+            mask_fixed = ants.reorient_image2(mask_fixed, orientation = 'RPI')
+            # Saving fixed
+            ants.image_write(img_fixed, args.output + subject + '/' + args.fixedfilename[0][:-7] + '_RPI.nii.gz' , ri=False);
+            ants.image_write(mask_fixed, args.output + subject + '/' + args.maskfilename[0], ri=False);
 
-                # Reorient moving
-                img_moving = ants.image_read(args.path + subject + '/' + name)
-                logging.info("RPI reorientation to {} started.".format(name))
-                img_moving = ants.reorient_image2(img_moving, orientation = 'RPI')
-                # Saved reoriented image
-                ants.image_write(img_moving, args.output + subject + '/' + name[:-7] + '_RPI.nii.gz' , ri=False);
+            logging.info("HD-BET fixed image started.")
+            hdbet_mask(args.output + subject + '/' + args.fixedfilename[0][:-7] + '_RPI.nii.gz', 
+                       args.output + subject + '/' + args.fixedfilename[0])
+            logging.info("HD-BET fixed image  completed.")
 
-                if args.mode == 'individual':
-                    logging.info("Individual mask for {} started.".format(name))
-                    hdbet_mask(args.output + subject + '/' + name[:-7] + '_RPI.nii.gz',
-                               args.output + subject + '/' + name)
-                    # Removing excessive files
-                    os.remove(args.output + subject + '/' + name[:-7] + '_RPI.nii.gz')
+            # Removing excessive files
+            os.remove(args.output + subject + '/' + args.fixedfilename[0][:-7] + '_RPI.nii.gz')
+    #         os.remove(args.output + subject + '/' + args.fixedfilename[0][:-7] + '_mask.nii.gz' 
 
-                else:
-                    logging.info("Mask for fixed image applied to {} started.".format(name))
-                    mask = ants.image_read(args.output + subject + '/' + args.fixedfilename[0][:-7] + '_mask.nii.gz')
-                    # Saving mask multiplication
-                    ants.image_write(img_moving.new_image_like(img_moving.numpy()*mask.numpy()),
-                                     args.output + subject + '/' + name)
-                    # Removing excessive files
-                    os.remove(args.output + subject + '/' + name[:-7] + '_RPI.nii.gz')
+            # Processing moving images
+
+            for name in args.movingfilenames:
+
+                    # Reorient moving
+                    img_moving = ants.image_read(args.path + subject + '/' + name)
+                    logging.info("RPI reorientation to {} started.".format(name))
+                    img_moving = ants.reorient_image2(img_moving, orientation = 'RPI')
+                    # Saved reoriented image
+                    ants.image_write(img_moving, args.output + subject + '/' + name[:-7] + '_RPI.nii.gz' , ri=False);
+
+                    if args.mode == 'individual':
+                        logging.info("Individual mask for {} started.".format(name))
+                        hdbet_mask(args.output + subject + '/' + name[:-7] + '_RPI.nii.gz',
+                                   args.output + subject + '/' + name)
+                        # Removing excessive files
+                        os.remove(args.output + subject + '/' + name[:-7] + '_RPI.nii.gz')
+
+                    else:
+                        logging.info("Mask for fixed image applied to {} started.".format(name))
+                        mask = ants.image_read(args.output + subject + '/' + args.fixedfilename[0][:-7] + '_mask.nii.gz')
+                        # Saving mask multiplication
+                        ants.image_write(img_moving.new_image_like(img_moving.numpy()*mask.numpy()),
+                                         args.output + subject + '/' + name)
+                        # Removing excessive files
+                        os.remove(args.output + subject + '/' + name[:-7] + '_RPI.nii.gz')
   
     logging.info(str(args))                         
