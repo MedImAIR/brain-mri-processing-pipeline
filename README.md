@@ -4,10 +4,10 @@ Here we report a comprehensive study of multimodal MRI brain cancer image segmen
 We show that the only essential transformation for accurate analysis is the unification of voxel spacing across the dataset. In contrast, anatomy alignment in form of non-rigid atlas registration is not necessary and most intensity equalization steps do not improve model productiveness. 
 
 #### This repository contains:
-1. `datasets_prep` - preparation of the opensourse data for preprocessing and training;
-3. `main_pipeline` - scripts for data preprocessing;
+1. `datasets` - preparation of the opensourse data for preprocessing and training;
+3. `preprocessing` - scripts for data preprocessing;
 4. `nnUnet` - training and scoring  the segmentation models;
-5. `illustrations` - code for the paper illustrations;
+5. `figures` - code for the paper illustrations;
 
 ## Brain MRI preprocessing main pipeline:
 ![image](/figures/abstract.png)
