@@ -10,22 +10,12 @@ We show that the only essential transformation for accurate analysis is the unif
 5. `illustrations` - code for the paper illustrations;
 
 ## Brain MRI preprocessing main pipeline:
-![image](illustrations/abstract1.png)
+![image](/illustrations/abstract.png)
 
 
 #### To reproduce the study:
-1. Go to `datasets_prep`, in the `Readme.md`you will find the instructions to follow after you download the data from [TCIA](https://www.cancerimagingarchive.net/)
+1. Go to `datasets_prep`, after you download the data from [TCIA](https://www.cancerimagingarchive.net/);
+2. Go to `main_pipeline` for data preprocessing;
+3. Go to `nnUnet` for model training and scoring;
 
-
-`main_pipeline` - folder for ablation study on typical MRI brain data preprocessing.
-- `1_z_score.py` - checking influence of Z-score image normalization;
-- `2_n4.py` - checking influence of n4 image bias field correction;
-- `3_susan.py` - checking influence of SUSAN image denoising;
-- `4_upsample.py`
-- `5_atlas.py`
-- `6_ss.py`
-- `7_hist.py`
-
-`ss_pipeline` - folder for ablation study on skull-stripping
-
-`dataset_prep` - folder for preparation of three open sourse datasets
+In the `Readme.md` of the following repositoritories you will find the instructions to follow.
