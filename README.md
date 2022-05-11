@@ -3,6 +3,9 @@ Here we report a comprehensive study of multimodal MRI brain cancer image segmen
 
 We show that the only essential transformation for accurate analysis is the unification of voxel spacing across the dataset. In contrast, anatomy alignment in form of non-rigid atlas registration is not necessary and most intensity equalization steps do not improve model productiveness. 
 
+#### Data preprocessing
+The most of data processing is executed with [ANTS](http://stnava.github.io/ANTs/). Intensity normalization N4 and SUSAN are executed inside [CaPTk](https://www.med.upenn.edu/cbica/captk/) container. You need to install [HD-BEt](https://github.com/MIC-DKFZ/HD-BET) for histagram matching and [HD-Bet](https://github.com/MIC-DKFZ/HD-BET) for skull stripping.
+
 #### This repository contains:
 1. `datasets` - preparation of the opensourse data for preprocessing and training;
 3. `preprocessing` - scripts for data preprocessing;
