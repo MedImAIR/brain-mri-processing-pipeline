@@ -3,7 +3,7 @@
 The main rocessing script are isolated in saparate files, applied to the whole directiory, created while dataset preparation in `Nifty` format.
 
 The most of data processing is executed with [ANTS](http://stnava.github.io/ANTs/). Intensity normalization N4 and SUSAN are executed inside [CaPTk](https://www.med.upenn.edu/cbica/captk/). container.
-You need to install [HD-BEt](https://github.com/MIC-DKFZ/HD-BET) for histagram matching and [HD-BEt](https://github.com/MIC-DKFZ/HD-BET) for skull stripping.
+You need to install [HD-BEt](https://github.com/MIC-DKFZ/HD-BET) for histagram matching and [HD-Bet](https://github.com/MIC-DKFZ/HD-BET) for skull stripping.
 
 #### Preprocessing pipleine:
 - `1_reg.py`: Inter-subject image `Rigid` registration;
