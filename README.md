@@ -10,12 +10,12 @@ We show that the only essential transformation for accurate analysis is the unif
 5. `illustrations` - code for the paper illustrations;
 
 ## Brain MRI preprocessing main pipeline:
-![image](/illustrations/abstract.png)
+![image](/figures/abstract.png)
 
 
 #### To reproduce the study:
-1. Go to `datasets_prep`, after you download the data from [TCIA](https://www.cancerimagingarchive.net/);
-2. Go to `main_pipeline` for data preprocessing;
+1. Go to `datasets`, after you download the data from [TCIA](https://www.cancerimagingarchive.net/);
+2. Go to `preprocessing` for data preprocessing;
 3. Go to `nnUnet` for model training and scoring;
 
 In the `Readme.md` of the following repositoritories you will find the instructions to follow.
