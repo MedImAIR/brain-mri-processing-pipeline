@@ -33,12 +33,26 @@ seed = mpu.io.read(args.seed)
 
 if __name__ == "__main__":
     
-    os.makedirs(args.output, exist_ok=True)
     logging.basicConfig(filename=args.output + "logging.txt", level=logging.INFO, format='[%(asctime)s.%(msecs)03d] %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
     logging.getLogger().addHandler(logging.StreamHandler(sys.stdout))
     
+    os.makedirs(save_dir, exist_ok=True)
+
+    # Creating a dataset
+    subjects_list = []
+    for patient in os.listdir(base_dir):
+        if os.path.isdir(base_dir + patient):
+            subject = tio.Subject(
+                t1 = tio.ScalarImage(base_dir + patient + '/T1.nii.gz'),
+                t2 = tio.ScalarImage(base_dir + patient + '/T2.nii.gz'),
+                ct1 = tio.ScalarImage(base_dir + patient + '/CT1.nii.gz'),
+                fl = tio.ScalarImage(base_dir + patient + '/FLAIR.nii.gz'))
+
+            subjects_list.append(subject)
+
     # Separate dataset for each fold
-    for fold in ['fold_0','fold_1', 'fold_2']:
+    for fold in ['fold_0', 'fold_1', 'fold_2']:
+        print(len(seed[fold]))
         logging.info(fold, " started.")
         # Create dataset
         temp_t1_list = []
@@ -50,11 +64,13 @@ if __name__ == "__main__":
             if patient not in seed[fold]:
                 if os.path.isdir(base_dir + patient):
 
+                    subjects_list.append(subject)
                     temp_t1_list.append(base_dir + patient + '/T1.nii.gz')
                     temp_t2_list.append(base_dir + patient + '/T2.nii.gz')
                     temp_ct1_list.append(base_dir + patient + '/CT1.nii.gz')
                     temp_fl_list.append(base_dir + patient + '/FLAIR.nii.gz')
 
+        print('For landmarks there are ', len(temp_t1_list))
         logging.info("Training T1 landmarks started.")
         t1_landmarks = HistogramStandardization.train(temp_t1_list)
         logging.info("Training T2 landmarks started.")
@@ -74,16 +90,18 @@ if __name__ == "__main__":
 
         hist_standardize = tio.HistogramStandardization(landmarks_dict)
 
-       # Apply transforms
+            # Apply transforms
         for i in range(0, len(os.listdir(base_dir))):
-            
-            os.makedirs(save_dir + '/6_hist_{}/'.format(fold) + os.listdir(base_dir)[i], exist_ok= True)
-            
-            if len(os.listdir(save_dir + '/6_hist_{}/'.format(fold) + os.listdir(base_dir)[i])) < 4:
-                hist_standard = hist_standardize(subjects_list[i])
-                hist_standard['t1'].save(save_dir + '/6_hist_{}/'.format(fold) + os.listdir(base_dir)[i] +'/T1.nii.gz')
-                hist_standard['ct1'].save(save_dir + '/6_hist_{}/'.format(fold) + os.listdir(base_dir)[i] +'/CT1.nii.gz')
-                hist_standard['fl'].save(save_dir + '/6_hist_{}/'.format(fold) + os.listdir(base_dir)[i] +'/FLAIR.nii.gz')
-                hist_standard['t2'].save(save_dir + '/6_hist_{}/'.format(fold) + os.listdir(base_dir)[i] +'/T2.nii.gz')
-                shutil.copy(base_dir + os.listdir(base_dir)[i] + '/' + args.maskfilename,
-                    save_dir + '/6_hist_{}/'.format(fold) + os.listdir(base_dir)[i] +  '/' + args.maskfilename)
+            # Check if it is logging file instead of a folder
+            if os.path.isdir(base_dir + os.listdir(base_dir)[i]):
+                os.makedirs(save_dir + '/6_hist_{}/'.format(fold) + os.listdir(base_dir)[i], exist_ok= True)
+
+                if len(os.listdir(save_dir + '/6_hist_{}/'.format(fold) + os.listdir(base_dir)[i])) < 4:
+                    logging.info("Saving patient", os.listdir(base_dir)[i], fold)
+                    hist_standard = hist_standardize(subjects_list[i])
+                    hist_standard['t1'].save(save_dir + '/6_hist_{}/'.format(fold) + os.listdir(base_dir)[i] +'/T1.nii.gz')
+                    hist_standard['ct1'].save(save_dir + '/6_hist_{}/'.format(fold) + os.listdir(base_dir)[i] +'/CT1.nii.gz')
+                    hist_standard['fl'].save(save_dir + '/6_hist_{}/'.format(fold) + os.listdir(base_dir)[i] +'/FLAIR.nii.gz')
+                    hist_standard['t2'].save(save_dir + '/6_hist_{}/'.format(fold) + os.listdir(base_dir)[i] +'/T2.nii.gz')
+                    shutil.copy(base_dir + os.listdir(base_dir)[i] + '/' + mask_name,
+                    save_dir + '/6_hist_{}/'.format(fold) + os.listdir(base_dir)[i] +  '/' + mask_name)

@@ -51,7 +51,7 @@ if __name__ == "__main__":
        cpu: nohup python 5_ss.py > 5_ss.out &
        gbm: python main_pipeline/5_ss.py --path /anvar/public_datasets/preproc_study/gbm/3a_atlas/ --output /mnt/public_data/preproc_study/gbm/5_ss_indiv/ --device 0 
        schw: python main_pipeline/5_ss.py --path /anvar/public_datasets/preproc_study/schw/3a_atlas/ --output /mnt/public_data/preproc_study/schw/5_ss_shared/ --device 0 --mode shared
-       bgpd: python main_pipeline/5_ss.py --path /anvar/public_datasets/preproc_study/bgpd/3a_atlas/ --output /mnt/public_data/preproc_study/bgpd/5_ss_shared/ --device 1 --mode shared
+       bgpd: python main_pipeline/5_ss.py --path /anvar/public_datasets/preproc_study/bgpd/3a_atlas/ --output /mnt/public_data/preproc_study/bgpd/5_ss_shared/ --device 0 --mode shared
        
     """
     os.makedirs(args.output, exist_ok=True)
@@ -60,7 +60,7 @@ if __name__ == "__main__":
     logging.info("{} Folder processing".format(args.path))  
     logging.info("{} Mode for skull stripping".format(args.mode)) 
     subjects_paths = [f.path for f in os.scandir(args.path) if f.is_dir()]
-    subjects = [f.split('/')[-1] for f in subjects_paths ]
+    subjects = [f.split('/')[-1] for f in subjects_paths]
     
     if isinstance(args.fixedfilename, str):
         args.fixedfilename = [args.fixedfilename]

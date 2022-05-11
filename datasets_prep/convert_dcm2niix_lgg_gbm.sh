@@ -14,10 +14,10 @@ cd ../data/dicom/
         cd $sub
             mkdir ../../../data/orig/$sub/
 
-#             dcm2niix -b n -f CT1 -z y -o ../../../data/orig/$sub/ CT1/
-#             dcm2niix -b n -f T1 -z y -o ../../../data/orig/$sub/ T1/
+            dcm2niix -b n -f CT1 -z y -o ../../../data/orig/$sub/ CT1/
+            dcm2niix -b n -f T1 -z y -o ../../../data/orig/$sub/ T1/
             dcm2niix -b n -f T2 -z y -o ../../../data/orig/$sub/ T2/
-#             dcm2niix -b n -f FLAIR -z y -o ../../../data/orig/$sub/ FLAIR/
+            dcm2niix -b n -f FLAIR -z y -o ../../../data/orig/$sub/ FLAIR/
 
 
         cd ..

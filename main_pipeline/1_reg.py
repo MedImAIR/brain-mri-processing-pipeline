@@ -9,12 +9,12 @@ from glob import glob
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/bgpd/orig/', 
+parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/schw/orig/', 
                     help='root dir for subject sequences data')
-parser.add_argument('--fixedfilename', type=list, default=['FLAIR.nii.gz'], help='name of file to register')
-parser.add_argument('--maskfilename', type=list, default=['mask_GTV_FLAIR.nii.gz'], help='name of mask to register')
-parser.add_argument('--movingfilenames', type=list, default=['T1.nii.gz','T2.nii.gz','CT1.nii.gz'], help='names of files')
-parser.add_argument('--output', type=str, default='/anvar/public_datasets/preproc_study/bgpd/1_reg/', 
+parser.add_argument('--fixedfilename', type=list, default=['T1.nii.gz'], help='name of file to register')
+parser.add_argument('--maskfilename', type=list, default=['T1_SEG.nii.gz'], help='name of mask to register')
+parser.add_argument('--movingfilenames', type=list, default=['T2.nii.gz'], help='names of files')
+parser.add_argument('--output', type=str, default='/anvar/public_datasets/preproc_study/schw/1_reg_check/', 
                     help= 'output folder')
 
 args = parser.parse_args()
@@ -39,7 +39,7 @@ def rigid_reg(fixed, moving):
 if __name__ == "__main__":
     
     """Pipeline with CT1 Rigid registration and Z-score calculation
-       nohup python 1_reg.py > log_bgpd/1_reg.out &
+       nohup python 1_reg.py > log_schw/1_reg_check.out &
     """
     os.makedirs(args.output, exist_ok=True)
 

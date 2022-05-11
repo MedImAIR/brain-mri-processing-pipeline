@@ -6,26 +6,29 @@
     2. /home/projects/brain-mri-processing-pipeline/main_pipeline/3b_n4.sh
     
     with docker image cbica/captk:latest:
-    docker run -it --rm --cpuset-cpus='0-15' -v /anvar/public_datasets/preproc_study/schw/3a_atlas/:/input -v /anvar/public_datasets/preproc_study/schw/3b_n4/:/output -v ${PWD}:/home --entrypoint /bin/bash cbica/captk:latest
+    docker run -it --rm --cpuset-cpus='0-15' -v /anvar/public_datasets/preproc_study/bgpd/3a_atlas/:/input -v /anvar/public_datasets/preproc_study/bgpd/3b_n4/:/output -v ${PWD}:/home --entrypoint /bin/bash cbica/captk:latest
     
     info: https://cbica.github.io/CaPTk/preprocessing_susan.html
     ./CaPTk/bin/install/appdir/usr/bin/Preprocessing -h
 
 """
-mkdir /output/
+mkdir /output/;
 for sub in /input/* ; do
     echo ${sub};
-# ${sub: -10} for SCHW and ${sub: -12} for GBM and LGG
-    ./CaPTk/bin/install/appdir/usr/bin/Preprocessing -i ${sub}/T1.nii.gz -o /output/${sub: -10}/T1.nii.gz -n4 -nB 200;
+    subname="$(echo ${sub} | cut -d'/' -f3)";
+#     echo $subname;
+# # ${sub: -10} for SCHW and ${sub: -12} for GBM and LGG, ${sub: -8} for BGPD
+    ./CaPTk/bin/install/appdir/usr/bin/Preprocessing -i ${sub}/T1.nii.gz -o /output/${subname}/T1.nii.gz -n4 -nB 200;
     
-#     ./CaPTk/bin/install/appdir/usr/bin/Preprocessing -i ${sub}/CT1.nii.gz -o /output/${sub: -12}/CT1.nii.gz -n4 -nB 200;
+    ./CaPTk/bin/install/appdir/usr/bin/Preprocessing -i ${sub}/CT1.nii.gz -o /output/${subname}/CT1.nii.gz -n4 -nB 200;
     
-    ./CaPTk/bin/install/appdir/usr/bin/Preprocessing -i ${sub}/T2.nii.gz -o /output/${sub: -10}/T2.nii.gz -n4 -nB 200;
+    ./CaPTk/bin/install/appdir/usr/bin/Preprocessing -i ${sub}/T2.nii.gz -o /output/${subname}/T2.nii.gz -n4 -nB 200;
     
-#     ./CaPTk/bin/install/appdir/usr/bin/Preprocessing -i ${sub}/FLAIR.nii.gz -o /output/${sub: -12}/FLAIR.nii.gz -n4 -nB 200;    
+    ./CaPTk/bin/install/appdir/usr/bin/Preprocessing -i ${sub}/FLAIR.nii.gz -o /output/${subname}/FLAIR.nii.gz -n4 -nB 200;    
     
-    # Copy segmentation file into folder
+#     # Copy segmentation file into folder
 #     cp ${sub}/CT1_SEG.nii.gz /output/${sub: -12}/CT1_SEG.nii.gz;
-    cp ${sub}/T1_SEG.nii.gz /output/${sub: -10}/T1_SEG.nii.gz;
+#     cp ${sub}/T1_SEG.nii.gz /output/${sub: -10}/T1_SEG.nii.gz;
+    cp ${sub}/mask_GTV_FLAIR.nii.gz /output/${subname}/mask_GTV_FLAIR.nii.gz;
     
 done
