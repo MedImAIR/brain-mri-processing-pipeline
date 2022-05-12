@@ -1,4 +1,6 @@
-.ipynb_checkpoints/
+*.ipynb_checkpoints/
+*__pycache__
 nnUNet/scripts_training/
+nnUNet/notebooks/
 
 
