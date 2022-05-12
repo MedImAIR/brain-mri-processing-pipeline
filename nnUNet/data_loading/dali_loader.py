@@ -38,6 +38,7 @@ class GenericPipeline(Pipeline):
         super().__init__(batch_size, num_threads, device_id)
         self.kwargs = kwargs
         self.dim = kwargs["dim"]
+        self.aug = kwargs["aug"]
         self.device = device_id
         self.patch_size = kwargs["patch_size"]
         self.load_to_gpu = kwargs["load_to_gpu"]

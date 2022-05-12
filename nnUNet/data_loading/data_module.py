@@ -31,6 +31,7 @@ class DataModule(LightningDataModule):
         self.kfold = get_kfold_splitter(args.nfolds)
         self.kwargs = {
             "dim": self.args.dim,
+            "aug": self.args.aug,
             "seed": self.args.seed,
             "gpus": self.args.gpus,
             "nvol": self.args.nvol,
