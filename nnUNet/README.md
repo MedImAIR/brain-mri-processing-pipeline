@@ -55,14 +55,6 @@ python main.py --deep_supervision --depth 6 --filters 64 96 128 192 256 384 512 
 
 To see descriptions of the arguments run `python main.py --help`. You can customize the training process. For details, see the [NVIDIA repo](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Segmentation/nnUNet).
 
-The model trains for at least `--min_epochs` and at most `--max_epochs` epochs. After each epoch evaluation, the validation set is done and validation loss is monitored for early stopping (see `--patience` flag). Default training settings are:
-* Adam optimizer with learning rate of 0.0008 and weight decay 0.0001.
-* Training batch size is set to 2 for 3D U-Net.
-    
-This default parametrization is applied when running scripts from the `scripts/` directory and when running `main.py` without explicitly overriding these parameters. By default, the training is in full precision. To enable AMP, pass the `--amp` flag. AMP can be enabled for every mode of execution.
-
-The default configuration minimizes a function `L = (1 - dice_coefficient) + cross_entropy` during training and reports achieved convergence as [dice coefficient](https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient) per class. The training, with a combination of dice and cross entropy has been proven to achieve better convergence than a training using only dice.
-
 To load the pretrained model provide `--ckpt_path <path/to/checkpoint>`.
 
 5. To save predictions:
@@ -118,8 +110,6 @@ Other folders included in the root directory are:
 
 * `images/`: Contains a model diagram.
 * `scripts/`: Provides scripts for training, benchmarking and inference of nnU-Net.
-
-### Command-line options
 
 To see the full list of available options and their descriptions, use the `-h` or `--help` command-line option, for example:
 
