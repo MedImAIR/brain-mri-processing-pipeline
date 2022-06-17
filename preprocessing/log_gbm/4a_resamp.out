@@ -1,21 +1,157 @@
 /anvar/public_datasets/preproc_study/gbm/orig/ Folder processing
 TCGA-02-0086 Subject processing
+Resampling fixed started TCGA-02-0086.
+Resampling fixed completed TCGA-02-0086.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
 TCGA-02-0102 Subject processing
+Resampling fixed started TCGA-02-0102.
+Resampling fixed completed TCGA-02-0102.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
 TCGA-02-0059 Subject processing
+Resampling fixed started TCGA-02-0059.
+Resampling fixed completed TCGA-02-0059.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
 TCGA-02-0069 Subject processing
+Resampling fixed started TCGA-02-0069.
+Resampling fixed completed TCGA-02-0069.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
 TCGA-19-2624 Subject processing
+Resampling fixed started TCGA-19-2624.
+Resampling fixed completed TCGA-19-2624.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
 TCGA-06-0182 Subject processing
+Resampling fixed started TCGA-06-0182.
+Resampling fixed completed TCGA-06-0182.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
 TCGA-08-0360 Subject processing
+Resampling fixed started TCGA-08-0360.
+Resampling fixed completed TCGA-08-0360.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
 TCGA-02-0006 Subject processing
+Resampling fixed started TCGA-02-0006.
+Resampling fixed completed TCGA-02-0006.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
 TCGA-19-2631 Subject processing
+Resampling fixed started TCGA-19-2631.
+Resampling fixed completed TCGA-19-2631.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
 TCGA-12-1094 Subject processing
+Resampling fixed started TCGA-12-1094.
+Resampling fixed completed TCGA-12-1094.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
 TCGA-06-2570 Subject processing
+Resampling fixed started TCGA-06-2570.
+Resampling fixed completed TCGA-06-2570.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
 TCGA-06-0119 Subject processing
+Resampling fixed started TCGA-06-0119.
+Resampling fixed completed TCGA-06-0119.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
 TCGA-06-0145 Subject processing
+Resampling fixed started TCGA-06-0145.
+Resampling fixed completed TCGA-06-0145.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
 TCGA-08-0509 Subject processing
+Resampling fixed started TCGA-08-0509.
+Resampling fixed completed TCGA-08-0509.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
 TCGA-06-5408 Subject processing
+Resampling fixed started TCGA-06-5408.
+Resampling fixed completed TCGA-06-5408.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
 TCGA-02-0116 Subject processing
+Resampling fixed started TCGA-02-0116.
+Resampling fixed completed TCGA-02-0116.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
 TCGA-06-0188 Subject processing
+Resampling fixed started TCGA-06-0188.
+Resampling fixed completed TCGA-06-0188.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
 TCGA-76-6661 Subject processing
 /anvar/public_datasets/preproc_study/gbm/orig/TCGA-76-6661/CT1_SEG.nii.gz
 Untypical channels [1.560928 4.682784 6.243712]
@@ -763,6 +899,13 @@ Rigid registration to T2.nii.gz started.
 Rigid registration to T2.nii.gz completed.
 Rigid registration to FLAIR.nii.gz started.
 Rigid registration to FLAIR.nii.gz completed.
+TCGA-02-0046 Subject processing
+TCGA-06-0142 Subject processing
+TCGA-02-0037 Subject processing
+TCGA-08-0520 Subject processing
+Namespace(path='/anvar/public_datasets/preproc_study/gbm/orig/', fixedfilename=['CT1.nii.gz'], maskfilename=['CT1_SEG.nii.gz'], movingfilenames=['T1.nii.gz', 'T2.nii.gz', 'FLAIR.nii.gz'], resamplingtarget=['./utils/sri24_T1.nii'], output='/anvar/public_datasets/preproc_study/gbm/4a_resamp/')
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   Rigid registration to FLAIR.nii.gz completed.
+** ERROR (nifti_image_write_hdr_img2): cannot open output file '/anvar/public_datasets/preproc_study/gbm/4a_resamp/TCGA-06-0646/FLAIR.nii.gz'
 TCGA-02-0046 Subject processing
 Resampling fixed started TCGA-02-0046.
 Resampling fixed completed TCGA-02-0046.
