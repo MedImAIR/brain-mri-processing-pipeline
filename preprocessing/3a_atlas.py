@@ -9,30 +9,58 @@ from glob import glob
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/bgpd/orig/', 
+parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/gbm/orig/', 
                     help='root dir for subject sequences data')
-parser.add_argument('--fixedfilename', type=list, default=['FLAIR.nii.gz'], help='name of file to register')
-parser.add_argument('--maskfilename', type=list, default=['mask_GTV_FLAIR.nii.gz'], help='name of mask to register')
-parser.add_argument('--movingfilenames', type=list, default=['CT1.nii.gz','T2.nii.gz','T1.nii.gz'], help='names of files')
+parser.add_argument('--fixedfilename', type=list, default=['CT1.nii.gz'], help='name of file to register')
+parser.add_argument('--maskfilename', type=list, default=['CT1_SEG.nii.gz'], help='name of mask to register')
+parser.add_argument('--movingfilenames', type=list, default=['T1.nii.gz','T2.nii.gz','FLAIR.nii.gz'], help='names of files')
 parser.add_argument('--resamplingtarget', type=str, default=['./utils/sri24_T1.nii'], 
                     help= 'resampling target for all images')
-parser.add_argument('--output', type=str, default='/anvar/public_datasets/preproc_study/bgpd/3a_atlas/', 
+parser.add_argument('--output', type=str, default='/anvar/public_datasets/preproc_study/gbm/3a_atlas/', 
                     help= 'output folder')
+
 
 
 args = parser.parse_args()
 
-def calculate_z_score(img):
-    """ Calculates Z-score normalisation over ants.img and returns new image"""
-    
-    if type(img) is str:
-        # Read images if input is pathlike
-        img = ants.image_read(img)
-        
-    img_z = (img.numpy() - img.numpy().mean())/img.numpy().std()
-    new_img = img.new_image_like(img_z)
-    
-    return new_img
+def check_multiple_channels(path_to_img):
+    """check that for Untypical channels, like [ 3.823199  7.646398 11.469597].
+    This happens on GBM or LGG datasets, with multichanel target, after registration.
+    """
+    img = ants.image_read(path_to_img)
+
+    channels = np.unique(img.numpy())[1:]
+    if np.shape(channels)[0] > 1:
+        if channels[0] != 1:
+            print(path_to_img)
+            print('Untypical channels', channels)
+            result_arr = img.numpy()
+            result_arr[result_arr == channels[0]] = int(1)
+            result_arr[result_arr == channels[1]] = int(2)
+            result_arr[result_arr == channels[2]] = int(3)
+            img_new = img.new_image_like(result_arr)
+            img = img_new
+            channels = [1,2,3]
+
+    return(img , channels)
+
+def resample_by_channels(img, 
+                         channels = [1,2,3], 
+                         interpolator = 0):
+# empty array
+    img_res = ants.resample_image(img, (1, 1, 1), False, interpolator)
+    result_arr = np.zeros_like(img_res.numpy())
+
+    for channel in channels:
+        # float is needed by ants to save an image
+        temp_img = img.new_image_like((img[:,:,:] == int(channel))*float(channel))
+        temp_img_res = ants.apply_transforms(img_fixed_res, registered_img,
+                                        transformlist = img_to_sri['fwdtransforms'][0])
+        temp_arr = np.round(temp_img_res.numpy(), 0)
+        result_arr += (temp_arr[:,:,:] == int(channel))*float(channel)
+
+    img_res =  img_res.new_image_like(result_arr)
+    return img_res
 
 def rigid_reg(fixed, moving):
     """Rigidly register `moving` image onto `fixed` image and apply resulting transformation on `mask`.
@@ -54,7 +82,7 @@ def rigid_reg(fixed, moving):
 if __name__ == "__main__":
     
     """Pipeline with CT1 Rigid registration and interpolation to template, n4 and Z-score calculation
-       nohup python 3a_atlas.py > log_bgpd/3a_atlas.out &
+       nohup python 4a_resamp.py > log_gbm/4a_resamp.out &
     """
     os.makedirs(args.output, exist_ok=True)
     logging.basicConfig(filename=args.output + "logging.txt", level=logging.INFO, format='[%(asctime)s.%(msecs)03d] %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
@@ -71,38 +99,33 @@ if __name__ == "__main__":
         os.makedirs(args.output + subject + '/', exist_ok=True)
         if len(os.listdir(args.output + subject + '/')) < 4:
             img_fixed = ants.image_read(args.path + subject + '/' + args.fixedfilename[0])
-            mask_fixed = ants.image_read(args.path + subject + '/' + args.maskfilename[0])
+            mask_fixed, channels = check_multiple_channels(args.path + subject + '/' + args.maskfilename[0])
             img_target = ants.image_read(args.resamplingtarget[0])
 
             # Reorient fixed
             img_fixed = ants.reorient_image2(img_fixed, orientation = 'RPI')
             mask_fixed = ants.reorient_image2(mask_fixed, orientation = 'RPI')
 
-            # Register fixed image to SRI
-            logging.info("Atlas registration started {}.".format(subject))
+            # Resampling fixed
+            logging.info("Resampling fixed started {}.".format(subject))
             img_to_sri = ants.registration(fixed=img_target, moving=img_fixed,
                                 type_of_transform='Rigid')
             img_fixed_res = ants.apply_transforms(img_target, img_fixed,
                                         transformlist = img_to_sri['fwdtransforms'][0])
-            logging.info("Atlas registration completed {}.".format(subject))        
 
-            # Applying mask transform
-            mask_fixed_res = ants.apply_transforms(img_fixed_res, mask_fixed,
-                                        transformlist = img_to_sri['fwdtransforms'][0])
+            logging.info("Resampling fixed completed {}.".format(subject))
+            mask_fixed_res = resample_by_channels(mask_fixed, img_fixed_res channels = channels)
 
-            # Reorient to one side
-            img_fixed_res = ants.reorient_image2(img_fixed_res, orientation = 'RPI')
-            mask_fixed_res = ants.reorient_image2(mask_fixed_res, orientation = 'RPI')
+            # Saving fixed, and checking, that resampled image has no `inf` artefacts
+            if not np.isinf(img_fixed_res.numpy()).all():
+                ants.image_write(img_fixed_res, args.output + subject + '/' + args.fixedfilename[0], ri=False);
 
-            # Saving fixed
-            ants.image_write(img_fixed_res, args.output + subject + '/' + args.fixedfilename[0], ri=False);
             ants.image_write(mask_fixed_res, args.output + subject + '/' + args.maskfilename[0], ri=False);
 
             for name in args.movingfilenames:
                 # Reorient moving
                 img_moving = ants.image_read(args.path + subject + '/' + name)
                 img_moving = ants.reorient_image2(img_moving, orientation = 'RPI')
-
                 # Image registration
                 logging.info("Rigid registration to {} started.".format(name))
                 registered_img = rigid_reg(img_fixed, img_moving)
@@ -110,8 +133,7 @@ if __name__ == "__main__":
                                         transformlist = img_to_sri['fwdtransforms'][0])
                 logging.info("Rigid registration to {} completed.".format(name))
                 # Saving moving images
-                img_moving_res = ants.reorient_image2(img_moving_res, orientation = 'RPI')
-                ants.image_write(img_moving_res, args.output + subject + '/' + name, ri=False);
-
+                if not np.isinf(img_moving_res.numpy()).all():
+                    ants.image_write(img_moving_res, args.output + subject + '/' + name, ri=False);
 
     logging.info(str(args))                         

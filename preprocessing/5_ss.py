@@ -7,15 +7,15 @@ import subprocess
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/bgpd/3a_atlas/', 
+parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/gbm/4a_resamp/', 
                     help='root dir for subject sequences data')
-parser.add_argument('--fixedfilename', type=list, default=['FLAIR.nii.gz'], help='name of file to register')
-parser.add_argument('--maskfilename', type=list, default=['mask_GTV_FLAIR.nii.gz'], help='name of mask to register to RPI')
-parser.add_argument('--movingfilenames', type=list, default=['CT1.nii.gz','T2.nii.gz','T1.nii.gz'], help='names of files')
-parser.add_argument('--output', type=str, default='/mnt/public_data/preproc_study/bgpd/5_ss_shared/', 
+parser.add_argument('--fixedfilename', type=list, default=['CT1.nii.gz'], help='name of file to register')
+parser.add_argument('--maskfilename', type=list, default=['CT1_SEG.nii.gz'], help='name of mask to register to RPI')
+parser.add_argument('--movingfilenames', type=list, default=['FLAIR.nii.gz','T2.nii.gz','T1.nii.gz'], help='names of files')
+parser.add_argument('--output', type=str, default='/mnt/public_data/preproc_study/gbm/5_ss_shared/', 
                     help= 'output folder')
-parser.add_argument('--mode', type=str, default='individual', help= 'mode individual or shared ')
-parser.add_argument('--device', type=str, default='cpu', help= 'gpu or cpu, if gpu - should be `int` ')
+parser.add_argument('--mode', type=str, default='shared', help= 'mode individual or shared ')
+parser.add_argument('--device', type=str, default='gpu', help= 'gpu or cpu, if gpu - should be `int` ')
 
 args = parser.parse_args()
 
@@ -31,17 +31,17 @@ def hdbet_mask(src_path, dst_path):
     return
 
   
-    logging.info("HD-BET  FL started.")
-    hdbet(args.output + 'FL_to_SRI.nii.gz', args.output + 'FL_to_SRI_bet.nii.gz')
+#     logging.info("HD-BET  FL started.")
+#     hdbet(args.output + 'FL_to_SRI.nii.gz', args.output + 'FL_to_SRI_bet.nii.gz')
     
-    logging.info("HD-BET T2 started.")
-    hdbet(args.output + 'T2_to_SRI.nii.gz', args.output + 'T2_to_SRIbet.nii.gz')
+#     logging.info("HD-BET T2 started.")
+#     hdbet(args.output + 'T2_to_SRI.nii.gz', args.output + 'T2_to_SRIbet.nii.gz')
     
-    logging.info("HD-BET T1CE started.")
-    hdbet(args.output + 'T1CE_to_SRI.nii.gz', args.output + 'T1CE_to_SRI_bet.nii.gz')
+#     logging.info("HD-BET T1CE started.")
+#     hdbet(args.output + 'T1CE_to_SRI.nii.gz', args.output + 'T1CE_to_SRI_bet.nii.gz')
     
-    logging.info("HD-BET T1 started.")
-    hdbet(args.output + 'T1_to_SRI.nii.gz', args.output + 'T1_to_SRI_bet.nii.gz')
+#     logging.info("HD-BET T1 started.")
+#     hdbet(args.output + 'T1_to_SRI.nii.gz', args.output + 'T1_to_SRI_bet.nii.gz')
     
 
                     
@@ -86,7 +86,7 @@ if __name__ == "__main__":
             logging.info("HD-BET fixed image started.")
             hdbet_mask(args.output + subject + '/' + args.fixedfilename[0][:-7] + '_RPI.nii.gz', 
                        args.output + subject + '/' + args.fixedfilename[0])
-            logging.info("HD-BET fixed image  completed.")
+            logging.info("HD-BET fixed image completed.")
 
             # Removing excessive files
             os.remove(args.output + subject + '/' + args.fixedfilename[0][:-7] + '_RPI.nii.gz')

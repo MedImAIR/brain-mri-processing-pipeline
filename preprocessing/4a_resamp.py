@@ -11,13 +11,15 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/bgpd/orig/', 
                     help='root dir for subject sequences data')
-parser.add_argument('--fixedfilename', type=list, default=['CT1.nii.gz'], help='name of file to register')
+parser.add_argument('--fixedfilename', type=list, default=['FLAIR.nii.gz'], help='name of file to register')
 parser.add_argument('--maskfilename', type=list, default=['mask_GTV_FLAIR.nii.gz'], help='name of mask to register')
-parser.add_argument('--movingfilenames', type=list, default=['T1.nii.gz','T2.nii.gz','FLAIR.nii.gz'], help='names of files')
+parser.add_argument('--movingfilenames', type=list, default=['T1.nii.gz','T2.nii.gz','CT1.nii.gz'], help='names of files')
 parser.add_argument('--resamplingtarget', type=str, default=['./utils/sri24_T1.nii'], 
                     help= 'resampling target for all images')
 parser.add_argument('--output', type=str, default='/anvar/public_datasets/preproc_study/bgpd/4a_resamp/', 
                     help= 'output folder')
+parser.add_argument('--channels', type=str, default=[1], 
+                    help= 'channels in mask')
 
 
 
@@ -81,7 +83,7 @@ def rigid_reg(fixed, moving):
 if __name__ == "__main__":
     
     """Pipeline with CT1 Rigid registration and interpolation to template, n4 and Z-score calculation
-       nohup python 4a_resamp.py > log_gbm/4a_resamp.out &
+       nohup python 4a_resamp.py > log_bgpd/4a_resamp.out &
     """
     os.makedirs(args.output, exist_ok=True)
     logging.basicConfig(filename=args.output + "logging.txt", level=logging.INFO, format='[%(asctime)s.%(msecs)03d] %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
@@ -126,9 +128,12 @@ if __name__ == "__main__":
                 logging.info("Rigid registration to {} started.".format(name))
                 registered_img = rigid_reg(img_fixed, img_moving)
                 img_moving_res = ants.resample_image(registered_img, (1, 1, 1), False, 0)
+                
                 logging.info("Rigid registration to {} completed.".format(name))
                 # Saving moving images
                 if not np.isinf(img_moving_res.numpy()).all():
                     ants.image_write(img_moving_res, args.output + subject + '/' + name, ri=False);
-
+                if (np.shape(mask_fixed_res.numpy()) != np.shape(img_moving_res.numpy())):
+                    print('Shape mismatch', subject, np.shape(mask_fixed_res.numpy()), np.shape(img_moving_res.numpy()))
+                    break
     logging.info(str(args))                         

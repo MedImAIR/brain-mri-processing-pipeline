@@ -15,28 +15,29 @@ import mpu.io
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/bgpd/3a_atlas/', 
+parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/gbm/4a_resample/', 
                     help='root dir for subject sequences data')
-parser.add_argument('--fixedfilename', type=list, default=['FLAIR.nii.gz'], help='name of file to register')
-parser.add_argument('--maskfilename', type=list, default=['mask_GTV_FLAIR.nii.gz'], help='name of mask to register to RPI')
+parser.add_argument('--fixedfilename', type=list, default=['CT1.nii.gz'], help='name of file to register')
+parser.add_argument('--maskfilename', type=list, default=['CT1_SEG.nii.gz'], help='name of mask to register to RPI')
 parser.add_argument('--movingfilenames', type=list, default=['CT1.nii.gz','T2.nii.gz','T1.nii.gz'], help='names of files')
-parser.add_argument('--output', type=str, default='/mnt/public_data/preproc_study/bgpd/6_hist/', 
+parser.add_argument('--output', type=str, default='/anvar/public_data/preproc_study/gbm/6_hist/', 
                     help= 'output folder')
-parser.add_argument('--seed', type=str, default='utils/example.json', help= 'mode individual or shared ')
+parser.add_argument('--seed', type=str, default='./params/gbm_seed.json', help= 'mode individual or shared ')
 parser.add_argument('--device', type=str, default='cpu', help= 'gpu or cpu, if gpu - should be `int` ')
 
 args = parser.parse_args()
 
 base_dir = args.path
-save_dir = args.autput
+save_dir = args.output
 seed = mpu.io.read(args.seed)
 
 if __name__ == "__main__":
     
+    os.makedirs(save_dir, exist_ok=True)
+    
     logging.basicConfig(filename=args.output + "logging.txt", level=logging.INFO, format='[%(asctime)s.%(msecs)03d] %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
     logging.getLogger().addHandler(logging.StreamHandler(sys.stdout))
     
-    os.makedirs(save_dir, exist_ok=True)
 
     # Creating a dataset
     subjects_list = []

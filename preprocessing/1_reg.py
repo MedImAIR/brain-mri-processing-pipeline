@@ -9,14 +9,14 @@ from glob import glob
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/gbm/orig/', 
+parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/bgpd/orig/', 
                     help='root dir for subject sequences data')
 parser.add_argument('--fixedfilename', type=list, default=['CT1.nii.gz'], help='name of file to register')
-parser.add_argument('--maskfilename', type=list, default=['CT1_SEG.nii.gz'], help='name of mask to register')
+parser.add_argument('--maskfilename', type=list, default=['mask_GTV_FLAIR.nii.gz'], help='name of mask to register')
 parser.add_argument('--movingfilenames', type=list, default=['T1.nii.gz','T2.nii.gz','FLAIR.nii.gz'], help='names of files')
 parser.add_argument('--resamplingtarget', type=str, default=['./utils/sri24_T1.nii'], 
                     help= 'resampling target for all images')
-parser.add_argument('--output', type=str, default='/anvar/public_datasets/preproc_study/gbm/1_reg/', 
+parser.add_argument('--output', type=str, default='/anvar/public_datasets/preproc_study/bgpd/1_reg/', 
                     help= 'output folder')
 
 args = parser.parse_args()
