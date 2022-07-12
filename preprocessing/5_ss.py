@@ -15,7 +15,7 @@ parser.add_argument('--movingfilenames', type=list, default=['FLAIR.nii.gz','T2.
 parser.add_argument('--output', type=str, default='/mnt/public_data/preproc_study/gbm/5_ss_shared/', 
                     help= 'output folder')
 parser.add_argument('--mode', type=str, default='shared', help= 'mode individual or shared ')
-parser.add_argument('--device', type=str, default='gpu', help= 'gpu or cpu, if gpu - should be `int` ')
+parser.add_argument('--device', type=str, default='0', help= 'gpu or cpu, if gpu - should be `int` ')
 
 args = parser.parse_args()
 
@@ -25,6 +25,7 @@ def hdbet(src_path, dst_path):
     subprocess.call(command)
     return
 
+# saving mask
 def hdbet_mask(src_path, dst_path):
     command = ["hd-bet", "-i", src_path, "-o", dst_path, "-device", args.device, "-s", "1"]
     subprocess.call(command)
@@ -87,7 +88,7 @@ if __name__ == "__main__":
             hdbet_mask(args.output + subject + '/' + args.fixedfilename[0][:-7] + '_RPI.nii.gz', 
                        args.output + subject + '/' + args.fixedfilename[0])
             logging.info("HD-BET fixed image completed.")
-
+            print(os.listdir(args.output + subject + '/'))
             # Removing excessive files
             os.remove(args.output + subject + '/' + args.fixedfilename[0][:-7] + '_RPI.nii.gz')
     #         os.remove(args.output + subject + '/' + args.fixedfilename[0][:-7] + '_mask.nii.gz' 

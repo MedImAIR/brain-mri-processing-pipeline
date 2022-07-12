@@ -15,12 +15,12 @@ import mpu.io
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/gbm/4a_resample/', 
+parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/gbm/4a_resamp/', 
                     help='root dir for subject sequences data')
 parser.add_argument('--fixedfilename', type=list, default=['CT1.nii.gz'], help='name of file to register')
 parser.add_argument('--maskfilename', type=list, default=['CT1_SEG.nii.gz'], help='name of mask to register to RPI')
 parser.add_argument('--movingfilenames', type=list, default=['CT1.nii.gz','T2.nii.gz','T1.nii.gz'], help='names of files')
-parser.add_argument('--output', type=str, default='/anvar/public_data/preproc_study/gbm/6_hist/', 
+parser.add_argument('--output', type=str, default='/anvar/public_datasets/preproc_study/gbm/6_hist/', 
                     help= 'output folder')
 parser.add_argument('--seed', type=str, default='./params/gbm_seed.json', help= 'mode individual or shared ')
 parser.add_argument('--device', type=str, default='cpu', help= 'gpu or cpu, if gpu - should be `int` ')
@@ -34,11 +34,10 @@ seed = mpu.io.read(args.seed)
 if __name__ == "__main__":
     
     os.makedirs(save_dir, exist_ok=True)
-    
     logging.basicConfig(filename=args.output + "logging.txt", level=logging.INFO, format='[%(asctime)s.%(msecs)03d] %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
     logging.getLogger().addHandler(logging.StreamHandler(sys.stdout))
     
-
+   
     # Creating a dataset
     subjects_list = []
     for patient in os.listdir(base_dir):
@@ -104,5 +103,5 @@ if __name__ == "__main__":
                     hist_standard['ct1'].save(save_dir + '/6_hist_{}/'.format(fold) + os.listdir(base_dir)[i] +'/CT1.nii.gz')
                     hist_standard['fl'].save(save_dir + '/6_hist_{}/'.format(fold) + os.listdir(base_dir)[i] +'/FLAIR.nii.gz')
                     hist_standard['t2'].save(save_dir + '/6_hist_{}/'.format(fold) + os.listdir(base_dir)[i] +'/T2.nii.gz')
-                    shutil.copy(base_dir + os.listdir(base_dir)[i] + '/' + mask_name,
-                    save_dir + '/6_hist_{}/'.format(fold) + os.listdir(base_dir)[i] +  '/' + mask_name)
+                    shutil.copy(base_dir + os.listdir(base_dir)[i] + '/' + args.maskfilename[0],
+                    save_dir + '/6_hist_{}/'.format(fold) + os.listdir(base_dir)[i] +  '/' + args.maskfilename[0])
