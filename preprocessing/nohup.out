@@ -76,3 +76,909 @@ Traceback (most recent call last):
   File "/home/kate/projects/brain-mri-processing-pipeline/preprocessing/6_hist.py", line 106, in <module>
     shutil.copy(base_dir + os.listdir(base_dir)[i] + '/' + mask_name,
 NameError: name 'mask_name' is not defined
+/anvar/public_datasets/preproc_study/gbm/orig/ Folder processing
+TCGA-02-0086 Subject processing
+TCGA-02-0102 Subject processing
+TCGA-02-0059 Subject processing
+TCGA-02-0069 Subject processing
+TCGA-19-2624 Subject processing
+Atlas registration started TCGA-19-2624.
+Atlas registration completed TCGA-19-2624.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-0182 Subject processing
+Atlas registration started TCGA-06-0182.
+Atlas registration completed TCGA-06-0182.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-08-0360 Subject processing
+Atlas registration started TCGA-08-0360.
+Atlas registration completed TCGA-08-0360.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-02-0006 Subject processing
+Atlas registration started TCGA-02-0006.
+Atlas registration completed TCGA-02-0006.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-19-2631 Subject processing
+Atlas registration started TCGA-19-2631.
+Atlas registration completed TCGA-19-2631.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-12-1094 Subject processing
+Atlas registration started TCGA-12-1094.
+Atlas registration completed TCGA-12-1094.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-2570 Subject processing
+Atlas registration started TCGA-06-2570.
+Atlas registration completed TCGA-06-2570.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-0119 Subject processing
+Atlas registration started TCGA-06-0119.
+Atlas registration completed TCGA-06-0119.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-0145 Subject processing
+Atlas registration started TCGA-06-0145.
+Atlas registration completed TCGA-06-0145.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-08-0509 Subject processing
+Atlas registration started TCGA-08-0509.
+Atlas registration completed TCGA-08-0509.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-5408 Subject processing
+Atlas registration started TCGA-06-5408.
+Atlas registration completed TCGA-06-5408.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-02-0116 Subject processing
+Atlas registration started TCGA-02-0116.
+Atlas registration completed TCGA-02-0116.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-0188 Subject processing
+Atlas registration started TCGA-06-0188.
+Atlas registration completed TCGA-06-0188.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-76-6661 Subject processing
+/anvar/public_datasets/preproc_study/gbm/orig/TCGA-76-6661/CT1_SEG.nii.gz
+Untypical channels [1.560928 4.682784 6.243712]
+Atlas registration started TCGA-76-6661.
+Atlas registration completed TCGA-76-6661.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-02-0047 Subject processing
+Atlas registration started TCGA-02-0047.
+Atlas registration completed TCGA-02-0047.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-12-3650 Subject processing
+Atlas registration started TCGA-12-3650.
+Atlas registration completed TCGA-12-3650.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-02-0064 Subject processing
+Atlas registration started TCGA-02-0064.
+Atlas registration completed TCGA-02-0064.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-14-1825 Subject processing
+Atlas registration started TCGA-14-1825.
+Atlas registration completed TCGA-14-1825.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-0162 Subject processing
+Atlas registration started TCGA-06-0162.
+Atlas registration completed TCGA-06-0162.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-02-0033 Subject processing
+Atlas registration started TCGA-02-0033.
+Atlas registration completed TCGA-02-0033.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-08-0359 Subject processing
+Atlas registration started TCGA-08-0359.
+Atlas registration completed TCGA-08-0359.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-02-0054 Subject processing
+Atlas registration started TCGA-02-0054.
+Atlas registration completed TCGA-02-0054.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-0184 Subject processing
+Atlas registration started TCGA-06-0184.
+Atlas registration completed TCGA-06-0184.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-12-1601 Subject processing
+Atlas registration started TCGA-12-1601.
+Atlas registration completed TCGA-12-1601.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-5413 Subject processing
+Atlas registration started TCGA-06-5413.
+Atlas registration completed TCGA-06-5413.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-76-6191 Subject processing
+Atlas registration started TCGA-76-6191.
+Atlas registration completed TCGA-76-6191.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-02-0075 Subject processing
+Atlas registration started TCGA-02-0075.
+Atlas registration completed TCGA-02-0075.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-0177 Subject processing
+Atlas registration started TCGA-06-0177.
+Atlas registration completed TCGA-06-0177.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-0154 Subject processing
+Atlas registration started TCGA-06-0154.
+Atlas registration completed TCGA-06-0154.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-0179 Subject processing
+Atlas registration started TCGA-06-0179.
+Atlas registration completed TCGA-06-0179.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-19-5951 Subject processing
+Atlas registration started TCGA-19-5951.
+Atlas registration completed TCGA-19-5951.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-12-1598 Subject processing
+Atlas registration started TCGA-12-1598.
+Atlas registration completed TCGA-12-1598.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-12-0616 Subject processing
+Atlas registration started TCGA-12-0616.
+Atlas registration completed TCGA-12-0616.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-02-0070 Subject processing
+Atlas registration started TCGA-02-0070.
+Atlas registration completed TCGA-02-0070.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-1084 Subject processing
+Atlas registration started TCGA-06-1084.
+Atlas registration completed TCGA-06-1084.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-12-0829 Subject processing
+Atlas registration started TCGA-12-0829.
+Atlas registration completed TCGA-12-0829.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-76-4932 Subject processing
+Atlas registration started TCGA-76-4932.
+Atlas registration completed TCGA-76-4932.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-02-0068 Subject processing
+Atlas registration started TCGA-02-0068.
+Atlas registration completed TCGA-02-0068.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-76-6282 Subject processing
+Atlas registration started TCGA-76-6282.
+Atlas registration completed TCGA-76-6282.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-08-0385 Subject processing
+Atlas registration started TCGA-08-0385.
+Atlas registration completed TCGA-08-0385.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-12-1098 Subject processing
+Atlas registration started TCGA-12-1098.
+Atlas registration completed TCGA-12-1098.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-08-0512 Subject processing
+Atlas registration started TCGA-08-0512.
+Atlas registration completed TCGA-08-0512.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-08-0389 Subject processing
+Atlas registration started TCGA-08-0389.
+Atlas registration completed TCGA-08-0389.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-14-1794 Subject processing
+/anvar/public_datasets/preproc_study/gbm/orig/TCGA-14-1794/CT1_SEG.nii.gz
+Untypical channels [2.5308914 5.061783  7.5926743]
+Atlas registration started TCGA-14-1794.
+Atlas registration completed TCGA-14-1794.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-19-1789 Subject processing
+Atlas registration started TCGA-19-1789.
+Atlas registration completed TCGA-19-1789.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-02-0009 Subject processing
+Atlas registration started TCGA-02-0009.
+Atlas registration completed TCGA-02-0009.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-0122 Subject processing
+Atlas registration started TCGA-06-0122.
+Atlas registration completed TCGA-06-0122.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-08-0355 Subject processing
+Atlas registration started TCGA-08-0355.
+Atlas registration completed TCGA-08-0355.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-6389 Subject processing
+Atlas registration started TCGA-06-6389.
+Atlas registration completed TCGA-06-6389.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-0190 Subject processing
+Atlas registration started TCGA-06-0190.
+Atlas registration completed TCGA-06-0190.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-0192 Subject processing
+Atlas registration started TCGA-06-0192.
+Atlas registration completed TCGA-06-0192.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-02-0027 Subject processing
+Atlas registration started TCGA-02-0027.
+Atlas registration completed TCGA-02-0027.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-0137 Subject processing
+Atlas registration started TCGA-06-0137.
+Atlas registration completed TCGA-06-0137.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-12-0776 Subject processing
+Atlas registration started TCGA-12-0776.
+Atlas registration completed TCGA-12-0776.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-76-6657 Subject processing
+/anvar/public_datasets/preproc_study/gbm/orig/TCGA-76-6657/CT1_SEG.nii.gz
+Untypical channels [3.2803419 6.5606837 9.841025 ]
+Atlas registration started TCGA-76-6657.
+Atlas registration completed TCGA-76-6657.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-0176 Subject processing
+Atlas registration started TCGA-06-0176.
+Atlas registration completed TCGA-06-0176.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-08-0356 Subject processing
+Atlas registration started TCGA-08-0356.
+Atlas registration completed TCGA-08-0356.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-76-6662 Subject processing
+/anvar/public_datasets/preproc_study/gbm/orig/TCGA-76-6662/CT1_SEG.nii.gz
+Untypical channels [1.8251526 3.6503053 5.475458 ]
+Atlas registration started TCGA-76-6662.
+Atlas registration completed TCGA-76-6662.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-08-0522 Subject processing
+Atlas registration started TCGA-08-0522.
+Atlas registration completed TCGA-08-0522.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-1802 Subject processing
+Atlas registration started TCGA-06-1802.
+Atlas registration completed TCGA-06-1802.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-19-5960 Subject processing
+Atlas registration started TCGA-19-5960.
+Atlas registration completed TCGA-19-5960.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-08-0390 Subject processing
+Atlas registration started TCGA-08-0390.
+Atlas registration completed TCGA-08-0390.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-14-1456 Subject processing
+Atlas registration started TCGA-14-1456.
+Atlas registration completed TCGA-14-1456.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-0158 Subject processing
+Atlas registration started TCGA-06-0158.
+Atlas registration completed TCGA-06-0158.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-0139 Subject processing
+Atlas registration started TCGA-06-0139.
+Atlas registration completed TCGA-06-0139.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-0238 Subject processing
+Atlas registration started TCGA-06-0238.
+Atlas registration completed TCGA-06-0238.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-76-4935 Subject processing
+/anvar/public_datasets/preproc_study/gbm/orig/TCGA-76-4935/CT1_SEG.nii.gz
+Untypical channels [1.4778999 2.9557998 4.4336996]
+Atlas registration started TCGA-76-4935.
+Atlas registration completed TCGA-76-4935.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-14-3477 Subject processing
+Atlas registration started TCGA-14-3477.
+Atlas registration completed TCGA-14-3477.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-02-0106 Subject processing
+Atlas registration started TCGA-02-0106.
+Atlas registration completed TCGA-02-0106.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-0644 Subject processing
+Atlas registration started TCGA-06-0644.
+Atlas registration completed TCGA-06-0644.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-19-0963 Subject processing
+Atlas registration started TCGA-19-0963.
+Atlas registration completed TCGA-19-0963.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-0187 Subject processing
+Atlas registration started TCGA-06-0187.
+Atlas registration completed TCGA-06-0187.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-76-6664 Subject processing
+/anvar/public_datasets/preproc_study/gbm/orig/TCGA-76-6664/CT1_SEG.nii.gz
+Untypical channels [1.8178266 3.6356533 5.45348  ]
+Atlas registration started TCGA-76-6664.
+Atlas registration completed TCGA-76-6664.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-76-6663 Subject processing
+/anvar/public_datasets/preproc_study/gbm/orig/TCGA-76-6663/CT1_SEG.nii.gz
+Untypical channels [ 3.823199  7.646398 11.469597]
+Atlas registration started TCGA-76-6663.
+Atlas registration completed TCGA-76-6663.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-76-6285 Subject processing
+Atlas registration started TCGA-76-6285.
+Atlas registration completed TCGA-76-6285.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-76-4934 Subject processing
+/anvar/public_datasets/preproc_study/gbm/orig/TCGA-76-4934/CT1_SEG.nii.gz
+Untypical channels [1.524298 3.048596 4.572894]
+Atlas registration started TCGA-76-4934.
+Atlas registration completed TCGA-76-4934.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-02-0087 Subject processing
+Atlas registration started TCGA-02-0087.
+Atlas registration completed TCGA-02-0087.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-08-0392 Subject processing
+Atlas registration started TCGA-08-0392.
+Atlas registration completed TCGA-08-0392.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-02-0085 Subject processing
+Atlas registration started TCGA-02-0085.
+Atlas registration completed TCGA-02-0085.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-0185 Subject processing
+Atlas registration started TCGA-06-0185.
+Atlas registration completed TCGA-06-0185.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-0130 Subject processing
+Atlas registration started TCGA-06-0130.
+Atlas registration completed TCGA-06-0130.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-0240 Subject processing
+Atlas registration started TCGA-06-0240.
+Atlas registration completed TCGA-06-0240.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-02-0034 Subject processing
+Atlas registration started TCGA-02-0034.
+Atlas registration completed TCGA-02-0034.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-0149 Subject processing
+Atlas registration started TCGA-06-0149.
+Atlas registration completed TCGA-06-0149.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-02-0011 Subject processing
+Atlas registration started TCGA-02-0011.
+Atlas registration completed TCGA-02-0011.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-0138 Subject processing
+Atlas registration started TCGA-06-0138.
+Atlas registration completed TCGA-06-0138.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-76-6280 Subject processing
+Atlas registration started TCGA-76-6280.
+Atlas registration completed TCGA-76-6280.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-19-5954 Subject processing
+Atlas registration started TCGA-19-5954.
+Atlas registration completed TCGA-19-5954.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-76-6193 Subject processing
+Atlas registration started TCGA-76-6193.
+Atlas registration completed TCGA-76-6193.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-0164 Subject processing
+Atlas registration started TCGA-06-0164.
+Atlas registration completed TCGA-06-0164.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-5417 Subject processing
+Atlas registration started TCGA-06-5417.
+Atlas registration completed TCGA-06-5417.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-19-5958 Subject processing
+Atlas registration started TCGA-19-5958.
+Atlas registration completed TCGA-19-5958.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-76-6656 Subject processing
+/anvar/public_datasets/preproc_study/gbm/orig/TCGA-76-6656/CT1_SEG.nii.gz
+Untypical channels [1.9323565 3.864713  5.7970695]
+Atlas registration started TCGA-76-6656.
+Atlas registration completed TCGA-76-6656.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-0646 Subject processing
+Atlas registration started TCGA-06-0646.
+Atlas registration completed TCGA-06-0646.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-02-0046 Subject processing
+Atlas registration started TCGA-02-0046.
+Atlas registration completed TCGA-02-0046.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-06-0142 Subject processing
+Atlas registration started TCGA-06-0142.
+Atlas registration completed TCGA-06-0142.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-02-0037 Subject processing
+Atlas registration started TCGA-02-0037.
+Atlas registration completed TCGA-02-0037.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-08-0520 Subject processing
+Atlas registration started TCGA-08-0520.
+Atlas registration completed TCGA-08-0520.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+Namespace(path='/anvar/public_datasets/preproc_study/gbm/orig/', fixedfilename=['CT1.nii.gz'], maskfilename=['CT1_SEG.nii.gz'], movingfilenames=['T1.nii.gz', 'T2.nii.gz', 'FLAIR.nii.gz'], resamplingtarget=['./params/sri24_T1.nii'], output='/anvar/public_datasets/preproc_study/gbm/3a_atlas/', channels=[1, 2, 3])

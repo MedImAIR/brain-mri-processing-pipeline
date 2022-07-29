@@ -9,14 +9,14 @@ from glob import glob
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/bgpd/orig/', 
+parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/gbm/orig/', 
                     help='root dir for subject sequences data')
-parser.add_argument('--fixedfilename', type=list, default=['FLAIR.nii.gz'], help='name of file to register')
-parser.add_argument('--maskfilename', type=list, default=['mask_GTV_FLAIR.nii.gz'], help='name of mask to register')
-parser.add_argument('--movingfilenames', type=list, default=['T1.nii.gz','T2.nii.gz','CT1.nii.gz'], help='names of files')
+parser.add_argument('--fixedfilename', type=list, default=['CT1.nii.gz'], help='name of file to register')
+parser.add_argument('--maskfilename', type=list, default=['CT1_SEG.nii.gz'], help='name of mask to register')
+parser.add_argument('--movingfilenames', type=list, default=['T1.nii.gz','T2.nii.gz','FLAIR.nii.gz'], help='names of files')
 parser.add_argument('--resamplingtarget', type=str, default=['./utils/sri24_T1.nii'], 
                     help= 'resampling target for all images')
-parser.add_argument('--output', type=str, default='/anvar/public_datasets/preproc_study/bgpd/4a_resamp/', 
+parser.add_argument('--output', type=str, default='/anvar/public_datasets/preproc_study/gbm/4a_resamp/', 
                     help= 'output folder')
 parser.add_argument('--channels', type=str, default=[1], 
                     help= 'channels in mask')
@@ -99,7 +99,7 @@ if __name__ == "__main__":
         logging.info("{} Subject processing".format(subject)) 
         os.makedirs(args.output + subject + '/', exist_ok=True)
         
-        if len(os.listdir(args.output + subject + '/')) < 4:
+        if len(os.listdir(args.output + subject + '/')) < (len(args.movingfilenames)+2):
             img_fixed = ants.image_read(args.path + subject + '/' + args.fixedfilename[0])
             mask_fixed, channels = check_multiple_channels(args.path + subject + '/' + args.maskfilename[0])
 
