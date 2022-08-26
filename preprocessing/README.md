@@ -19,6 +19,7 @@ You need to install [HD-BEt](https://github.com/MIC-DKFZ/HD-BET) for histagram m
 - `4d_susan.sh`: SUSAN denoising applied after interpolation;
 - `5_ss.py`: Skull-stripping with [HD-Bet](https://github.com/MIC-DKFZ/HD-BET)
 - `6_hist.py`: histogram normalization in [torchio](https://torchio.readthedocs.io/)
+- `quality_test.py`: checks for equal sizing, absence of Nan or `inf` values, check the difference from other datasets
 
 #### Params:
 In  `params` folder you will find nesessary files: atlases, and training seed to be accaounted in statistical comparison. 

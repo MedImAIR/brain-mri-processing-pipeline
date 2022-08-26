@@ -1,0 +1,10 @@
+/anvar/public_datasets/preproc_study/lgg/orig/ Folder processing
+TCGA-CS-6188 Subject processing
+Traceback (most recent call last):
+  File "/home/kate/projects/brain-mri-processing-pipeline/preprocessing/1_reg.py", line 85, in <module>
+    mask_fixed, channels = check_multiple_channels(args.path + subject + '/' + args.maskfilename[0])
+  File "/home/kate/projects/brain-mri-processing-pipeline/preprocessing/1_reg.py", line 28, in check_multiple_channels
+    img = ants.image_read(path_to_img)
+  File "/home/kate/miniconda3/lib/python3.9/site-packages/ants/core/ants_image_io.py", line 515, in image_read
+    raise ValueError("File %s does not exist!" % filename)
+ValueError: File /anvar/public_datasets/preproc_study/lgg/orig/TCGA-CS-6188/CT1_SEG.nii.gz does not exist!

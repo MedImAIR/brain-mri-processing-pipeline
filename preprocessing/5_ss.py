@@ -7,12 +7,12 @@ import subprocess
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/bgpd/4a_resamp/', 
+parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/schw/4a_resamp/', 
                     help='root dir for subject sequences data')
-parser.add_argument('--fixedfilename', type=list, default=['FLAIR.nii.gz'], help='name of file to register')
-parser.add_argument('--maskfilename', type=list, default=['mask_GTV_FLAIR.nii.gz'], help='name of mask to register to RPI')
-parser.add_argument('--movingfilenames', type=list, default=['CT1.nii.gz','T2.nii.gz','T1.nii.gz'], help='names of files')
-parser.add_argument('--output', type=str, default='/mnt/public_data/preproc_study/bgpd/5_ss_shared/', 
+parser.add_argument('--fixedfilename', type=list, default=['T1.nii.gz'], help='name of file to register')
+parser.add_argument('--maskfilename', type=list, default=['T1_SEG.nii.gz'], help='name of mask to register to RPI')
+parser.add_argument('--movingfilenames', type=list, default=['T2.nii.gz'], help='names of files')
+parser.add_argument('--output', type=str, default='/mnt/public_data/preproc_study/schw/5_ss_shared/', 
                     help= 'output folder')
 parser.add_argument('--mode', type=str, default='shared', help= 'mode individual or shared ')
 parser.add_argument('--device', type=str, default='0', help= 'gpu or cpu, if gpu - should be `int` ')

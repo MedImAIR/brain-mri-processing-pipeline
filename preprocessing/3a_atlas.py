@@ -9,14 +9,14 @@ from glob import glob
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/bgpd/orig/', 
+parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/lgg/orig/', 
                     help='root dir for subject sequences data')
-parser.add_argument('--fixedfilename', type=list, default=['FLAIR.nii.gz'], help='name of file to register')
-parser.add_argument('--maskfilename', type=list, default=['mask_GTV_FLAIR.nii.gz'], help='name of mask to register')
-parser.add_argument('--movingfilenames', type=list, default=['T1.nii.gz','T2.nii.gz','CT1.nii.gz'], help='names of files')
+parser.add_argument('--fixedfilename', type=list, default=['CT1.nii.gz'], help='name of file to register')
+parser.add_argument('--maskfilename', type=list, default=['CT1_SEG.nii.gz'], help='name of mask to register')
+parser.add_argument('--movingfilenames', type=list, default=['T1.nii.gz','T2.nii.gz','FLAIR.nii.gz'], help='names of files')
 parser.add_argument('--resamplingtarget', type=str, default=['./params/sri24_T1.nii'], 
                     help= 'resampling target for all images')
-parser.add_argument('--output', type=str, default='/anvar/public_datasets/preproc_study/bgpd/3a_atlas/', 
+parser.add_argument('--output', type=str, default='/anvar/public_datasets/preproc_study/lgg/3a_atlas/', 
                     help= 'output folder')
 parser.add_argument('--channels', type=str, default=[1,2,3], 
                     help= 'channels in mask')
@@ -32,10 +32,10 @@ def check_multiple_channels(path_to_img):
     img = ants.image_read(path_to_img)
 
     channels = np.unique(img.numpy())[1:]
-    if np.shape(channels)[0] > 1:
+    if np.shape(channels)[0] == 3:
         if channels[0] != 1:
             print(path_to_img)
-            print('Untypical channels', channels)
+            print('Untypical three channels', channels)
             result_arr = img.numpy()
             result_arr[result_arr == channels[0]] = int(1)
             result_arr[result_arr == channels[1]] = int(2)
@@ -43,7 +43,17 @@ def check_multiple_channels(path_to_img):
             img_new = img.new_image_like(result_arr)
             img = img_new
             channels = [1,2,3]
-
+    # if two channels       
+    if np.shape(channels)[0] == 2:
+        if channels[0] != 1:
+            print(path_to_img)
+            print('Untypical two channels', channels)
+            result_arr = img.numpy()
+            result_arr[result_arr == channels[0]] = int(1)
+            result_arr[result_arr == channels[1]] = int(2)
+            img_new = img.new_image_like(result_arr)
+            img = img_new
+            channels = [1,2]
     return(img , channels)
 
 def resample_by_channels(img, 
@@ -129,7 +139,7 @@ if __name__ == "__main__":
             logging.info("Saving transforms.".format(subject))
             # be carefull these transforms are identical, it is neeeded to use whichtoinverse=[True] while aaplying 
             shutil.copy(img_to_sri['fwdtransforms'][0], args.output + subject + '/'+ 'T1C_to_SRI_fwd.mat')
-            shutil.copy(img_to_sri['invtransforms'][0], args.output + subject + '/'+ 'T1C_to_SRI_inv.mat')
+#             shutil.copy(img_to_sri['invtransforms'][0], args.output + subject + '/'+ 'T1C_to_SRI_inv.mat')
 
             for name in args.movingfilenames:
                 # Reorient moving

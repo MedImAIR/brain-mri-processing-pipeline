@@ -1,0 +1,175 @@
+/anvar/public_datasets/preproc_study/lgg/orig/ Folder processing
+TCGA-CS-6188 Subject processing
+TCGA-DU-7015 Subject processing
+TCGA-CS-5393 Subject processing
+TCGA-DU-8167 Subject processing
+TCGA-DU-7306 Subject processing
+TCGA-CS-4942 Subject processing
+TCGA-CS-6186 Subject processing
+TCGA-DU-8164 Subject processing
+TCGA-DU-7300 Subject processing
+TCGA-DU-7301 Subject processing
+TCGA-DU-6404 Subject processing
+TCGA-DU-8162 Subject processing
+TCGA-DU-7299 Subject processing
+TCGA-CS-6668 Subject processing
+TCGA-DU-8168 Subject processing
+TCGA-DU-5854 Subject processing
+TCGA-CS-6666 Subject processing
+/anvar/public_datasets/preproc_study/lgg/orig/TCGA-CS-6666/CT1_SEG.nii.gz
+Untypical two channels [ 5.632967 11.265934]
+Resampling fixed started TCGA-CS-6666.
+Resampling fixed completed TCGA-CS-6666.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-CS-5397 Subject processing
+/anvar/public_datasets/preproc_study/lgg/orig/TCGA-CS-5397/CT1_SEG.nii.gz
+Untypical two channels [1.7103785 3.420757 ]
+Resampling fixed started TCGA-CS-5397.
+Resampling fixed completed TCGA-CS-5397.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-CS-4944 Subject processing
+Resampling fixed started TCGA-CS-4944.
+Resampling fixed completed TCGA-CS-4944.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-DU-6542 Subject processing
+Resampling fixed started TCGA-DU-6542.
+Resampling fixed completed TCGA-DU-6542.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-DU-8166 Subject processing
+Resampling fixed started TCGA-DU-8166.
+Resampling fixed completed TCGA-DU-8166.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-DU-5872 Subject processing
+Resampling fixed started TCGA-DU-5872.
+Resampling fixed completed TCGA-DU-5872.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-CS-6665 Subject processing
+/anvar/public_datasets/preproc_study/lgg/orig/TCGA-CS-6665/CT1_SEG.nii.gz
+Untypical two channels [2.9650793 5.9301586]
+Resampling fixed started TCGA-CS-6665.
+Resampling fixed completed TCGA-CS-6665.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-DU-7019 Subject processing
+Resampling fixed started TCGA-DU-7019.
+Resampling fixed completed TCGA-DU-7019.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-DU-7008 Subject processing
+Resampling fixed started TCGA-DU-7008.
+Resampling fixed completed TCGA-DU-7008.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-CS-6669 Subject processing
+/anvar/public_datasets/preproc_study/lgg/orig/TCGA-CS-6669/CT1_SEG.nii.gz
+Untypical two channels [2.423199 4.846398]
+Resampling fixed started TCGA-CS-6669.
+Resampling fixed completed TCGA-CS-6669.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-DU-7298 Subject processing
+Resampling fixed started TCGA-DU-7298.
+Resampling fixed completed TCGA-DU-7298.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-DU-7018 Subject processing
+Resampling fixed started TCGA-DU-7018.
+Resampling fixed completed TCGA-DU-7018.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-DU-5855 Subject processing
+/anvar/public_datasets/preproc_study/lgg/orig/TCGA-DU-5855/CT1_SEG.nii.gz
+Untypical three channels [1.8522588 3.7045176 5.5567765]
+Resampling fixed started TCGA-DU-5855.
+Resampling fixed completed TCGA-DU-5855.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-DU-5851 Subject processing
+Resampling fixed started TCGA-DU-5851.
+Resampling fixed completed TCGA-DU-5851.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-DU-7010 Subject processing
+Resampling fixed started TCGA-DU-7010.
+Resampling fixed completed TCGA-DU-7010.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-DU-5874 Subject processing
+Resampling fixed started TCGA-DU-5874.
+Resampling fixed completed TCGA-DU-5874.
+Rigid registration to T1.nii.gz started.
+Rigid registration to T1.nii.gz completed.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Rigid registration to FLAIR.nii.gz started.
+Rigid registration to FLAIR.nii.gz completed.
+TCGA-DU-7309 Subject processing
+Resampling fixed started TCGA-DU-7309.
+Resampling fixed completed TCGA-DU-7309.
+Rigid registration to T1.nii.gz started.
