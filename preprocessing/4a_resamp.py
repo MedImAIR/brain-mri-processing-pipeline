@@ -13,7 +13,7 @@ parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_
                     help='root dir for subject sequences data')
 parser.add_argument('--fixedfilename', type=list, default=['CT1.nii.gz'], help='name of file to register')
 parser.add_argument('--maskfilename', type=list, default=['CT1_SEG.nii.gz'], help='name of mask to register')
-parser.add_argument('--movingfilenames', type=list, default=['T1.nii.gz','T2.nii.gz','FLAIR.nii.gz'], help='names of files')
+parser.add_argument('--movingfilenames', type=list, default=['T2.nii.gz','T1.nii.gz', 'FLAIR.nii.gz'], help='names of files')
 parser.add_argument('--resamplingtarget', type=str, default=['./utils/sri24_T1.nii'], 
                     help= 'resampling target for all images')
 parser.add_argument('--output', type=str, default='/anvar/public_datasets/preproc_study/lgg/4a_resamp/', 
@@ -144,6 +144,6 @@ if __name__ == "__main__":
                 if not np.isinf(img_moving_res.numpy()).all():
                     ants.image_write(img_moving_res, args.output + subject + '/' + name, ri=False);
                 if (np.shape(mask_fixed_res.numpy()) != np.shape(img_moving_res.numpy())):
-                    print('Shape mismatch', subject, np.shape(mask_fixed_res.numpy()), np.shape(img_moving_res.numpy()))
+                    print('Shape mismatch with mask', subject, np.shape(mask_fixed_res.numpy()), 'and image', np.shape(img_moving_res.numpy()))
                     break
     logging.info(str(args))                         

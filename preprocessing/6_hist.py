@@ -16,14 +16,14 @@ import mpu.io
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/schw/4a_resamp/', 
+parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/lgg/4a_resamp/', 
                     help='root dir for subject sequences data')
-parser.add_argument('--fixedfilename', type=list, default=['T1.nii.gz.nii.gz'], help='name of file to register')
-parser.add_argument('--maskfilename', type=list, default=['T1_SEG.nii.gz'], help='name of mask to register to RPI')
-parser.add_argument('--movingfilenames', type=list, default=['T2.nii.gz'], help='names of files')
-parser.add_argument('--output', type=str, default='/anvar/public_datasets/preproc_study/schw/6_hist/', 
+parser.add_argument('--fixedfilename', type=list, default=['CT1.nii.gz.nii.gz'], help='name of file to register')
+parser.add_argument('--maskfilename', type=list, default=['CT1_SEG.nii.gz'], help='name of mask to register to RPI')
+parser.add_argument('--movingfilenames', type=list, default=['FLAIR.nii.gz','T1.nii.gz','T2.nii.gz'], help='names of files')
+parser.add_argument('--output', type=str, default='/anvar/public_datasets/preproc_study/lgg/6_hist/', 
                     help= 'output folder')
-parser.add_argument('--seed', type=str, default='./params/schw_seed.json', help= 'mode individual or shared ')
+parser.add_argument('--seed', type=str, default='./params/lgg_seed.json', help= 'mode individual or shared ')
 parser.add_argument('--device', type=str, default='cpu', help= 'gpu or cpu, if gpu - should be `int` ')
 
 args = parser.parse_args()
@@ -47,8 +47,8 @@ if __name__ == "__main__":
                 t1 = tio.ScalarImage(base_dir + patient + '/T1.nii.gz'),
                 t2 = tio.ScalarImage(base_dir + patient + '/T2.nii.gz'),
                 # can be commented for other datasets
-#                 ct1 = tio.ScalarImage(base_dir + patient + '/CT1.nii.gz'),
-#                 fl = tio.ScalarImage(base_dir + patient + '/FLAIR.nii.gz')
+                ct1 = tio.ScalarImage(base_dir + patient + '/CT1.nii.gz'),
+                fl = tio.ScalarImage(base_dir + patient + '/FLAIR.nii.gz')
             )
             subjects_list.append(subject)
 
@@ -70,8 +70,8 @@ if __name__ == "__main__":
                     temp_t1_list.append(base_dir + patient + '/T1.nii.gz')
                     temp_t2_list.append(base_dir + patient + '/T2.nii.gz')
                     # can be commented for other datasets
-#                     temp_ct1_list.append(base_dir + patient + '/CT1.nii.gz')
-#                     temp_fl_list.append(base_dir + patient + '/FLAIR.nii.gz')
+                    temp_ct1_list.append(base_dir + patient + '/CT1.nii.gz')
+                    temp_fl_list.append(base_dir + patient + '/FLAIR.nii.gz')
 
         print('For landmarks there are ', len(temp_t1_list))
         logging.info("Training T1 landmarks started.")
@@ -79,23 +79,23 @@ if __name__ == "__main__":
         logging.info("Training T2 landmarks started.")
         t2_landmarks = HistogramStandardization.train(temp_t2_list)
         # can be commented for other datasets
-#         logging.info("Training CT1 landmarks started.")
-#         ct1_landmarks = HistogramStandardization.train(temp_ct1_list)
-#         logging.info("Training FLAIR landmarks started.")
-#         fl_landmarks = HistogramStandardization.train(temp_fl_list)
+        logging.info("Training CT1 landmarks started.")
+        ct1_landmarks = HistogramStandardization.train(temp_ct1_list)
+        logging.info("Training FLAIR landmarks started.")
+        fl_landmarks = HistogramStandardization.train(temp_fl_list)
 
         # Saving landmarks
         landmarks_dict = {
         't1': t1_landmarks,
         't2': t2_landmarks,
         # can be commented for other datasets
-#         'ct1': ct1_landmarks,
-#         'fl': fl_landmarks
+        'ct1': ct1_landmarks,
+        'fl': fl_landmarks
         }
 
         # Saving landmarks
         logging.info("Saving landmarks started.")
-        torch.save(landmarks_dict, './params/gbm_dict.pth')
+        torch.save(landmarks_dict, './params/lgg_dict.pth')
 
         hist_standardize = tio.HistogramStandardization(landmarks_dict)
 
@@ -114,8 +114,8 @@ if __name__ == "__main__":
                     hist_standard['t1'].save(save_dir + '/6_hist_{}/'.format(fold) + os.listdir(base_dir)[i] +'/T1.nii.gz')
                     hist_standard['t2'].save(save_dir + '/6_hist_{}/'.format(fold) + os.listdir(base_dir)[i] +'/T2.nii.gz')
                      # can be commented for other datasets
-#                     hist_standard['ct1'].save(save_dir + '/6_hist_{}/'.format(fold) + os.listdir(base_dir)[i] +'/CT1.nii.gz')
-#                     hist_standard['fl'].save(save_dir + '/6_hist_{}/'.format(fold) + os.listdir(base_dir)[i] +'/FLAIR.nii.gz')
+                    hist_standard['ct1'].save(save_dir + '/6_hist_{}/'.format(fold) + os.listdir(base_dir)[i] +'/CT1.nii.gz')
+                    hist_standard['fl'].save(save_dir + '/6_hist_{}/'.format(fold) + os.listdir(base_dir)[i] +'/FLAIR.nii.gz')
                     # saving segmentation file
                     shutil.copy(base_dir + os.listdir(base_dir)[i] + '/' + args.maskfilename[0],
                     save_dir + '/6_hist_{}/'.format(fold) + os.listdir(base_dir)[i] +  '/' + args.maskfilename[0])

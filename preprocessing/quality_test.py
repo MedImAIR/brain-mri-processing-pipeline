@@ -10,8 +10,8 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument('--label', type=list, default = [0,1,2,3], help = 'labels in the segmentation mask')
 parser.add_argument('--modalities', type=list, default = ['FLAIR.nii.gz','T1.nii.gz','T2.nii.gz','CT1_SEG.nii.gz'], help='names of files')
-parser.add_argument('--current', type=str, default='/anvar/public_datasets/preproc_study/gbm/5_ss_shared/', help='folder name')
-parser.add_argument('--parent', type=str, default='/anvar/public_datasets/preproc_study/gbm/4a_resamp/', help='parent folder files')
+parser.add_argument('--current', type=str, default='/anvar/public_datasets/preproc_study/lgg/6_hist/6_hist_fold_0/', help='folder name')
+parser.add_argument('--parent', type=str, default='/anvar/public_datasets/preproc_study/lgg/4a_resamp/', help='parent folder files')
 parser.add_argument('--segmentation_name', type=str, default='CT1_SEG.nii.gz', 
                     help= 'segmentation mask')
 args = parser.parse_args()
@@ -30,7 +30,7 @@ if __name__ == "__main__":
     The function is intended to check, if new dataset has no bugs. Helping to find
     
     """
-
+    print(current)
     for patient in tqdm.tqdm(os.listdir(current)):
         if patient != 'logging.txt':
             img = ants.image_read(current + '/{}/{}'.format(patient, modalities[-1]))
@@ -49,10 +49,10 @@ if __name__ == "__main__":
                 if not img.sum() > 0:
                     print(patient,modality, 'Amount of nans:', np.shape(np.argwhere(np.isnan(img.numpy()))))
 
-                #checking labels for segmentation
-                if modality == segmentation_name:
-                    if not (np.unique(img.numpy()) == np.array(label)).sum() == len(label):
-                            print('Assert label', patient, np.unique(img.numpy()) )
+#                 #checking labels for segmentation
+#                 if modality == segmentation_name:
+#                     if not (np.unique(img.numpy()) == np.array(label)).sum() == len(label):
+#                             print('Assert label', patient, np.unique(img.numpy()) )
 
                 old_img = ants.image_read(parent + '/{}/{}'.format(patient, modality))
 

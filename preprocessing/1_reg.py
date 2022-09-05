@@ -52,6 +52,7 @@ def check_multiple_channels(path_to_img):
             channels = [1,2]
     return(img , channels)
 
+
 def rigid_reg(fixed, moving):
     """Rigidly register `moving` image onto `fixed` image and apply resulting transformation on `mask`.
     Returns mask in `fixed` resolution."""
@@ -90,7 +91,7 @@ if __name__ == "__main__":
         os.makedirs(args.output + subject + '/', exist_ok=True)
         
         # if subject is not processed fully, and all files are gathered
-        if len(os.listdir(args.output + subject + '/')) < len(os.listdir(args.path + subject + '/')):
+        if len(os.listdir(args.output + subject + '/')) < (len(args.movingfilenames)+2):
             img_fixed = ants.image_read(args.path + subject + '/' + args.fixedfilename[0])
             mask_fixed, channels = check_multiple_channels(args.path + subject + '/' + args.maskfilename[0])
             
@@ -111,8 +112,12 @@ if __name__ == "__main__":
                 logging.info("Rigid registration to {} started.".format(name))
                 registered_img = rigid_reg(img_fixed, img_moving)
                 logging.info("Rigid registration to {} completed.".format(name))
-                # Saving moving
-                ants.image_write(registered_img, args.output + subject + '/' + name, ri=False);
+                # Saving moving images
+                if not np.isinf(img_moving.numpy()).all():
+                    ants.image_write(registered_img, args.output + subject + '/' + name, ri=False);
+                if (np.shape(mask_fixed.numpy()) != np.shape(registered_img.numpy())):
+                    print('Shape mismatch with mask', subject, np.shape(mask_fixed.numpy()), 'and image', np.shape(img_moving.numpy()))
+                    break
         
 
     logging.info(str(args))                         
