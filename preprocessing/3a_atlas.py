@@ -9,16 +9,16 @@ from glob import glob
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/lgg/orig/', 
+parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/schw/orig/', 
                     help='root dir for subject sequences data')
-parser.add_argument('--fixedfilename', type=list, default=['CT1.nii.gz'], help='name of file to register')
-parser.add_argument('--maskfilename', type=list, default=['CT1_SEG.nii.gz'], help='name of mask to register')
-parser.add_argument('--movingfilenames', type=list, default=['T1.nii.gz','T2.nii.gz','FLAIR.nii.gz'], help='names of files')
+parser.add_argument('--fixedfilename', type=list, default=['T1.nii.gz'], help='name of file to register')
+parser.add_argument('--maskfilename', type=list, default=['T1_SEG.nii.gz'], help='name of mask to register')
+parser.add_argument('--movingfilenames', type=list, default=['T2.nii.gz'], help='names of files')
 parser.add_argument('--resamplingtarget', type=str, default=['./params/sri24_T1.nii'], 
                     help= 'resampling target for all images')
-parser.add_argument('--output', type=str, default='/anvar/public_datasets/preproc_study/lgg/3a_atlas/', 
+parser.add_argument('--output', type=str, default='/anvar/public_datasets/preproc_study/schw/3a_atlas_mask/', 
                     help= 'output folder')
-parser.add_argument('--channels', type=str, default=[1,2,3], 
+parser.add_argument('--channels', type=str, default=[1], 
                     help= 'channels in mask')
 
 

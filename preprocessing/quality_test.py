@@ -8,11 +8,12 @@ import tqdm
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--label', type=list, default = [0,1,2,3], help = 'labels in the segmentation mask')
-parser.add_argument('--modalities', type=list, default = ['FLAIR.nii.gz','T1.nii.gz','T2.nii.gz','CT1_SEG.nii.gz'], help='names of files')
-parser.add_argument('--current', type=str, default='/anvar/public_datasets/preproc_study/lgg/6_hist/6_hist_fold_0/', help='folder name')
-parser.add_argument('--parent', type=str, default='/anvar/public_datasets/preproc_study/lgg/4a_resamp/', help='parent folder files')
-parser.add_argument('--segmentation_name', type=str, default='CT1_SEG.nii.gz', 
+parser.add_argument('--label', type=list, default = [0,1], help = 'labels in the segmentation mask')
+parser.add_argument('--modalities', type=list, default = ['FLAIR.nii.gz','T2.nii.gz','T1.nii.gz','mask_GTV_FLAIR.nii.gz'], help='names of files')
+# parser.add_argument('--modalities', type=list, default = ['FLAIR.nii.gz','T1.nii.gz','T2.nii.gz','CT1.nii.gz','CT1_SEG.nii.gz'], help='names of files')
+parser.add_argument('--current', type=str, default='/anvar/public_datasets/preproc_study/bgpd/4b_n4_/', help='folder name')
+parser.add_argument('--parent', type=str, default='/anvar/public_datasets/preproc_study/bgpd/4a_resamp/', help='parent folder files')
+parser.add_argument('--segmentation_name', type=str, default='mask_GTV_FLAIR.nii.gz', 
                     help= 'segmentation mask')
 args = parser.parse_args()
 

@@ -1,0 +1,1472 @@
+Traceback (most recent call last):
+  File "/home/kate/projects/brain-mri-processing-pipeline/preprocessing/3a_atlas.py", line 3, in <module>
+    import ants
+  File "/home/kate/miniconda3/lib/python3.9/site-packages/ants/__init__.py", line 7, in <module>
+    from .core import *
+  File "/home/kate/miniconda3/lib/python3.9/site-packages/ants/core/__init__.py", line 2, in <module>
+    from .ants_image import *
+  File "/home/kate/miniconda3/lib/python3.9/site-packages/ants/core/ants_image.py", line 27, in <module>
+    from .. import utils, registration, segmentation, viz
+  File "/home/kate/miniconda3/lib/python3.9/site-packages/ants/utils/__init__.py", line 2, in <module>
+    from .bias_correction import *
+  File "/home/kate/miniconda3/lib/python3.9/site-packages/ants/utils/bias_correction.py", line 4, in <module>
+    from . import process_args as pargs
+  File "/home/kate/miniconda3/lib/python3.9/site-packages/ants/utils/process_args.py", line 14, in <module>
+    from .. import lib
+  File "/home/kate/miniconda3/lib/python3.9/site-packages/ants/lib/__init__.py", line 46, in <module>
+    from .iMath import *
+KeyboardInterrupt
+/anvar/public_datasets/preproc_study/schw/orig/ Folder processing
+VS-SEG-157 Subject processing
+Atlas registration started VS-SEG-157.
+Atlas registration completed VS-SEG-157.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-239 Subject processing
+Atlas registration started VS-SEG-239.
+Atlas registration completed VS-SEG-239.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-147 Subject processing
+Atlas registration started VS-SEG-147.
+Atlas registration completed VS-SEG-147.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-101 Subject processing
+Atlas registration started VS-SEG-101.
+Atlas registration completed VS-SEG-101.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-093 Subject processing
+Atlas registration started VS-SEG-093.
+Atlas registration completed VS-SEG-093.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-150 Subject processing
+Atlas registration started VS-SEG-150.
+Atlas registration completed VS-SEG-150.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-079 Subject processing
+Atlas registration started VS-SEG-079.
+Atlas registration completed VS-SEG-079.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-010 Subject processing
+Atlas registration started VS-SEG-010.
+Atlas registration completed VS-SEG-010.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-020 Subject processing
+Atlas registration started VS-SEG-020.
+Atlas registration completed VS-SEG-020.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-018 Subject processing
+Atlas registration started VS-SEG-018.
+Atlas registration completed VS-SEG-018.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-245 Subject processing
+Atlas registration started VS-SEG-245.
+Atlas registration completed VS-SEG-245.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-135 Subject processing
+Atlas registration started VS-SEG-135.
+Atlas registration completed VS-SEG-135.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-084 Subject processing
+Atlas registration started VS-SEG-084.
+Atlas registration completed VS-SEG-084.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-056 Subject processing
+Atlas registration started VS-SEG-056.
+Atlas registration completed VS-SEG-056.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-012 Subject processing
+Atlas registration started VS-SEG-012.
+Atlas registration completed VS-SEG-012.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-042 Subject processing
+Atlas registration started VS-SEG-042.
+Atlas registration completed VS-SEG-042.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-175 Subject processing
+Atlas registration started VS-SEG-175.
+Atlas registration completed VS-SEG-175.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-008 Subject processing
+Atlas registration started VS-SEG-008.
+Atlas registration completed VS-SEG-008.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-136 Subject processing
+Atlas registration started VS-SEG-136.
+Atlas registration completed VS-SEG-136.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-137 Subject processing
+Atlas registration started VS-SEG-137.
+Atlas registration completed VS-SEG-137.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-007 Subject processing
+Atlas registration started VS-SEG-007.
+Atlas registration completed VS-SEG-007.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-127 Subject processing
+Atlas registration started VS-SEG-127.
+Atlas registration completed VS-SEG-127.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-141 Subject processing
+Atlas registration started VS-SEG-141.
+Atlas registration completed VS-SEG-141.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-122 Subject processing
+Atlas registration started VS-SEG-122.
+Atlas registration completed VS-SEG-122.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-099 Subject processing
+Atlas registration started VS-SEG-099.
+Atlas registration completed VS-SEG-099.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-123 Subject processing
+Atlas registration started VS-SEG-123.
+Atlas registration completed VS-SEG-123.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-235 Subject processing
+Atlas registration started VS-SEG-235.
+Atlas registration completed VS-SEG-235.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-204 Subject processing
+Atlas registration started VS-SEG-204.
+Atlas registration completed VS-SEG-204.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-047 Subject processing
+Atlas registration started VS-SEG-047.
+Atlas registration completed VS-SEG-047.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-116 Subject processing
+Atlas registration started VS-SEG-116.
+Atlas registration completed VS-SEG-116.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-151 Subject processing
+Atlas registration started VS-SEG-151.
+Atlas registration completed VS-SEG-151.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-074 Subject processing
+Atlas registration started VS-SEG-074.
+Atlas registration completed VS-SEG-074.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-126 Subject processing
+Atlas registration started VS-SEG-126.
+Atlas registration completed VS-SEG-126.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-191 Subject processing
+Atlas registration started VS-SEG-191.
+Atlas registration completed VS-SEG-191.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-069 Subject processing
+Atlas registration started VS-SEG-069.
+Atlas registration completed VS-SEG-069.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-159 Subject processing
+Atlas registration started VS-SEG-159.
+Atlas registration completed VS-SEG-159.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-155 Subject processing
+Atlas registration started VS-SEG-155.
+Atlas registration completed VS-SEG-155.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-048 Subject processing
+Atlas registration started VS-SEG-048.
+Atlas registration completed VS-SEG-048.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-022 Subject processing
+Atlas registration started VS-SEG-022.
+Atlas registration completed VS-SEG-022.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-071 Subject processing
+Atlas registration started VS-SEG-071.
+Atlas registration completed VS-SEG-071.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-131 Subject processing
+Atlas registration started VS-SEG-131.
+Atlas registration completed VS-SEG-131.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-128 Subject processing
+Atlas registration started VS-SEG-128.
+Atlas registration completed VS-SEG-128.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-237 Subject processing
+Atlas registration started VS-SEG-237.
+Atlas registration completed VS-SEG-237.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-115 Subject processing
+Atlas registration started VS-SEG-115.
+Atlas registration completed VS-SEG-115.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-247 Subject processing
+Atlas registration started VS-SEG-247.
+Atlas registration completed VS-SEG-247.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-036 Subject processing
+Atlas registration started VS-SEG-036.
+Atlas registration completed VS-SEG-036.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-238 Subject processing
+Atlas registration started VS-SEG-238.
+Atlas registration completed VS-SEG-238.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-112 Subject processing
+Atlas registration started VS-SEG-112.
+Atlas registration completed VS-SEG-112.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-210 Subject processing
+Atlas registration started VS-SEG-210.
+Atlas registration completed VS-SEG-210.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-221 Subject processing
+Atlas registration started VS-SEG-221.
+Atlas registration completed VS-SEG-221.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-092 Subject processing
+Atlas registration started VS-SEG-092.
+Atlas registration completed VS-SEG-092.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-176 Subject processing
+Atlas registration started VS-SEG-176.
+Atlas registration completed VS-SEG-176.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-200 Subject processing
+Atlas registration started VS-SEG-200.
+Atlas registration completed VS-SEG-200.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-246 Subject processing
+Atlas registration started VS-SEG-246.
+Atlas registration completed VS-SEG-246.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-133 Subject processing
+Atlas registration started VS-SEG-133.
+Atlas registration completed VS-SEG-133.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-005 Subject processing
+Atlas registration started VS-SEG-005.
+Atlas registration completed VS-SEG-005.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-134 Subject processing
+Atlas registration started VS-SEG-134.
+Atlas registration completed VS-SEG-134.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-073 Subject processing
+Atlas registration started VS-SEG-073.
+Atlas registration completed VS-SEG-073.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-006 Subject processing
+Atlas registration started VS-SEG-006.
+Atlas registration completed VS-SEG-006.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-132 Subject processing
+Atlas registration started VS-SEG-132.
+Atlas registration completed VS-SEG-132.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-028 Subject processing
+Atlas registration started VS-SEG-028.
+Atlas registration completed VS-SEG-028.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-060 Subject processing
+Atlas registration started VS-SEG-060.
+Atlas registration completed VS-SEG-060.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-170 Subject processing
+Atlas registration started VS-SEG-170.
+Atlas registration completed VS-SEG-170.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-241 Subject processing
+Atlas registration started VS-SEG-241.
+Atlas registration completed VS-SEG-241.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-013 Subject processing
+Atlas registration started VS-SEG-013.
+Atlas registration completed VS-SEG-013.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-232 Subject processing
+Atlas registration started VS-SEG-232.
+Atlas registration completed VS-SEG-232.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-143 Subject processing
+Atlas registration started VS-SEG-143.
+Atlas registration completed VS-SEG-143.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-053 Subject processing
+Atlas registration started VS-SEG-053.
+Atlas registration completed VS-SEG-053.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-248 Subject processing
+Atlas registration started VS-SEG-248.
+Atlas registration completed VS-SEG-248.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-187 Subject processing
+Atlas registration started VS-SEG-187.
+Atlas registration completed VS-SEG-187.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-243 Subject processing
+Atlas registration started VS-SEG-243.
+Atlas registration completed VS-SEG-243.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-144 Subject processing
+Atlas registration started VS-SEG-144.
+Atlas registration completed VS-SEG-144.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-041 Subject processing
+Atlas registration started VS-SEG-041.
+Atlas registration completed VS-SEG-041.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-089 Subject processing
+Atlas registration started VS-SEG-089.
+Atlas registration completed VS-SEG-089.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-185 Subject processing
+Atlas registration started VS-SEG-185.
+Atlas registration completed VS-SEG-185.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-088 Subject processing
+Atlas registration started VS-SEG-088.
+Atlas registration completed VS-SEG-088.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-023 Subject processing
+Atlas registration started VS-SEG-023.
+Atlas registration completed VS-SEG-023.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-040 Subject processing
+Atlas registration started VS-SEG-040.
+Atlas registration completed VS-SEG-040.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-205 Subject processing
+Atlas registration started VS-SEG-205.
+Atlas registration completed VS-SEG-205.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-165 Subject processing
+Atlas registration started VS-SEG-165.
+Atlas registration completed VS-SEG-165.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-046 Subject processing
+Atlas registration started VS-SEG-046.
+Atlas registration completed VS-SEG-046.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-109 Subject processing
+Atlas registration started VS-SEG-109.
+Atlas registration completed VS-SEG-109.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-055 Subject processing
+Atlas registration started VS-SEG-055.
+Atlas registration completed VS-SEG-055.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-030 Subject processing
+Atlas registration started VS-SEG-030.
+Atlas registration completed VS-SEG-030.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-121 Subject processing
+Atlas registration started VS-SEG-121.
+Atlas registration completed VS-SEG-121.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-250 Subject processing
+Atlas registration started VS-SEG-250.
+Atlas registration completed VS-SEG-250.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-026 Subject processing
+Atlas registration started VS-SEG-026.
+Atlas registration completed VS-SEG-026.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-029 Subject processing
+Atlas registration started VS-SEG-029.
+Atlas registration completed VS-SEG-029.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-024 Subject processing
+Atlas registration started VS-SEG-024.
+Atlas registration completed VS-SEG-024.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-223 Subject processing
+Atlas registration started VS-SEG-223.
+Atlas registration completed VS-SEG-223.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-119 Subject processing
+Atlas registration started VS-SEG-119.
+Atlas registration completed VS-SEG-119.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-072 Subject processing
+Atlas registration started VS-SEG-072.
+Atlas registration completed VS-SEG-072.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-078 Subject processing
+Atlas registration started VS-SEG-078.
+Atlas registration completed VS-SEG-078.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-114 Subject processing
+Atlas registration started VS-SEG-114.
+Atlas registration completed VS-SEG-114.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-177 Subject processing
+Atlas registration started VS-SEG-177.
+Atlas registration completed VS-SEG-177.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-032 Subject processing
+Atlas registration started VS-SEG-032.
+Atlas registration completed VS-SEG-032.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-076 Subject processing
+Atlas registration started VS-SEG-076.
+Atlas registration completed VS-SEG-076.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-052 Subject processing
+Atlas registration started VS-SEG-052.
+Atlas registration completed VS-SEG-052.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-207 Subject processing
+Atlas registration started VS-SEG-207.
+Atlas registration completed VS-SEG-207.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-242 Subject processing
+Atlas registration started VS-SEG-242.
+Atlas registration completed VS-SEG-242.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-045 Subject processing
+Atlas registration started VS-SEG-045.
+Atlas registration completed VS-SEG-045.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-003 Subject processing
+Atlas registration started VS-SEG-003.
+Atlas registration completed VS-SEG-003.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-009 Subject processing
+Atlas registration started VS-SEG-009.
+Atlas registration completed VS-SEG-009.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-059 Subject processing
+Atlas registration started VS-SEG-059.
+Atlas registration completed VS-SEG-059.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-240 Subject processing
+Atlas registration started VS-SEG-240.
+Atlas registration completed VS-SEG-240.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-203 Subject processing
+Atlas registration started VS-SEG-203.
+Atlas registration completed VS-SEG-203.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-103 Subject processing
+Atlas registration started VS-SEG-103.
+Atlas registration completed VS-SEG-103.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-193 Subject processing
+Atlas registration started VS-SEG-193.
+Atlas registration completed VS-SEG-193.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-015 Subject processing
+Atlas registration started VS-SEG-015.
+Atlas registration completed VS-SEG-015.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-158 Subject processing
+Atlas registration started VS-SEG-158.
+Atlas registration completed VS-SEG-158.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-001 Subject processing
+Atlas registration started VS-SEG-001.
+Atlas registration completed VS-SEG-001.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-108 Subject processing
+Atlas registration started VS-SEG-108.
+Atlas registration completed VS-SEG-108.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-050 Subject processing
+Atlas registration started VS-SEG-050.
+Atlas registration completed VS-SEG-050.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-183 Subject processing
+Atlas registration started VS-SEG-183.
+Atlas registration completed VS-SEG-183.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-189 Subject processing
+Atlas registration started VS-SEG-189.
+Atlas registration completed VS-SEG-189.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-196 Subject processing
+Atlas registration started VS-SEG-196.
+Atlas registration completed VS-SEG-196.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-161 Subject processing
+Atlas registration started VS-SEG-161.
+Atlas registration completed VS-SEG-161.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-178 Subject processing
+Atlas registration started VS-SEG-178.
+Atlas registration completed VS-SEG-178.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-061 Subject processing
+Atlas registration started VS-SEG-061.
+Atlas registration completed VS-SEG-061.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-233 Subject processing
+Atlas registration started VS-SEG-233.
+Atlas registration completed VS-SEG-233.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-182 Subject processing
+Atlas registration started VS-SEG-182.
+Atlas registration completed VS-SEG-182.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-002 Subject processing
+Atlas registration started VS-SEG-002.
+Atlas registration completed VS-SEG-002.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-075 Subject processing
+Atlas registration started VS-SEG-075.
+Atlas registration completed VS-SEG-075.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-043 Subject processing
+Atlas registration started VS-SEG-043.
+Atlas registration completed VS-SEG-043.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-014 Subject processing
+Atlas registration started VS-SEG-014.
+Atlas registration completed VS-SEG-014.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-148 Subject processing
+Atlas registration started VS-SEG-148.
+Atlas registration completed VS-SEG-148.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-228 Subject processing
+Atlas registration started VS-SEG-228.
+Atlas registration completed VS-SEG-228.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-216 Subject processing
+Atlas registration started VS-SEG-216.
+Atlas registration completed VS-SEG-216.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-094 Subject processing
+Atlas registration started VS-SEG-094.
+Atlas registration completed VS-SEG-094.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-091 Subject processing
+Atlas registration started VS-SEG-091.
+Atlas registration completed VS-SEG-091.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-224 Subject processing
+Atlas registration started VS-SEG-224.
+Atlas registration completed VS-SEG-224.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-016 Subject processing
+Atlas registration started VS-SEG-016.
+Atlas registration completed VS-SEG-016.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-153 Subject processing
+Atlas registration started VS-SEG-153.
+Atlas registration completed VS-SEG-153.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-064 Subject processing
+Atlas registration started VS-SEG-064.
+Atlas registration completed VS-SEG-064.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-146 Subject processing
+Atlas registration started VS-SEG-146.
+Atlas registration completed VS-SEG-146.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-201 Subject processing
+Atlas registration started VS-SEG-201.
+Atlas registration completed VS-SEG-201.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-110 Subject processing
+Atlas registration started VS-SEG-110.
+Atlas registration completed VS-SEG-110.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-062 Subject processing
+Atlas registration started VS-SEG-062.
+Atlas registration completed VS-SEG-062.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-086 Subject processing
+Atlas registration started VS-SEG-086.
+Atlas registration completed VS-SEG-086.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-111 Subject processing
+Atlas registration started VS-SEG-111.
+Atlas registration completed VS-SEG-111.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-215 Subject processing
+Atlas registration started VS-SEG-215.
+Atlas registration completed VS-SEG-215.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-031 Subject processing
+Atlas registration started VS-SEG-031.
+Atlas registration completed VS-SEG-031.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-211 Subject processing
+Atlas registration started VS-SEG-211.
+Atlas registration completed VS-SEG-211.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-129 Subject processing
+Atlas registration started VS-SEG-129.
+Atlas registration completed VS-SEG-129.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-244 Subject processing
+Atlas registration started VS-SEG-244.
+Atlas registration completed VS-SEG-244.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-188 Subject processing
+Atlas registration started VS-SEG-188.
+Atlas registration completed VS-SEG-188.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-198 Subject processing
+Atlas registration started VS-SEG-198.
+Atlas registration completed VS-SEG-198.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-080 Subject processing
+Atlas registration started VS-SEG-080.
+Atlas registration completed VS-SEG-080.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-167 Subject processing
+Atlas registration started VS-SEG-167.
+Atlas registration completed VS-SEG-167.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-192 Subject processing
+Atlas registration started VS-SEG-192.
+Atlas registration completed VS-SEG-192.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-105 Subject processing
+Atlas registration started VS-SEG-105.
+Atlas registration completed VS-SEG-105.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-184 Subject processing
+Atlas registration started VS-SEG-184.
+Atlas registration completed VS-SEG-184.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-044 Subject processing
+Atlas registration started VS-SEG-044.
+Atlas registration completed VS-SEG-044.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-181 Subject processing
+Atlas registration started VS-SEG-181.
+Atlas registration completed VS-SEG-181.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-180 Subject processing
+Atlas registration started VS-SEG-180.
+Atlas registration completed VS-SEG-180.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-202 Subject processing
+Atlas registration started VS-SEG-202.
+Atlas registration completed VS-SEG-202.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-214 Subject processing
+Atlas registration started VS-SEG-214.
+Atlas registration completed VS-SEG-214.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-057 Subject processing
+Atlas registration started VS-SEG-057.
+Atlas registration completed VS-SEG-057.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-106 Subject processing
+Atlas registration started VS-SEG-106.
+Atlas registration completed VS-SEG-106.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-190 Subject processing
+Atlas registration started VS-SEG-190.
+Atlas registration completed VS-SEG-190.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-065 Subject processing
+Atlas registration started VS-SEG-065.
+Atlas registration completed VS-SEG-065.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-090 Subject processing
+Atlas registration started VS-SEG-090.
+Atlas registration completed VS-SEG-090.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-017 Subject processing
+Atlas registration started VS-SEG-017.
+Atlas registration completed VS-SEG-017.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-139 Subject processing
+Atlas registration started VS-SEG-139.
+Atlas registration completed VS-SEG-139.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-034 Subject processing
+Atlas registration started VS-SEG-034.
+Atlas registration completed VS-SEG-034.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-051 Subject processing
+Atlas registration started VS-SEG-051.
+Atlas registration completed VS-SEG-051.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-138 Subject processing
+Atlas registration started VS-SEG-138.
+Atlas registration completed VS-SEG-138.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-118 Subject processing
+Atlas registration started VS-SEG-118.
+Atlas registration completed VS-SEG-118.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-172 Subject processing
+Atlas registration started VS-SEG-172.
+Atlas registration completed VS-SEG-172.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-066 Subject processing
+Atlas registration started VS-SEG-066.
+Atlas registration completed VS-SEG-066.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-169 Subject processing
+Atlas registration started VS-SEG-169.
+Atlas registration completed VS-SEG-169.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-140 Subject processing
+Atlas registration started VS-SEG-140.
+Atlas registration completed VS-SEG-140.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-154 Subject processing
+Atlas registration started VS-SEG-154.
+Atlas registration completed VS-SEG-154.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-149 Subject processing
+Atlas registration started VS-SEG-149.
+Atlas registration completed VS-SEG-149.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-117 Subject processing
+Atlas registration started VS-SEG-117.
+Atlas registration completed VS-SEG-117.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-035 Subject processing
+Atlas registration started VS-SEG-035.
+Atlas registration completed VS-SEG-035.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-063 Subject processing
+Atlas registration started VS-SEG-063.
+Atlas registration completed VS-SEG-063.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-049 Subject processing
+Atlas registration started VS-SEG-049.
+Atlas registration completed VS-SEG-049.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-199 Subject processing
+Atlas registration started VS-SEG-199.
+Atlas registration completed VS-SEG-199.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-077 Subject processing
+Atlas registration started VS-SEG-077.
+Atlas registration completed VS-SEG-077.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-145 Subject processing
+Atlas registration started VS-SEG-145.
+Atlas registration completed VS-SEG-145.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-027 Subject processing
+Atlas registration started VS-SEG-027.
+Atlas registration completed VS-SEG-027.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-087 Subject processing
+Atlas registration started VS-SEG-087.
+Atlas registration completed VS-SEG-087.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-067 Subject processing
+Atlas registration started VS-SEG-067.
+Atlas registration completed VS-SEG-067.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-225 Subject processing
+Atlas registration started VS-SEG-225.
+Atlas registration completed VS-SEG-225.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-209 Subject processing
+Atlas registration started VS-SEG-209.
+Atlas registration completed VS-SEG-209.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-124 Subject processing
+Atlas registration started VS-SEG-124.
+Atlas registration completed VS-SEG-124.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-152 Subject processing
+Atlas registration started VS-SEG-152.
+Atlas registration completed VS-SEG-152.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-179 Subject processing
+Atlas registration started VS-SEG-179.
+Atlas registration completed VS-SEG-179.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-186 Subject processing
+Atlas registration started VS-SEG-186.
+Atlas registration completed VS-SEG-186.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-213 Subject processing
+Atlas registration started VS-SEG-213.
+Atlas registration completed VS-SEG-213.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-171 Subject processing
+Atlas registration started VS-SEG-171.
+Atlas registration completed VS-SEG-171.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-054 Subject processing
+Atlas registration started VS-SEG-054.
+Atlas registration completed VS-SEG-054.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-230 Subject processing
+Atlas registration started VS-SEG-230.
+Atlas registration completed VS-SEG-230.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-142 Subject processing
+Atlas registration started VS-SEG-142.
+Atlas registration completed VS-SEG-142.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-162 Subject processing
+Atlas registration started VS-SEG-162.
+Atlas registration completed VS-SEG-162.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-249 Subject processing
+Atlas registration started VS-SEG-249.
+Atlas registration completed VS-SEG-249.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-218 Subject processing
+Atlas registration started VS-SEG-218.
+Atlas registration completed VS-SEG-218.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-234 Subject processing
+Atlas registration started VS-SEG-234.
+Atlas registration completed VS-SEG-234.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-011 Subject processing
+Atlas registration started VS-SEG-011.
+Atlas registration completed VS-SEG-011.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-125 Subject processing
+Atlas registration started VS-SEG-125.
+Atlas registration completed VS-SEG-125.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-236 Subject processing
+Atlas registration started VS-SEG-236.
+Atlas registration completed VS-SEG-236.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-025 Subject processing
+Atlas registration started VS-SEG-025.
+Atlas registration completed VS-SEG-025.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-113 Subject processing
+Atlas registration started VS-SEG-113.
+Atlas registration completed VS-SEG-113.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-083 Subject processing
+Atlas registration started VS-SEG-083.
+Atlas registration completed VS-SEG-083.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-173 Subject processing
+Atlas registration started VS-SEG-173.
+Atlas registration completed VS-SEG-173.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-102 Subject processing
+Atlas registration started VS-SEG-102.
+Atlas registration completed VS-SEG-102.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-004 Subject processing
+Atlas registration started VS-SEG-004.
+Atlas registration completed VS-SEG-004.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-107 Subject processing
+Atlas registration started VS-SEG-107.
+Atlas registration completed VS-SEG-107.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-058 Subject processing
+Atlas registration started VS-SEG-058.
+Atlas registration completed VS-SEG-058.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-120 Subject processing
+Atlas registration started VS-SEG-120.
+Atlas registration completed VS-SEG-120.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-085 Subject processing
+Atlas registration started VS-SEG-085.
+Atlas registration completed VS-SEG-085.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-038 Subject processing
+Atlas registration started VS-SEG-038.
+Atlas registration completed VS-SEG-038.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-082 Subject processing
+Atlas registration started VS-SEG-082.
+Atlas registration completed VS-SEG-082.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-096 Subject processing
+Atlas registration started VS-SEG-096.
+Atlas registration completed VS-SEG-096.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-156 Subject processing
+Atlas registration started VS-SEG-156.
+Atlas registration completed VS-SEG-156.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-104 Subject processing
+Atlas registration started VS-SEG-104.
+Atlas registration completed VS-SEG-104.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-231 Subject processing
+Atlas registration started VS-SEG-231.
+Atlas registration completed VS-SEG-231.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-164 Subject processing
+Atlas registration started VS-SEG-164.
+Atlas registration completed VS-SEG-164.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-206 Subject processing
+Atlas registration started VS-SEG-206.
+Atlas registration completed VS-SEG-206.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-217 Subject processing
+Atlas registration started VS-SEG-217.
+Atlas registration completed VS-SEG-217.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-229 Subject processing
+Atlas registration started VS-SEG-229.
+Atlas registration completed VS-SEG-229.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-226 Subject processing
+Atlas registration started VS-SEG-226.
+Atlas registration completed VS-SEG-226.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-098 Subject processing
+Atlas registration started VS-SEG-098.
+Atlas registration completed VS-SEG-098.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-212 Subject processing
+Atlas registration started VS-SEG-212.
+Atlas registration completed VS-SEG-212.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-163 Subject processing
+Atlas registration started VS-SEG-163.
+Atlas registration completed VS-SEG-163.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-021 Subject processing
+Atlas registration started VS-SEG-021.
+Atlas registration completed VS-SEG-021.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-166 Subject processing
+Atlas registration started VS-SEG-166.
+Atlas registration completed VS-SEG-166.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-174 Subject processing
+Atlas registration started VS-SEG-174.
+Atlas registration completed VS-SEG-174.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-070 Subject processing
+Atlas registration started VS-SEG-070.
+Atlas registration completed VS-SEG-070.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-194 Subject processing
+Atlas registration started VS-SEG-194.
+Atlas registration completed VS-SEG-194.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-019 Subject processing
+Atlas registration started VS-SEG-019.
+Atlas registration completed VS-SEG-019.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-037 Subject processing
+Atlas registration started VS-SEG-037.
+Atlas registration completed VS-SEG-037.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-220 Subject processing
+Atlas registration started VS-SEG-220.
+Atlas registration completed VS-SEG-220.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-033 Subject processing
+Atlas registration started VS-SEG-033.
+Atlas registration completed VS-SEG-033.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-197 Subject processing
+Atlas registration started VS-SEG-197.
+Atlas registration completed VS-SEG-197.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-222 Subject processing
+Atlas registration started VS-SEG-222.
+Atlas registration completed VS-SEG-222.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-195 Subject processing
+Atlas registration started VS-SEG-195.
+Atlas registration completed VS-SEG-195.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-100 Subject processing
+Atlas registration started VS-SEG-100.
+Atlas registration completed VS-SEG-100.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-081 Subject processing
+Atlas registration started VS-SEG-081.
+Atlas registration completed VS-SEG-081.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-095 Subject processing
+Atlas registration started VS-SEG-095.
+Atlas registration completed VS-SEG-095.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+VS-SEG-068 Subject processing
+Atlas registration started VS-SEG-068.
+Atlas registration completed VS-SEG-068.
+Saving transforms.
+Rigid registration to T2.nii.gz started.
+Rigid registration to T2.nii.gz completed.
+Namespace(path='/anvar/public_datasets/preproc_study/schw/orig/', fixedfilename=['T1.nii.gz'], maskfilename=['T1_SEG.nii.gz'], movingfilenames=['T2.nii.gz'], resamplingtarget=['./params/sri24_T1.nii'], output='/anvar/public_datasets/preproc_study/schw/3a_atlas_mask/', channels=[1])
