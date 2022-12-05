@@ -27,6 +27,27 @@ from utils.gpu_affinity import set_affinity
 from utils.logger import LoggingCallback
 from utils.utils import make_empty_dir, set_cuda_devices, verify_ckpt_path
 
+# last_layers = ['model.output_block.conv.conv.weight', 'model.output_block.conv.conv.bias', 'model.deep_supervision_heads.0.conv.conv.weight','model.deep_supervision_heads.0.conv.conv.bias', 
+#                'model.deep_supervision_heads.1.conv.conv.weight','model.deep_supervision_heads.1.conv.conv.bias', 
+#                'model.deep_supervision_heads.2.conv.conv.weight','model.deep_supervision_heads.2.conv.conv.bias',
+#                'model.deep_supervision_heads.3.conv.conv.weight','model.deep_supervision_heads.3.conv.conv.bias',
+#                'model.deep_supervision_heads.4.conv.conv.weight','model.deep_supervision_heads.4.conv.conv.bias',
+#               'model.skip_layers.next_layer.next_layer.next_layer.next_layer.next_layer.super_head.conv.conv.weight',
+#               'model.skip_layers.next_layer.next_layer.next_layer.next_layer.next_layer.super_head.conv.conv.bias',
+#               'model.skip_layers.next_layer.next_layer.next_layer.next_layer.super_head.conv.conv.weight',
+#               'model.skip_layers.next_layer.next_layer.next_layer.next_layer.super_head.conv.conv.bias',
+#               'model.skip_layers.next_layer.next_layer.next_layer.super_head.conv.conv.weight',
+#               'model.skip_layers.next_layer.next_layer.next_layer.super_head.conv.conv.bias',
+#               'model.skip_layers.next_layer.next_layer.super_head.conv.conv.weight',
+#               'model.skip_layers.next_layer.next_layer.super_head.conv.conv.bias',
+#               'model.skip_layers.next_layer.super_head.conv.conv.weight', 'model.skip_layers.next_layer.super_head.conv.conv.bias']
+last_layers = ['model.output_block.conv.conv.weight','model.output_block.conv.conv.bias',
+              'model.deep_supervision_heads.0.conv.conv.weight','model.deep_supervision_heads.0.conv.conv.bias', 
+               'model.deep_supervision_heads.1.conv.conv.weight','model.deep_supervision_heads.1.conv.conv.bias', 
+               'model.deep_supervision_heads.2.conv.conv.weight','model.deep_supervision_heads.2.conv.conv.bias',
+               'model.deep_supervision_heads.3.conv.conv.weight','model.deep_supervision_heads.3.conv.conv.bias',
+               'model.deep_supervision_heads.4.conv.conv.weight','model.deep_supervision_heads.4.conv.conv.bias']
+
 if __name__ == "__main__":
     args = get_main_args()
 
@@ -78,13 +99,14 @@ if __name__ == "__main__":
             model_ckpt = ModelCheckpoint(
                 filename="best_{epoch}-{dice_mean:.2f}", monitor="dice_mean", mode="max", save_last=True, save_top_k =1)
             model_ckpt_every = ModelCheckpoint(
-                filename="{epoch}-{dice_mean:.2f}", monitor="dice_mean", mode="max", save_last=True, save_top_k =5)
+                filename="{epoch}-{dice_mean:.2f}", monitor="dice_mean", mode="max",save_top_k =2)
 #             model_ckpt_every = ModelCheckpoint(
-#                 filename="{epoch}-{dice_mean:.2f}",save_top_k=-1, every_n_epochs=5)
+#                 filename="{epoch}-{dice_mean:.2f}", every_n_epochs=50)
             callbacks.append(model_ckpt)
             callbacks.append(model_ckpt_every)
     else:  # Evaluation or inference
         if ckpt_path is not None:
+            print('check_eval_inf_load')
             model = NNUnet.load_from_checkpoint(ckpt_path)
         else:
             model = NNUnet(args)
@@ -123,8 +145,21 @@ if __name__ == "__main__":
             trainer.current_epoch = 1
             trainer.test(model, test_dataloaders=data_module.test_dataloader())
     elif args.exec_mode == "train":
+        if args.freeze:
+            for name, param in model.named_parameters():
+                if name not in last_layers:
+                    param.requires_grad = False
         trainer.fit(model, data_module)
     elif args.exec_mode == "evaluate":
+        if args.save_preds:
+            ckpt_name = "_".join(args.ckpt_path.split("/")[-1].split(".")[:-1])
+            dir_name = f"predictions_{ckpt_name}"
+            dir_name += f"_task={model.args.task}_fold={model.args.fold}"
+            if args.tta:
+                dir_name += "_tta"
+            save_dir = os.path.join(args.results, dir_name)
+            model.save_dir = save_dir
+            make_empty_dir(save_dir)
         model.args = args
         trainer.test(model, test_dataloaders=data_module.val_dataloader())
     elif args.exec_mode == "predict":
@@ -139,3 +174,4 @@ if __name__ == "__main__":
             make_empty_dir(save_dir)
         model.args = args
         trainer.test(model, test_dataloaders=data_module.test_dataloader())
+#         trainer.test(model, test_dataloaders=data_module.val_dataloader())
