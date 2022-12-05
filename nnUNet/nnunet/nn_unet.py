@@ -21,7 +21,8 @@ import torch.nn as nn
 from apex.optimizers import FusedAdam, FusedSGD
 from data_loading.data_module import get_data_path, get_test_fnames
 from monai.inferers import sliding_window_inference
-from monai.networks.nets import DynUNet
+from monai.networks.nets import DynUNet, SegResNet
+from self_attention_cv import UNETR
 from monai.optimizers.lr_scheduler import WarmupCosineSchedule
 from scipy.special import expit, softmax
 from skimage.transform import resize
@@ -31,6 +32,45 @@ from utils.utils import get_config_file, print0
 from nnunet.loss import Loss, LossBraTS
 from nnunet.metrics import Dice
 
+class TransferLearning(pl.LightningModule):
+    def __init__(self, args, in_channels, out_channels, kernels, strides, n_class):
+        super().__init__()
+        self.args = args
+        self.backbone = DynUNet(
+                    self.args.dim,
+                    in_channels,
+                    out_channels,
+                    kernels,
+                    strides,
+                    strides[1:],
+                    filters=self.args.filters,
+                    norm_name=("INSTANCE", {"affine": True}),
+                    act_name=("leakyrelu", {"inplace": True, "negative_slope": 0.01}),
+                    deep_supervision=self.args.deep_supervision,
+                    deep_supr_num=self.args.deep_supr_num,
+                    res_block=self.args.res_block,
+                    trans_bias=True,
+                )
+    
+        print0(f"Filters: {self.backbone.filters},\nKernels: {kernels}\nStrides: {strides}")
+        print0(backbone.fc)
+        print0(backbone.fc.in_features)
+        peinr0(f'children:{list(backbone.children())}')
+        print0(list(backbone.children())[:-1])
+        num_filters = backbone.fc.in_features
+        layers = list(backbone.children())[:-1]
+        self.feature_extractor = nn.Sequential(*layers)
+
+        num_target_classes = n_class
+        self.classifier = nn.Conv3d(96, 3, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+
+    def forward(self, x):
+        self.feature_extractor.eval()
+        with torch.no_grad():
+            representations = self.feature_extractor(x)
+        print(representations.shape)
+        x = self.classifier(representations)
+        
 
 class NNUnet(pl.LightningModule):
     def __init__(self, args, triton=False, data_dir=None):
@@ -42,8 +82,6 @@ class NNUnet(pl.LightningModule):
             self.args.data = data_dir
         self.build_nnunet()
         self.best_mean, self.best_mean_epoch, self.test_idx = (0,) * 3
-#         print('n class')
-#         print(self.n_class)
         self.best_dice, self.best_epoch, self.best_mean_dice = (self.n_class * [0],) * 3
         self.test_imgs = []
         if not self.triton:
@@ -96,11 +134,7 @@ class NNUnet(pl.LightningModule):
         self.dice.update(pred, lbl[:, 0], loss)
 
     def test_step(self, batch, batch_idx):
-        if self.args.exec_mode == "evaluate":
-            return self.validation_step(batch, batch_idx)
         img = batch["image"]
-        print(batch.keys())
-        print(img.shape[1:])
         pred = self._forward(img).squeeze(0).cpu().detach().numpy()
         if self.args.save_preds:
             meta = batch["meta"][0].cpu().detach().numpy()
@@ -108,11 +142,7 @@ class NNUnet(pl.LightningModule):
             min_h, max_h = meta[0, 1], meta[1, 1]
             min_w, max_w = meta[0, 2], meta[1, 2]
             n_class, original_shape, cropped_shape = pred.shape[0], meta[2], meta[3]
-            print(original_shape)
-            print(cropped_shape)
-            print(pred.shape[1:])
             if not all(cropped_shape == pred.shape[1:]):
-                print(pred.shape[1:])
                 resized_pred = np.zeros((n_class, *cropped_shape))
                 for i in range(n_class):
                     resized_pred[i] = resize(
@@ -129,7 +159,7 @@ class NNUnet(pl.LightningModule):
                 final_pred = softmax(final_pred, axis=0)
 
             self.save_mask(final_pred)
-
+    
     def get_unet_params(self):
         config = get_config_file(self.args)
         patch_size, spacings = config["patch_size"], config["spacings"]
@@ -159,24 +189,34 @@ class NNUnet(pl.LightningModule):
             out_channels = 3
         if self.args.no_back_in_output:
             out_channels = 1
+            
+        if self.args.unetr:
+            num_heads = 10
+            embed_dim= 512
 
-        self.model = DynUNet(
-            self.args.dim,
-            in_channels,
-            out_channels,
-            kernels,
-            strides,
-            strides[1:],
-            filters=self.args.filters,
-            norm_name=("INSTANCE", {"affine": True}),
-            act_name=("leakyrelu", {"inplace": True, "negative_slope": 0.01}),
-            deep_supervision=self.args.deep_supervision,
-            deep_supr_num=self.args.deep_supr_num,
-            res_block=self.args.res_block,
-            trans_bias=True,
-        )
+            self.model = UNETR(img_shape=(128,128,128), input_dim=in_channels, output_dim=out_channels,
+                    embed_dim=embed_dim, patch_size=16, num_heads=num_heads,
+                    ext_layers=[3, 6, 9, 12], norm='instance',
+                    base_filters=16,
+                    dim_linear_block=2048)
+        else:
+            self.model = DynUNet(
+                    self.args.dim,
+                    in_channels,
+                    out_channels,
+                    kernels,
+                    strides,
+                    strides[1:],
+                    filters=self.args.filters,
+                    norm_name=("INSTANCE", {"affine": True}),
+                    act_name=("leakyrelu", {"inplace": True, "negative_slope": 0.01}),
+                    deep_supervision=self.args.deep_supervision,
+                    deep_supr_num=self.args.deep_supr_num,
+                    res_block=self.args.res_block,
+                    trans_bias=True,
+                )
         print0(f"Filters: {self.model.filters},\nKernels: {kernels}\nStrides: {strides}")
-
+            
     def do_inference(self, image):
         if self.args.dim == 3:
             return self.sliding_window_inference(image)
@@ -277,7 +317,6 @@ class NNUnet(pl.LightningModule):
             data_path = get_data_path(self.args)
             self.test_imgs, _ = get_test_fnames(self.args, data_path)
         fname = os.path.basename(self.test_imgs[self.test_idx]).replace("_x", "")
-#         np.save(os.path.join(self.save_dir, fname), pred, allow_pickle=False)
         np.savez_compressed(os.path.join(self.save_dir, fname), pred.astype(np.float16()))
         self.test_idx += 1
         

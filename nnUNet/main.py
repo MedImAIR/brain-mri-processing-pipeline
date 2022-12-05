@@ -41,6 +41,7 @@ from utils.utils import make_empty_dir, set_cuda_devices, verify_ckpt_path
 #               'model.skip_layers.next_layer.next_layer.super_head.conv.conv.weight',
 #               'model.skip_layers.next_layer.next_layer.super_head.conv.conv.bias',
 #               'model.skip_layers.next_layer.super_head.conv.conv.weight', 'model.skip_layers.next_layer.super_head.conv.conv.bias']
+
 last_layers = ['model.output_block.conv.conv.weight','model.output_block.conv.conv.bias',
               'model.deep_supervision_heads.0.conv.conv.weight','model.deep_supervision_heads.0.conv.conv.bias', 
                'model.deep_supervision_heads.1.conv.conv.weight','model.deep_supervision_heads.1.conv.conv.bias', 
@@ -146,9 +147,11 @@ if __name__ == "__main__":
             trainer.test(model, test_dataloaders=data_module.test_dataloader())
     elif args.exec_mode == "train":
         if args.freeze:
+#             model.freeze()
             for name, param in model.named_parameters():
                 if name not in last_layers:
                     param.requires_grad = False
+                    print(name)
         trainer.fit(model, data_module)
     elif args.exec_mode == "evaluate":
         if args.save_preds:
@@ -161,7 +164,10 @@ if __name__ == "__main__":
             model.save_dir = save_dir
             make_empty_dir(save_dir)
         model.args = args
+        print(args.data)
         trainer.test(model, test_dataloaders=data_module.val_dataloader())
+#         model.args = args
+#         trainer.test(model, test_dataloaders=data_module.train_dataloader())
     elif args.exec_mode == "predict":
         if args.save_preds:
             ckpt_name = "_".join(args.ckpt_path.split("/")[-1].split(".")[:-1])

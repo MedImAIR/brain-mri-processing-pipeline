@@ -154,6 +154,7 @@ class TrainPipeline(GenericPipeline):
         img, lbl = self.load_data()
         img, lbl = self.biased_crop_fn(img, lbl)
         if self.aug:
+            print('Augmentstion turn on')
             img, lbl = self.zoom_fn(img, lbl)
             img, lbl = self.flips_fn(img, lbl)
             img = self.noise_fn(img)
@@ -249,7 +250,7 @@ def fetch_dali_loader(imgs, lbls, batch_size, mode, **kwargs):
     load_to_gpu = True if mode in ["eval", "test", "benchmark"] else False
     pipe_kwargs = {"imgs": imgs, "lbls": lbls, "load_to_gpu": load_to_gpu, "shuffle": shuffle, **kwargs}
     output_map = ["image", "meta"] if mode == "test" else ["image", "label"]
-
+    
     rank = int(os.getenv("LOCAL_RANK", "0"))
     if mode == "eval":  # To avoid padding for the multi-gpu evaluation.
         if kwargs["invert_resampled_y"]:
