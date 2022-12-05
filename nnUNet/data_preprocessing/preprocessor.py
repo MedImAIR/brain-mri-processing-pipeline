@@ -106,7 +106,6 @@ class Preprocessor:
         if self.modality == "CT":
             image = np.clip(image, self.ct_min, self.ct_max)
         image = self.normalize(image)
-#         !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         if self.training:
             image, label = self.standardize(image, label)
         if self.args.ohe:
@@ -115,7 +114,6 @@ class Preprocessor:
                 zeros = np.where(image[i] <= 0)
                 mask[zeros] *= 0.0
             image = self.normalize_intensity(image).astype(np.float32) 
-#             !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             mask = np.expand_dims(mask, 0)
             image = np.concatenate([image, mask])
         self.save(image, label, fname, image_metadata)
@@ -234,10 +232,7 @@ class Preprocessor:
         np.save(os.path.join(self.results, fname.replace(".nii.gz", suffix)), image, allow_pickle=False)
 #         np.savez_compressed(os.path.join(self.results, fname.replace(".nii.gz", suffix)), image.astype(np.float16()))
         
-
     def run_parallel(self, func, exec_mode):
-        print('run_parralel)')
-        print(exec_mode)
         return Parallel(n_jobs=self.args.n_jobs)(delayed(func)(pair) for pair in self.metadata[exec_mode])
 
     def load_nifty(self, fname):

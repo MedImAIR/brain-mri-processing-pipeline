@@ -31,46 +31,7 @@ from utils.utils import get_config_file, print0
 
 from nnunet.loss import Loss, LossBraTS
 from nnunet.metrics import Dice
-
-class TransferLearning(pl.LightningModule):
-    def __init__(self, args, in_channels, out_channels, kernels, strides, n_class):
-        super().__init__()
-        self.args = args
-        self.backbone = DynUNet(
-                    self.args.dim,
-                    in_channels,
-                    out_channels,
-                    kernels,
-                    strides,
-                    strides[1:],
-                    filters=self.args.filters,
-                    norm_name=("INSTANCE", {"affine": True}),
-                    act_name=("leakyrelu", {"inplace": True, "negative_slope": 0.01}),
-                    deep_supervision=self.args.deep_supervision,
-                    deep_supr_num=self.args.deep_supr_num,
-                    res_block=self.args.res_block,
-                    trans_bias=True,
-                )
-    
-        print0(f"Filters: {self.backbone.filters},\nKernels: {kernels}\nStrides: {strides}")
-        print0(backbone.fc)
-        print0(backbone.fc.in_features)
-        peinr0(f'children:{list(backbone.children())}')
-        print0(list(backbone.children())[:-1])
-        num_filters = backbone.fc.in_features
-        layers = list(backbone.children())[:-1]
-        self.feature_extractor = nn.Sequential(*layers)
-
-        num_target_classes = n_class
-        self.classifier = nn.Conv3d(96, 3, kernel_size=(1, 1, 1), stride=(1, 1, 1))
-
-    def forward(self, x):
-        self.feature_extractor.eval()
-        with torch.no_grad():
-            representations = self.feature_extractor(x)
-        print(representations.shape)
-        x = self.classifier(representations)
-        
+       
 
 class NNUnet(pl.LightningModule):
     def __init__(self, args, triton=False, data_dir=None):

@@ -50,7 +50,6 @@ class Dice(Metric):
             denom = (2 * tp + fp + fn).to(torch.float)
             score_cls = (2 * tp).to(torch.float) / denom if torch.is_nonzero(denom) else 0.0
             scores[i - 1] += score_cls
-#         print(scores)
         return scores
 
     def compute_stats(self, preds, target):
@@ -62,7 +61,6 @@ class Dice(Metric):
         for i in range(1, self.n_class + 1):
             if (target != i).all():
                 # no foreground class
-                
                 scores[i - 1] += 1 if (preds != i).all() else 0
                 continue
             tp, fn, fp = self.get_stats(preds, target, i)
@@ -70,7 +68,6 @@ class Dice(Metric):
 
             score_cls = (2 * tp).to(torch.float) / denom if torch.is_nonzero(denom) else 0.0
             scores[i - 1] += score_cls
-#         print(scores)
         return scores
 
     @staticmethod
