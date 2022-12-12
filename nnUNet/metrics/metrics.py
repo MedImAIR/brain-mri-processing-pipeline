@@ -25,38 +25,59 @@ def pred_invert_resample_1cl(data, path_to_orig, path_to_resampled):
     # path_to_pred = *npz, path_to_orig = *1_reg, path_to_resampled = *4a_resample
     # *.npz archives sometimes can be recognised wrong, if extracted and saved back at the same time
 #     data = np.load(path_to_pred, allow_pickle=True)['arr_0']
-    # schw
         data = data.transpose(0,3,2,1).astype('float32')
         old_orig = ants.image_read(path_to_resampled)
         new_orig = ants.image_read(path_to_orig)
         old_like = old_orig.new_image_like(data[0])
         new_img = ants.resample_image(old_like, new_orig.spacing, False, 0)
         output_file = new_img.numpy().astype('float16')
+        if new_orig.shape[0]-output_file.shape[0] < 0:
+            output_file = output_file[:new_orig.shape[0], :new_orig.shape[1],:new_orig.shape[2] ]
+        elif new_orig.shape[0]-output_file.shape[0] > 0:
+            output_file = np.pad(output_file, ((0, new_orig.shape[0]-output_file.shape[0]), (0, new_orig.shape[1]-output_file.shape[1]), (0, new_orig.shape[2]-output_file.shape[2])), 'constant', constant_values=0)
+
         return (output_file)
     
-def pred_invert_resample_classes(data, path_to_orig, path_to_resampled):
+def pred_invert_resample_classes(data, mat_file_path, path_to_orig, path_to_resampled, mod):
 
-    # gbm and lgg
         data = data.transpose(0,3,2,1).astype('float32')
-
         old_orig_ct1 = ants.image_read(path_to_resampled)
         new_orig_ct1 = ants.image_read(path_to_orig)
-
+    
         old_like_ch_0 = old_orig_ct1.new_image_like(data[0])
         old_like_ch_1 = old_orig_ct1.new_image_like(data[1])
         old_like_ch_2 = old_orig_ct1.new_image_like(data[2])
-
-        new_img_0 = ants.resample_image(old_like_ch_0, new_orig_ct1, False, 0)
-        new_img_1 = ants.resample_image(old_like_ch_1, new_orig_ct1, False, 0)
-        new_img_2 = ants.resample_image(old_like_ch_2, new_orig_ct1, False, 0)
-
+        if mod == '2a_interp':
+            new_img_0 = ants.resample_image(old_like_ch_0, new_orig_ct1.shape, True, 0)
+            new_img_1 = ants.resample_image(old_like_ch_1, new_orig_ct1.shape, True, 0)
+            new_img_2 = ants.resample_image(old_like_ch_2, new_orig_ct1.shape, True, 0)
+        if mod == '3a_atlas':
+            new_img_0 = ants.apply_transforms(new_orig_ct1, old_like_ch_0, whichtoinvert=[True],
+                                          transformlist = mat_file_path)
+            new_img_1 = ants.apply_transforms(new_orig_ct1, old_like_ch_1, whichtoinvert=[True],
+                                          transformlist = mat_file_path)
+            new_img_2 = ants.apply_transforms(new_orig_ct1, old_like_ch_2, whichtoinvert=[True],
+                                          transformlist = mat_file_path)
+        else:
+            new_img_0 = ants.resample_image(old_like_ch_0, new_orig_ct1.spacing, False, 0)
+            new_img_1 = ants.resample_image(old_like_ch_1, new_orig_ct1.spacing, False, 0)
+            new_img_2 = ants.resample_image(old_like_ch_2, new_orig_ct1.spacing, False, 0)
+       
         new_img_shape =  new_img_2.numpy().shape
 
         new_array = np.zeros(tuple([3] + list(new_img_shape)), dtype='float16')
         new_array[0] = new_img_0.numpy()
         new_array[1] = new_img_1.numpy()
         new_array[2] = new_img_2.numpy()
-        output_file = new_array.transpose(0,3,2,1).astype('float16')
+        output_file = new_array.astype('float16')
+        if (new_orig_ct1.shape[2]-output_file.shape[3] < 0 ) or (new_orig_ct1.shape[1]-output_file.shape[2] < 0) or (new_orig_ct1.shape[0]-output_file.shape[1] < 0):
+            output_file = output_file[:, :new_orig_ct1.shape[0], :new_orig_ct1.shape[1],:new_orig_ct1.shape[2] ]
+            
+        if (new_orig_ct1.shape[2]-output_file.shape[3] > 0) or (new_orig_ct1.shape[1]-output_file.shape[2] > 0 ) or (new_orig_ct1.shape[0]-output_file.shape[1] > 0):
+            output_file = np.pad(output_file, ((0,0), (0, new_orig_ct1.shape[0]-output_file.shape[1]), (0, new_orig_ct1.shape[1]-output_file.shape[2]), (0, new_orig_ct1.shape[2]-output_file.shape[3])), 'constant', constant_values=0)
+
+        output_file = output_file[:,:new_orig_ct1.shape[0], :new_orig_ct1.shape[1],:new_orig_ct1.shape[2] ]
+
         return (output_file)
     
 
@@ -173,26 +194,32 @@ def calculate_metrics(subjects=None, path_to_orig, path_to_pred, path_to_resamp,
         resamp_sub = os.path.join(resamp_folder, ids,'T1_SEG.nii.gz')
         targets = ants.image_read(f'{target_folder}/{sub}_seg.nii.gz')
         spaces = targets.spacing
-        targets = ants.reorient_image2(targets, orientation = 'LAI').numpy() #CHANGE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        targets = targets.numpy()
         data = np.load(pred_sub, allow_pickle=True)['arr_0']
         if np.shape(data)[0] == 1: 
-            prediction = pred_invert_resample_1cl(data, orig_sub, resamp_sub)
+            prediction = pred_invert_resample_1cl(data,mat_fie_sub, orig_sub, resamp_sub, mod)
             prediction = np.round(prediction, 0)
             df = calculate_metrics_brats_1cl(targets.astype('int'), prediction.astype('int'), ids, spaces)
         elif np.shape(data)[0] > 1: 
-            prediction = pred_invert_resample_classes(data, orig_sub, resamp_sub)[np.newaxis, :,:,:]
+            prediction = pred_invert_resample_classes(data, mat_fie_sub, orig_sub, resamp_sub, mod)
+            prediction = np.round(prediction, 0)
             y_wt, y_tc, y_et = targets > 0, ((targets == 1) + (targets == 3)) > 0, targets == 3
             targets = np.stack([y_wt, y_tc, y_et], axis=0).astype(int)
-            df=calculate_metrics_brats(targets.astype('int'), prediction.astype('int'), sub, spaces)
+            df=calculate_metrics_brats(targets.astype('int'), prediction.astype('int'), ids, spaces)
         os.makedirs(os.path.join(out, dataset,ids), exist_ok = True)
         out_path = os.path.join(out, dataset,ids, path_to_pred.split('best_')[-1] + '.json')
         sub_dict = {dataset : {path_to_pred.split('/')[-2]: {path_to_pred.split('_')[-2]: {}}}}
         sub_dict[dataset][path_to_pred.split('/')[-2]][path_to_pred.split('_')[-2]] = df.to_dict('records')[0]
         with open(out_path, 'w') as fp:
             json.dump(sub_dict, fp)
-    
+        af_all = af_all.append(df)  
+    print(af_all.mean())
     
         
 if __name__ == "__main__":
     args = parser.parse_args()
     calculate_metrics(args.subjects, args.path_to_1_reg, args.path_to_pred, args.path_to_resamp, args.path_to_target, args.dataset, args.out)
+    
+
+    
+    
