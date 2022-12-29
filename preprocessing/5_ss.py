@@ -7,14 +7,14 @@ import subprocess
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/lgg/4a_resamp/', 
+parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/bgpd/1_reg/', 
                     help='root dir for subject sequences data')
 parser.add_argument('--fixedfilename', type=list, default=['CT1.nii.gz'], help='name of file to register')
-parser.add_argument('--maskfilename', type=list, default=['CT1_SEG.nii.gz'], help='name of mask to register to RPI')
+parser.add_argument('--maskfilename', type=list, default=['mask_GTV_FLAIR.nii.gz'], help='name of mask to register to RPI')
 parser.add_argument('--movingfilenames', type=list, default=['FLAIR.nii.gz', 'T1.nii.gz','T2.nii.gz'], help='names of files')
-parser.add_argument('--output', type=str, default='/mnt/public_data/preproc_study/lgg/5_ss_shared/', 
+parser.add_argument('--output', type=str, default='/mnt/public_data/preproc_study/bgpd/1_reg_individual/', 
                     help= 'output folder')
-parser.add_argument('--mode', type=str, default='shared', help= 'mode individual or shared ')
+parser.add_argument('--mode', type=str, default='individual', help= 'mode individual or shared ')
 parser.add_argument('--device', type=str, default='0', help= 'gpu or cpu, if gpu - should be `int` ')
 
 args = parser.parse_args()
@@ -44,11 +44,10 @@ def hdbet_mask(src_path, dst_path):
 #     logging.info("HD-BET T1 started.")
 #     hdbet(args.output + 'T1_to_SRI.nii.gz', args.output + 'T1_to_SRI_bet.nii.gz')
     
-
                     
 if __name__ == "__main__":
     
-    """Pipeline with HD-BET ss calculation
+    """Pipeline with HD-BET ss calculation installation with https://github.com/MIC-DKFZ/HD-BET
        cpu: nohup python 5_ss.py > 5_ss.out &
        gbm: python main_pipeline/5_ss.py --path /anvar/public_datasets/preproc_study/gbm/3a_atlas/ --output /mnt/public_data/preproc_study/gbm/5_ss_indiv/ --device 0 
        schw: python main_pipeline/5_ss.py --path /anvar/public_datasets/preproc_study/schw/3a_atlas/ --output /mnt/public_data/preproc_study/schw/5_ss_shared/ --device 0 --mode shared
@@ -94,7 +93,6 @@ if __name__ == "__main__":
     #         os.remove(args.output + subject + '/' + args.fixedfilename[0][:-7] + '_mask.nii.gz' 
 
             # Processing moving images
-
             for name in args.movingfilenames:
 
                     # Reorient moving
