@@ -1,0 +1,46 @@
+{
+    "fold_0": [
+        "TCGA-CS-4942",
+        "TCGA-CS-5393",
+        "TCGA-CS-5396",
+        "TCGA-CS-5397",
+        "TCGA-CS-6186",
+        "TCGA-CS-6666",
+        "TCGA-DU-5854",
+        "TCGA-DU-5874",
+        "TCGA-DU-7010",
+        "TCGA-DU-7014",
+        "TCGA-DU-7298",
+        "TCGA-DU-7299",
+        "TCGA-DU-7309"
+    ],
+    "fold_1": [
+        "TCGA-CS-6188",
+        "TCGA-CS-6665",
+        "TCGA-CS-6669",
+        "TCGA-DU-5851",
+        "TCGA-DU-5855",
+        "TCGA-DU-6404",
+        "TCGA-DU-7008",
+        "TCGA-DU-7015",
+        "TCGA-DU-7294",
+        "TCGA-DU-7301",
+        "TCGA-DU-7304",
+        "TCGA-DU-7306",
+        "TCGA-DU-8162"
+    ],
+    "fold_2": [
+        "TCGA-CS-4944",
+        "TCGA-CS-6668",
+        "TCGA-DU-5872",
+        "TCGA-DU-6542",
+        "TCGA-DU-7018",
+        "TCGA-DU-7019",
+        "TCGA-DU-7300",
+        "TCGA-DU-7302",
+        "TCGA-DU-8164",
+        "TCGA-DU-8166",
+        "TCGA-DU-8167",
+        "TCGA-DU-8168"
+    ]
+}
