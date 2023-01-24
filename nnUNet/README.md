@@ -24,6 +24,7 @@ docker run -it --runtime=nvidia --shm-size=8g --ulimit memlock=-1 --ulimit stack
 ```
 
 3. Preparing datasets for training.
+
     3.1. Make sure your dataset has the right structure (divided into folders "images", "labels" and stores information in dataset.json). If not, an example of the structuring function can be found in the `notebook` folder in the `gbm.ipynb` file for the GBM dataset, `bgpd.ipynb` for BGPD, etc.
     
     3.2 Add dataset information: task, patch size and spacing to the file `data_preprocessing/configs.py`. 
