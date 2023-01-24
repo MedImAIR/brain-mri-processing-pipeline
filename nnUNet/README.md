@@ -24,23 +24,23 @@ docker run -it --runtime=nvidia --shm-size=8g --ulimit memlock=-1 --ulimit stack
 ```
 
 3. Preparing datasets for training.
-3.1. Make sure your dataset has the right structure (divided into folders "images", "labels" and stores information in dataset.json). If not, an example of the structuring function can be found in the `notebook` folder in the `gbm.ipynb` file for the GBM dataset, `bgpd.ipynb` for BGPD, etc.
+    3.1. Make sure your dataset has the right structure (divided into folders "images", "labels" and stores information in dataset.json). If not, an example of the structuring function can be found in the `notebook` folder in the `gbm.ipynb` file for the GBM dataset, `bgpd.ipynb` for BGPD, etc.
+    
+    3.2 Add dataset information: task, patch size and spacing to the file `data_preprocessing/configs.py`. 
 
-3.2 Add dataset information: task, patch size and spacing to the file `data_preprocessing/configs.py`. 
+    3.3. To run script for preparing dataset:
 
-3.3. To run script for preparing dataset:
+    ```
+    python preprocess.py --task 01 --data </path_to_structured_data> --ohe --results </path_to_results_folder>
+    ```
+    The task number must be written inside the `data_preprocessing/configs.py` 
 
-```
-python preprocess.py --task 01 --data </path_to_structured_data> --ohe --results </path_to_results_folder>
-```
-The task number must be written inside the `data_preprocessing/configs.py` 
+    The preprocessing pipeline consists of the following steps:
 
-The preprocessing pipeline consists of the following steps:
-
-1. Cropping to the region of non-zero values.
-2. Padding volumes so that dimensions are at least as patch size.
-3. Normalizing:
-    * For MRI modalities z-score normalization is applied.
+        1. Cropping to the region of non-zero values.
+        2. Padding volumes so that dimensions are at least as patch size.
+        3. Normalizing:
+            * For MRI modalities z-score normalization is applied.
     
 4. To start training:
    
