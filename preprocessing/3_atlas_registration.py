@@ -9,16 +9,16 @@ from glob import glob
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/lgg/orig/', 
+parser.add_argument('--path', type=str, default='.', 
                     help='root dir for subject sequences data')
-parser.add_argument('--fixedfilename', type=list, default=['CT1.nii.gz'], help='name of file to register')
-parser.add_argument('--maskfilename', type=list, default=['CT1_SEG.nii.gz'], help='name of mask to register')
-parser.add_argument('--movingfilenames', type=list, default=['T1.nii.gz','T2.nii.gz','FLAIR.nii.gz'], help='names of files')
-parser.add_argument('--resamplingtarget', type=str, default=['./utils/sri24_T1.nii'], 
+parser.add_argument('--fixedfilename', type=list, default=['T1.nii.gz'], help='name of file to register')
+parser.add_argument('--maskfilename', type=list, default=['T1_SEG.nii.gz'], help='name of mask to register')
+parser.add_argument('--movingfilenames', type=list, default=['T2.nii.gz'], help='names of files')
+parser.add_argument('--resamplingtarget', type=str, default=['./params/sri24_T1.nii'], 
                     help= 'resampling target for all images')
-parser.add_argument('--output', type=str, default='/anvar/public_datasets/preproc_study/lgg/2a_interp/', 
+parser.add_argument('--output', type=str, default='.', 
                     help= 'output folder')
-parser.add_argument('--channels', type=str, default=[1,2,3], 
+parser.add_argument('--channels', type=str, default=[1], 
                     help= 'channels in mask')
 
 
@@ -57,16 +57,18 @@ def check_multiple_channels(path_to_img):
     return(img , channels)
 
 def resample_by_channels(img, 
+                         img_fixed_res, 
+                         transforms,
                          channels = [1,2,3], 
                          interpolator = 0):
-# empty array
-    img_res = ants.resample_image(img, (240, 240, 155), True, 0)
+    # empty array
+    img_res = ants.apply_transforms(img_fixed_res, img, transformlist = transforms)
     result_arr = np.zeros_like(img_res.numpy())
 
     for channel in channels:
         # float is needed by ants to save an image
         temp_img = img.new_image_like((img[:,:,:] == int(channel))*float(channel))
-        temp_img_res = ants.resample_image(temp_img, (240, 240, 155), True, 0)
+        temp_img_res = ants.apply_transforms(img_fixed_res, temp_img, transformlist = transforms)
         temp_arr = np.round(temp_img_res.numpy(), 0)
         result_arr += (temp_arr[:,:,:] == int(channel))*float(channel)
 
@@ -93,7 +95,7 @@ def rigid_reg(fixed, moving):
 if __name__ == "__main__":
     
     """Pipeline with CT1 Rigid registration and interpolation to template, n4 and Z-score calculation
-       nohup python 4a_resamp.py > log_bgpd/4a_resamp.out &
+       nohup python 3a_atlas.py > log_bgpd/3a_atlas.out &
     """
     os.makedirs(args.output, exist_ok=True)
     logging.basicConfig(filename=args.output + "logging.txt", level=logging.INFO, format='[%(asctime)s.%(msecs)03d] %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
@@ -109,26 +111,35 @@ if __name__ == "__main__":
         logging.info("{} Subject processing".format(subject)) 
         os.makedirs(args.output + subject + '/', exist_ok=True)
         
-        if len(os.listdir(args.output + subject + '/')) < 4:
+        if len(os.listdir(args.output + subject + '/')) < (len(args.movingfilenames) + 2):
             img_fixed = ants.image_read(args.path + subject + '/' + args.fixedfilename[0])
             mask_fixed, channels = check_multiple_channels(args.path + subject + '/' + args.maskfilename[0])
+            img_target = ants.image_read(args.resamplingtarget[0])
 
             # Reorient fixed
             img_fixed = ants.reorient_image2(img_fixed, orientation = 'RPI')
             mask_fixed = ants.reorient_image2(mask_fixed, orientation = 'RPI')
 
             # Resampling fixed
-            logging.info("Resampling fixed started {}.".format(subject))
-            img_fixed_res = ants.resample_image(img_fixed,(240, 240, 155), True, 0)
+            logging.info("Atlas registration started {}.".format(subject))
+            img_to_sri = ants.registration(fixed=img_target, moving=img_fixed,
+                                type_of_transform='Rigid')
+            img_fixed_res = ants.apply_transforms(img_target, img_fixed,
+                                        transformlist = img_to_sri['fwdtransforms'][0])
 
-            logging.info("Resampling fixed completed {}.".format(subject))
-            mask_fixed_res = resample_by_channels(mask_fixed, channels = channels)
+            logging.info("Atlas registration completed {}.".format(subject))
+            mask_fixed_res = resample_by_channels(mask_fixed, channels = channels, img_fixed_res = img_fixed_res, transforms = img_to_sri['fwdtransforms'][0])
 
             # Saving fixed, and checking, that resampled image has no `inf` artefacts
             if not np.isinf(img_fixed_res.numpy()).all():
                 ants.image_write(img_fixed_res, args.output + subject + '/' + args.fixedfilename[0], ri=False);
 
             ants.image_write(mask_fixed_res, args.output + subject + '/' + args.maskfilename[0], ri=False);
+            # saving transforms
+            logging.info("Saving transforms.".format(subject))
+            # be carefull these transforms are identical, it is neeeded to use whichtoinverse=[True] while aaplying 
+            shutil.copy(img_to_sri['fwdtransforms'][0], args.output + subject + '/'+ 'T1C_to_SRI_fwd.mat')
+#             shutil.copy(img_to_sri['invtransforms'][0], args.output + subject + '/'+ 'T1C_to_SRI_inv.mat')
 
             for name in args.movingfilenames:
                 # Reorient moving
@@ -137,7 +148,8 @@ if __name__ == "__main__":
                 # Image registration
                 logging.info("Rigid registration to {} started.".format(name))
                 registered_img = rigid_reg(img_fixed, img_moving)
-                img_moving_res = ants.resample_image(registered_img, (240, 240, 155), True, 0)
+                img_moving_res = ants.apply_transforms(img_fixed_res, registered_img,
+                                        transformlist = img_to_sri['fwdtransforms'][0])
                 
                 logging.info("Rigid registration to {} completed.".format(name))
                 # Saving moving images

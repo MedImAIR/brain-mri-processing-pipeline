@@ -1,3 +1,5 @@
+""" Performes a quality test between two preprocessing folders, ensuring that the images are different in voxel values, but the same with the shapes and orientations. Checks for NaN values and wrong class labels in the segmentations files, equal shapes, wrong orientation. Does np.allclose to parent file."""
+
 import os,sys
 import numpy as np
 import ants
@@ -10,15 +12,14 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument('--label', type=list, default = [0,1], help = 'labels in the segmentation mask')
 parser.add_argument('--modalities', type=list, default = ['FLAIR.nii.gz','T2.nii.gz','T1.nii.gz','mask_GTV_FLAIR.nii.gz'], help='names of files')
-# parser.add_argument('--modalities', type=list, default = ['FLAIR.nii.gz','T1.nii.gz','T2.nii.gz','CT1.nii.gz','CT1_SEG.nii.gz'], help='names of files')
-parser.add_argument('--current', type=str, default='/anvar/public_datasets/preproc_study/bgpd/4b_n4_/', help='folder name')
-parser.add_argument('--parent', type=str, default='/anvar/public_datasets/preproc_study/bgpd/4a_resamp/', help='parent folder files')
+parser.add_argument('--current', type=str, default='4b/', help='folder name')
+parser.add_argument('--parent', type=str, default='4a/', help='parent folder files')
 parser.add_argument('--segmentation_name', type=str, default='mask_GTV_FLAIR.nii.gz', 
                     help= 'segmentation mask')
 args = parser.parse_args()
 
 
-# nans and wrong labels, equal shapes, wrong orientation, np.allclose to parent
+
 label = args.label
 modalities = args.modalities
 current = args.current
@@ -35,7 +36,7 @@ if __name__ == "__main__":
     for patient in tqdm.tqdm(os.listdir(current)):
         if patient != 'logging.txt':
             img = ants.image_read(current + '/{}/{}'.format(patient, modalities[-1]))
-            #reference shape to compare
+            # reference shape to compare with
             shape = np.shape(img.numpy())
             
             for modality in modalities:
@@ -46,14 +47,9 @@ if __name__ == "__main__":
                 if new_shape != shape:
                     print('Wrong shapes: new ',new_shape, 'old:', shape, patient)
 
-                #checking nans
+                #checking NaN values
                 if not img.sum() > 0:
                     print(patient,modality, 'Amount of nans:', np.shape(np.argwhere(np.isnan(img.numpy()))))
-
-#                 #checking labels for segmentation
-#                 if modality == segmentation_name:
-#                     if not (np.unique(img.numpy()) == np.array(label)).sum() == len(label):
-#                             print('Assert label', patient, np.unique(img.numpy()) )
 
                 old_img = ants.image_read(parent + '/{}/{}'.format(patient, modality))
 
@@ -67,7 +63,7 @@ if __name__ == "__main__":
                     # saved reoriented image
                     ants.image_write(img_reoriented, current + '/{}/{}'.format(patient, modality) , ri=False);
 
-                #if the data is changed from the parent, checking for the main modalities
+                # if the data is changed from the parent, checking for the main modalities
                 if modality != segmentation_name:    
                     if np.allclose(img.numpy(), old_img.numpy()):
                         print('Allclose from the parent:', patient)

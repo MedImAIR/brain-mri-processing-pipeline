@@ -3,10 +3,7 @@
 #   requires dcm2niix installed, in this case it is running under neurodocker
 #   usage:
 #   docker run --rm -it -v /your/directory/with/data/:/data -v ${PWD}:/home neurodocker:0.0.1
-#   docker run --rm -it -v /anvar/public_datasets/preproc_study/gbm/:/data -v ${PWD}:/home neurodocker:0.0.1
-#   docker run -it --rm --cpuset-cpus='0-15' -v /anvar/public_datasets/preproc_study/lgg/:/data -v ${PWD}:/home --entrypoint /bin/bash cbica/captk:latest
-
-# /home/projects/brain-mri-processing-pipeline/datasets/convert_dcm2niix_lgg_gbm.sh
+#   docker run -it --rm --cpuset-cpus='0-15' -v /your/directory/with/data/:/data -v ${PWD}:/home --entrypoint /bin/bash cbica/captk:latest
 
 # entrypoint directory is /home
 

@@ -16,14 +16,14 @@ import mpu.io
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/lgg/4a_resamp/', 
+parser.add_argument('--path', type=str, default='lgg/4a/', 
                     help='root dir for subject sequences data')
 parser.add_argument('--fixedfilename', type=list, default=['CT1.nii.gz.nii.gz'], help='name of file to register')
 parser.add_argument('--maskfilename', type=list, default=['CT1_SEG.nii.gz'], help='name of mask to register to RPI')
 parser.add_argument('--movingfilenames', type=list, default=['FLAIR.nii.gz','T1.nii.gz','T2.nii.gz'], help='names of files')
-parser.add_argument('--output', type=str, default='/anvar/public_datasets/preproc_study/lgg/6_hist/', 
+parser.add_argument('--output', type=str, default='lgg/4c/', 
                     help= 'output folder')
-parser.add_argument('--seed', type=str, default='./params/lgg_seed.json', help= 'mode individual or shared ')
+parser.add_argument('--seed', type=str, default='./utils/lgg_seed.json', help= 'mode individual or shared ')
 parser.add_argument('--device', type=str, default='cpu', help= 'gpu or cpu, if gpu - should be `int` ')
 
 args = parser.parse_args()

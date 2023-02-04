@@ -7,12 +7,12 @@ import subprocess
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--path', type=str, default='/anvar/public_datasets/preproc_study/lgg/4a_resamp/', 
+parser.add_argument('--path', type=str, default='.', 
                     help='root dir for subject sequences data')
 parser.add_argument('--fixedfilename', type=list, default=['CT1.nii.gz'], help='name of file to register')
 parser.add_argument('--maskfilename', type=list, default=['CT1_SEG.nii.gz'], help='name of mask to register to RPI')
 parser.add_argument('--movingfilenames', type=list, default=['FLAIR.nii.gz', 'T1.nii.gz','T2.nii.gz'], help='names of files')
-parser.add_argument('--output', type=str, default='/mnt/public_data/preproc_study/lgg/5_ss_shared/', 
+parser.add_argument('--output', type=str, default='.', 
                     help= 'output folder')
 parser.add_argument('--mode', type=str, default='shared', help= 'mode individual or shared ')
 parser.add_argument('--device', type=str, default='0', help= 'gpu or cpu, if gpu - should be `int` ')
@@ -31,28 +31,11 @@ def hdbet_mask(src_path, dst_path):
     subprocess.call(command)
     return
 
-  
-#     logging.info("HD-BET  FL started.")
-#     hdbet(args.output + 'FL_to_SRI.nii.gz', args.output + 'FL_to_SRI_bet.nii.gz')
-    
-#     logging.info("HD-BET T2 started.")
-#     hdbet(args.output + 'T2_to_SRI.nii.gz', args.output + 'T2_to_SRIbet.nii.gz')
-    
-#     logging.info("HD-BET T1CE started.")
-#     hdbet(args.output + 'T1CE_to_SRI.nii.gz', args.output + 'T1CE_to_SRI_bet.nii.gz')
-    
-#     logging.info("HD-BET T1 started.")
-#     hdbet(args.output + 'T1_to_SRI.nii.gz', args.output + 'T1_to_SRI_bet.nii.gz')
-    
-
                     
 if __name__ == "__main__":
     
     """Pipeline with HD-BET ss calculation
-       cpu: nohup python 5_ss.py > 5_ss.out &
-       gbm: python main_pipeline/5_ss.py --path /anvar/public_datasets/preproc_study/gbm/3a_atlas/ --output /mnt/public_data/preproc_study/gbm/5_ss_indiv/ --device 0 
-       schw: python main_pipeline/5_ss.py --path /anvar/public_datasets/preproc_study/schw/3a_atlas/ --output /mnt/public_data/preproc_study/schw/5_ss_shared/ --device 0 --mode shared
-       bgpd: python preprocessing/5_ss.py --path /anvar/public_datasets/preproc_study/bgpd/4a_resamp/ --output /mnt/public_data/preproc_study/bgpd/5_ss_shared/ --device 0 --mode shared
+       gpu: python main_pipeline/5_ss.py --path gbm/4a/ --output gbm/4d/ --device 0 
        
     """
     os.makedirs(args.output, exist_ok=True)
@@ -91,10 +74,8 @@ if __name__ == "__main__":
             print(os.listdir(args.output + subject + '/'))
             # Removing excessive files
             os.remove(args.output + subject + '/' + args.fixedfilename[0][:-7] + '_RPI.nii.gz')
-    #         os.remove(args.output + subject + '/' + args.fixedfilename[0][:-7] + '_mask.nii.gz' 
 
             # Processing moving images
-
             for name in args.movingfilenames:
 
                     # Reorient moving
