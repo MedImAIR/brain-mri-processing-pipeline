@@ -10,7 +10,7 @@ We show that the only essential transformation for accurate analysis is the unif
 5. `figures` - code for the paper illustrations;
 
 ## Brain MRI preprocessing main pipeline:
-![image](/figures/abstract.png)
+![image](/figures/abstract2023.jpg)
 
 #### Data preprocessing
 The most of data processing is executed with [ANTS](http://stnava.github.io/ANTs/). Intensity normalization N4 and SUSAN are executed inside [CaPTk](https://www.med.upenn.edu/cbica/captk/) container. You need to install [HD-BEt](https://github.com/MIC-DKFZ/HD-BET) for histagram matching and [HD-Bet](https://github.com/MIC-DKFZ/HD-BET) for skull stripping.
