@@ -7,8 +7,8 @@ We show that the only essential transformation for accurate analysis is the unif
 1. `datasets` - preparation of the opensourse data for preprocessing and training;
 3. `preprocessing` - scripts for data preprocessing;
 4. `nnUnet` - training and scoring  the segmentation models;
-5. `figures` - code for the paper illustrations;
-
+5. `figures_ipynb` - code for the paper illustrations;
+6. `figures` - illustrations;
 
 
 #### Data preprocessing
